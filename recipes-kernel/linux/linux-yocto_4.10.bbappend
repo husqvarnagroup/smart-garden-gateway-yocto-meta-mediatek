@@ -2,6 +2,8 @@ LINUX_VERSION_mt7620 = "4.10.17"
 
 PV = "${LINUX_VERSION}"
 
+COMPATIBLE_MACHINE = "mt7620"
+
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:${THISDIR}/${PN}-${PV}/${MACHINE}:"
 
 KBRANCH_mt7620 ?= "standard/base"
@@ -25,7 +27,7 @@ KERNEL_DEVICETREE_badmt7620 = " \
 		zbt-we826-kernel.bin.dtb \
 		"
 
-SRC_URI_append = " \
+SRC_URI_append_mt7620 = " \
 		file://0002-pci-mt7620.c-Use-KERN_WARNING.patch;name=patch002 \
 		file://defconfig \
 		"

@@ -14,7 +14,6 @@ KERNEL_DEVICETREE_mt7620 = " \
 		ralink/mt7620a_eval.dtb \
 		"
 
-
 KERNEL_DEVICETREE_badmt7620 = " \
 		ArcherC20i-kernel.bin.dtb \
 		ArcherC50-kernel.bin.dtb \

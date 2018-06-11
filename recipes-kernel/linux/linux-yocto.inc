@@ -39,7 +39,7 @@ LINUX_KERNEL_TYPE ??= "standard"
 # KMETA ?= ""
 KBRANCH ?= "master"
 KMACHINE ?= "${MACHINE}"
-SRCREV_FORMAT ?= "meta_machine" 
+SRCREV_FORMAT ?= "meta_machine"
 
 # LEVELS:
 #   0: no reporting

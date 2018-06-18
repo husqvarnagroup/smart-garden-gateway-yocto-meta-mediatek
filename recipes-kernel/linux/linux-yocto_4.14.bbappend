@@ -11,7 +11,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:${THISDIR}/${PN}-${PV}/${MACH
 KCONFIG_MODE = "--alldefconfig"
 
 KERNEL_DEVICETREE_mt7688 = " \
-        ralink/omega2.dtb \
+        ralink/omega2p.dtb \
         "
 
 SRC_URI_append_mt7688 = " \

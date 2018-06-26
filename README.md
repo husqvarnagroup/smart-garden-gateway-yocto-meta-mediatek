@@ -1,2 +1,2 @@
 # meta-mediatek
-Yocto Layer for Mediatek Processors
+Yocto Layer for MediaTek Processors

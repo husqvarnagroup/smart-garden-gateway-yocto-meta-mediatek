@@ -11,7 +11,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:${THISDIR}/${PN}-${PV}/${MACH
 KCONFIG_MODE = "--alldefconfig"
 
 KERNEL_DEVICETREE_mt7688 = " \
-        ralink/omega2p.dtb \
+        ralink/gardena_smart_gateway_mt7688.dtb \
         "
 
 SRC_URI_append_mt7688 = " \
@@ -25,6 +25,7 @@ SRC_URI_append_mt7688 = " \
         file://413-mtd-Introduce-SPI-NAND-framework.patch \
         file://414-mtd-spi-nand-Support-Gigadevice-GD5F.patch \
         file://0001-mtd-spi-nor-Add-support-for-XM25QH64A-and-XM25QH128A.patch \
+        file://0001-MIPS-Add-Gardena-smart-Gateway-MT7688-board.patch \
         "
 
 # KERNEL_FEATURES_append_mt7688 = ""

@@ -24,6 +24,7 @@ SRC_URI_append_mt7688 = " \
         file://412-mtd-nand-Add-JEDEC-manufacturer-ID-for-Gigadevice.patch \
         file://413-mtd-Introduce-SPI-NAND-framework.patch \
         file://414-mtd-spi-nand-Support-Gigadevice-GD5F.patch \
+        file://0001-mtd-spi-nor-Add-support-for-XM25QH64A-and-XM25QH128A.patch \
         "
 
 # KERNEL_FEATURES_append_mt7688 = ""

@@ -1,0 +1,67 @@
+From 011350321356a39b2ca942d1df59fb64ae6604bd Mon Sep 17 00:00:00 2001
+From: Reto Schneider <reto.schneider@husqvarnagroup.com>
+Date: Tue, 26 Jun 2018 19:41:14 +0200
+Subject: [PATCH] MIPS: Add Gardena smart Gateway MT7688 board
+
+---
+ arch/mips/boot/dts/ralink/Makefile                     |  1 +
+ .../boot/dts/ralink/gardena_smart_gateway_mt7688.dts   | 18 ++++++++++++++++++
+ arch/mips/ralink/Kconfig                               |  5 +++++
+ 3 files changed, 24 insertions(+)
+ create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+
+diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
+index 6c26dfa0a903..cb361fc3127d 100644
+--- a/arch/mips/boot/dts/ralink/Makefile
++++ b/arch/mips/boot/dts/ralink/Makefile
+@@ -4,6 +4,7 @@ dtb-$(CONFIG_DTB_RT305X_EVAL)	+= rt3052_eval.dtb
+ dtb-$(CONFIG_DTB_RT3883_EVAL)	+= rt3883_eval.dtb
+ dtb-$(CONFIG_DTB_MT7620A_EVAL)	+= mt7620a_eval.dtb
+ dtb-$(CONFIG_DTB_OMEGA2P)	+= omega2p.dtb
++dtb-$(CONFIG_DTB_GARDENA_SMART_GATEWAY_MT7688)	+= gardena_smart_gateway_mt7688.dtb
+ dtb-$(CONFIG_DTB_VOCORE2)	+= vocore2.dtb
+ 
+ obj-$(CONFIG_BUILTIN_DTB)	+= $(addsuffix .o, $(dtb-y))
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+new file mode 100644
+index 000000000000..e5da21bb89ff
+--- /dev/null
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -0,0 +1,18 @@
++/dts-v1/;
++
++/include/ "mt7628a.dtsi"
++
++/ {
++	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7688a-soc", "ralink,mt7628a-soc";
++	model = "Gardena smart Gateway MT7688";
++
++	memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x8000000>;
++	};
++
++	chosen {
++		bootargs = "console=ttyS0,115200";
++		stdout-path = &uart0;
++	};
++};
+diff --git a/arch/mips/ralink/Kconfig b/arch/mips/ralink/Kconfig
+index 1f9cb0e3c79a..13b731e0449e 100644
+--- a/arch/mips/ralink/Kconfig
++++ b/arch/mips/ralink/Kconfig
+@@ -87,6 +87,11 @@ choice
+ 		depends on SOC_MT7620
+ 		select BUILTIN_DTB
+ 
++	config DTB_GARDENA_SMART_GATEWAY_MT7688
++		bool "Gardena smart Gateway MT7688"
++		depends on SOC_MT7620
++		select BUILTIN_DTB
++
+ 	config DTB_VOCORE2
+ 		bool "VoCore2"
+ 		depends on SOC_MT7620
+-- 
+2.11.0
+

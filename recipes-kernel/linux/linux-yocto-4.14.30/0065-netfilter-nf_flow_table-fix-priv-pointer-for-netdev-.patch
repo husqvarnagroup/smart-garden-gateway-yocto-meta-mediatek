@@ -1,0 +1,31 @@
+From 1b174bb2aded5d32596fc03b5acfe241b6b1e3dc Mon Sep 17 00:00:00 2001
+From: Felix Fietkau <nbd@nbd.name>
+Date: Tue, 20 Feb 2018 14:48:51 +0100
+Subject: [PATCH 65/89] netfilter: nf_flow_table: fix priv pointer for netdev
+ hook
+
+The offload ip hook expects a pointer to the flowtable, not to the
+rhashtable. Since the rhashtable is the first member, this is safe for
+the moment, but breaks as soon as the structure layout changes
+
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+---
+ net/netfilter/nf_tables_api.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/net/netfilter/nf_tables_api.c b/net/netfilter/nf_tables_api.c
+index 119bdcc73aba..7fdca6eaed69 100644
+--- a/net/netfilter/nf_tables_api.c
++++ b/net/netfilter/nf_tables_api.c
+@@ -4879,7 +4879,7 @@ static int nf_tables_flowtable_parse_hook(const struct nft_ctx *ctx,
+ 		flowtable->ops[i].pf		= NFPROTO_NETDEV;
+ 		flowtable->ops[i].hooknum	= hooknum;
+ 		flowtable->ops[i].priority	= priority;
+-		flowtable->ops[i].priv		= &flowtable->data.rhashtable;
++		flowtable->ops[i].priv		= &flowtable->data;
+ 		flowtable->ops[i].hook		= flowtable->data.type->hook;
+ 		flowtable->ops[i].dev		= dev_array[i];
+ 	}
+-- 
+2.11.0
+

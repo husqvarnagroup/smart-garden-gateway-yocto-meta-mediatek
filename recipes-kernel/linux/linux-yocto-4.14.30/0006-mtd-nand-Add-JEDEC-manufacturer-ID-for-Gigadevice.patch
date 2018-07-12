@@ -1,7 +1,7 @@
-From a4bc33b205fd9b1db862f1e45173dba57b0fa57f Mon Sep 17 00:00:00 2001
+From 323c86a623c093db245709e4734f419ffa3dde25 Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Sat, 25 Feb 2017 15:43:09 +0000
-Subject: mtd: nand: Add JEDEC manufacturer ID for Gigadevice
+Subject: [PATCH 06/89] mtd: nand: Add JEDEC manufacturer ID for Gigadevice
 
 This commit adds Gigadevice to the list of manufacturer ID and name strings.
 
@@ -10,12 +10,14 @@ This commit adds Gigadevice to the list of manufacturer ID and name strings.
 Signed-off-by: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 ---
  drivers/mtd/nand/nand_ids.c | 1 +
- include/linux/mtd/rawnand.h    | 1 +
+ include/linux/mtd/rawnand.h | 1 +
  2 files changed, 2 insertions(+)
 
+diff --git a/drivers/mtd/nand/nand_ids.c b/drivers/mtd/nand/nand_ids.c
+index 5423c3bb388e..0fc36cba4e82 100644
 --- a/drivers/mtd/nand/nand_ids.c
 +++ b/drivers/mtd/nand/nand_ids.c
-@@ -184,6 +184,7 @@ static const struct nand_manufacturer na
+@@ -184,6 +184,7 @@ static const struct nand_manufacturer nand_manufacturers[] = {
  	{NAND_MFR_SANDISK, "SanDisk"},
  	{NAND_MFR_INTEL, "Intel"},
  	{NAND_MFR_ATO, "ATO"},
@@ -23,9 +25,11 @@ Signed-off-by: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
  	{NAND_MFR_WINBOND, "Winbond"},
  };
  
+diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+index 2b05f4273bab..6b2195fe11d8 100644
 --- a/include/linux/mtd/rawnand.h
 +++ b/include/linux/mtd/rawnand.h
-@@ -1016,6 +1016,7 @@ static inline void *nand_get_manufacture
+@@ -1016,6 +1016,7 @@ static inline void *nand_get_manufacturer_data(struct nand_chip *chip)
  #define NAND_MFR_SANDISK	0x45
  #define NAND_MFR_INTEL		0x89
  #define NAND_MFR_ATO		0x9b
@@ -33,3 +37,6 @@ Signed-off-by: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
  #define NAND_MFR_WINBOND	0xef
  
  
+-- 
+2.11.0
+

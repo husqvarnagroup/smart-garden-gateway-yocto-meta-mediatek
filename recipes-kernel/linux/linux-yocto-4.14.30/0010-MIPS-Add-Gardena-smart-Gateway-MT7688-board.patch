@@ -1,7 +1,7 @@
-From 011350321356a39b2ca942d1df59fb64ae6604bd Mon Sep 17 00:00:00 2001
+From 74e79be97cbec03939f999b311f243c8f86dfefe Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Tue, 26 Jun 2018 19:41:14 +0200
-Subject: [PATCH] MIPS: Add Gardena smart Gateway MT7688 board
+Subject: [PATCH 10/89] MIPS: Add Gardena smart Gateway MT7688 board
 
 ---
  arch/mips/boot/dts/ralink/Makefile                     |  1 +
@@ -11,7 +11,7 @@ Subject: [PATCH] MIPS: Add Gardena smart Gateway MT7688 board
  create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 
 diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
-index 6c26dfa0a903..cb361fc3127d 100644
+index a80eeeecf613..fc8e3a32583f 100644
 --- a/arch/mips/boot/dts/ralink/Makefile
 +++ b/arch/mips/boot/dts/ralink/Makefile
 @@ -4,6 +4,7 @@ dtb-$(CONFIG_DTB_RT305X_EVAL)	+= rt3052_eval.dtb
@@ -21,7 +21,7 @@ index 6c26dfa0a903..cb361fc3127d 100644
 +dtb-$(CONFIG_DTB_GARDENA_SMART_GATEWAY_MT7688)	+= gardena_smart_gateway_mt7688.dtb
  dtb-$(CONFIG_DTB_VOCORE2)	+= vocore2.dtb
  
- obj-$(CONFIG_BUILTIN_DTB)	+= $(addsuffix .o, $(dtb-y))
+ obj-y				+= $(patsubst %.dtb, %.dtb.o, $(dtb-y))
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 new file mode 100644
 index 000000000000..e5da21bb89ff
@@ -47,10 +47,10 @@ index 000000000000..e5da21bb89ff
 +	};
 +};
 diff --git a/arch/mips/ralink/Kconfig b/arch/mips/ralink/Kconfig
-index 1f9cb0e3c79a..13b731e0449e 100644
+index f26736b7080b..5e0089a61eed 100644
 --- a/arch/mips/ralink/Kconfig
 +++ b/arch/mips/ralink/Kconfig
-@@ -87,6 +87,11 @@ choice
+@@ -88,6 +88,11 @@ choice
  		depends on SOC_MT7620
  		select BUILTIN_DTB
  

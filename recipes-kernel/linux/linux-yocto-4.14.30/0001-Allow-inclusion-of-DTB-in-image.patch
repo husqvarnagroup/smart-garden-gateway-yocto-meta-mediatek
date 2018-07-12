@@ -1,7 +1,7 @@
-From 018e1de2dfaeaac6d3d4e7efe03fed6252865745 Mon Sep 17 00:00:00 2001
+From 2f17cd41f6cf3b1f3a736d407fcb6049c1731214 Mon Sep 17 00:00:00 2001
 From: Ulf Samuelsson <ulf@emagii.com>
 Date: Tue, 21 Nov 2017 18:11:23 +0100
-Subject: [PATCH] Allow inclusion of DTB in image
+Subject: [PATCH 01/89] Allow inclusion of DTB in image
 
 Signed-off-by: Ulf Samuelsson <ulf@emagii.com>
 ---
@@ -11,10 +11,10 @@ Signed-off-by: Ulf Samuelsson <ulf@emagii.com>
  3 files changed, 24 insertions(+), 3 deletions(-)
 
 diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index 2828ecd..f34f5ab7 100644
+index c82457b0e733..27613e43026b 100644
 --- a/arch/mips/Kconfig
 +++ b/arch/mips/Kconfig
-@@ -2909,7 +2909,8 @@ choice
+@@ -2912,7 +2912,8 @@ choice
  		  Do not enable appended dtb support.
  
  	config MIPS_ELF_APPENDED_DTB
@@ -24,7 +24,7 @@ index 2828ecd..f34f5ab7 100644
  		help
  		  With this option, the boot code will look for a device tree binary
  		  DTB) included in the vmlinux ELF section .appended_dtb. By default
-@@ -2923,7 +2924,7 @@ choice
+@@ -2926,7 +2927,7 @@ choice
  		  the documented boot protocol using a device tree.
  
  	config MIPS_RAW_APPENDED_DTB
@@ -33,7 +33,7 @@ index 2828ecd..f34f5ab7 100644
  		help
  		  With this option, the boot code will look for a device tree binary
  		  DTB) appended to raw vmlinux.bin or vmlinuz.bin.
-@@ -2940,6 +2941,15 @@ choice
+@@ -2943,6 +2944,15 @@ choice
  		  if you don't intend to always append a DTB.
  endchoice
  
@@ -50,10 +50,10 @@ index 2828ecd..f34f5ab7 100644
  	prompt "Kernel command line type" if !CMDLINE_OVERRIDE
  	default MIPS_CMDLINE_FROM_DTB if USE_OF && !ATH79 && !MACH_INGENIC && \
 diff --git a/arch/mips/Makefile b/arch/mips/Makefile
-index 02a1787..062bec6 100644
+index a96d97a806c9..fd1aa4854709 100644
 --- a/arch/mips/Makefile
 +++ b/arch/mips/Makefile
-@@ -367,7 +367,7 @@ vmlinux.64: vmlinux
+@@ -384,7 +384,7 @@ vmlinux.64: vmlinux
  all:	$(all-y)
  
  # boot
@@ -63,7 +63,7 @@ index 02a1787..062bec6 100644
  		$(bootvars-y) arch/mips/boot/$@
  
 diff --git a/arch/mips/boot/Makefile b/arch/mips/boot/Makefile
-index 145b5ce..6cca7b0 100644
+index c22da16d67b8..e57db050f4e1 100644
 --- a/arch/mips/boot/Makefile
 +++ b/arch/mips/boot/Makefile
 @@ -28,6 +28,7 @@ suffix-$(CONFIG_KERNEL_BZIP2)	:= bz2
@@ -106,5 +106,5 @@ index 145b5ce..6cca7b0 100644
  	@ln -sf $(notdir $<) $@
  	@echo '  Image $@ is ready'
 -- 
-1.9.1
+2.11.0
 

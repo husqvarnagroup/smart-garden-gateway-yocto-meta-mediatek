@@ -325,3 +325,61 @@ CONFIG_MT7621_WDT=y
 # Watchdog Pretimeout Governors
 #
 # CONFIG_WATCHDOG_PRETIMEOUT_GOV is not set
+CONFIG_OF_MDIO=y
+CONFIG_MDIO_DEVICE=y
+CONFIG_MDIO_BUS=y
+# CONFIG_MDIO_BCM_UNIMAC is not set
+# CONFIG_MDIO_BITBANG is not set
+# CONFIG_MDIO_BUS_MUX_GPIO is not set
+# CONFIG_MDIO_BUS_MUX_MMIOREG is not set
+# CONFIG_MDIO_HISI_FEMAC is not set
+CONFIG_PHYLIB=y
+CONFIG_SWPHY=y
+
+#
+# Switch configuration API + drivers
+#
+CONFIG_SWCONFIG=y
+# CONFIG_ADM6996_PHY is not set
+# CONFIG_AR8216_PHY is not set
+# CONFIG_SWCONFIG_B53 is not set
+# CONFIG_IP17XX_PHY is not set
+# CONFIG_MVSWITCH_PHY is not set
+# CONFIG_MVSW61XX_PHY is not set
+# CONFIG_PSB6970_PHY is not set
+# CONFIG_RTL8306_PHY is not set
+# CONFIG_RTL8366_SMI is not set
+
+#
+# MII PHY device drivers
+#
+# CONFIG_AMD_PHY is not set
+# CONFIG_AQUANTIA_PHY is not set
+# CONFIG_AT803X_PHY is not set
+# CONFIG_BCM7XXX_PHY is not set
+# CONFIG_BCM87XX_PHY is not set
+# CONFIG_BROADCOM_PHY is not set
+# CONFIG_CICADA_PHY is not set
+# CONFIG_CORTINA_PHY is not set
+# CONFIG_DAVICOM_PHY is not set
+# CONFIG_DP83848_PHY is not set
+# CONFIG_DP83867_PHY is not set
+CONFIG_FIXED_PHY=y
+# CONFIG_ICPLUS_PHY is not set
+# CONFIG_INTEL_XWAY_PHY is not set
+# CONFIG_LSI_ET1011C_PHY is not set
+# CONFIG_LXT_PHY is not set
+# CONFIG_MARVELL_PHY is not set
+# CONFIG_MARVELL_10G_PHY is not set
+# CONFIG_MICREL_PHY is not set
+# CONFIG_MICROCHIP_PHY is not set
+# CONFIG_MICROSEMI_PHY is not set
+# CONFIG_NATIONAL_PHY is not set
+# CONFIG_QSEMI_PHY is not set
+# CONFIG_REALTEK_PHY is not set
+# CONFIG_ROCKCHIP_PHY is not set
+# CONFIG_SMSC_PHY is not set
+# CONFIG_STE10XP is not set
+# CONFIG_TERANETICS_PHY is not set
+# CONFIG_VITESSE_PHY is not set
+# CONFIG_XILINX_GMII2RGMII is not set

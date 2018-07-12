@@ -1,7 +1,7 @@
-From 36304835ec09e45d59efd2a38d6af839b90d161e Mon Sep 17 00:00:00 2001
+From 0a3490170751339c3c8b22f0da27869f74649d40 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:04:07 +0100
-Subject: [PATCH 30/89] netfilter: nf_tables: add flow table netlink frontend
+Subject: [PATCH 30/90] netfilter: nf_tables: add flow table netlink frontend
 
 This patch introduces a netlink control plane to create, delete and dump
 flow tables. Flow tables are identified by name, this name is used from

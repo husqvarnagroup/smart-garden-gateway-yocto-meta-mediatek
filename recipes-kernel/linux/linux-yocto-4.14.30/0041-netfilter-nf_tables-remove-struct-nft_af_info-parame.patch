@@ -1,7 +1,7 @@
-From 65148a23837e22becfd2785e6f75ed9cb391a85a Mon Sep 17 00:00:00 2001
+From 7dffc9076ddfbccde92dc0b05ada96cac9d6698d Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 19 Dec 2017 13:40:22 +0100
-Subject: [PATCH 41/89] netfilter: nf_tables: remove struct nft_af_info
+Subject: [PATCH 41/90] netfilter: nf_tables: remove struct nft_af_info
  parameter in nf_tables_chain_type_lookup()
 
 Pass family number instead, this comes in preparation for the removal of

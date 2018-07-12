@@ -1,7 +1,7 @@
-From d1d779809083d299fc3c4440c08a6bc8a8044f82 Mon Sep 17 00:00:00 2001
+From 51d5cf9dbd65f467ffb64e494cc633f7808cd3f6 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Wed, 31 Jan 2018 18:13:39 +0100
-Subject: [PATCH 54/89] netfilter: flowtable infrastructure depends on
+Subject: [PATCH 54/90] netfilter: flowtable infrastructure depends on
  NETFILTER_INGRESS
 
 config NF_FLOW_TABLE depends on NETFILTER_INGRESS. If users forget to

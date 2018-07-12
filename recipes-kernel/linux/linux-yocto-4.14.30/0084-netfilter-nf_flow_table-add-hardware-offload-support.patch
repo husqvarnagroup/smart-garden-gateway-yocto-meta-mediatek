@@ -1,7 +1,7 @@
-From 8d74431a7ae8027eae800b73b2b6df9360070876 Mon Sep 17 00:00:00 2001
+From c538336dc2b1960b7f7ad005c44ed8ba19deba00 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Thu, 11 Jan 2018 16:32:00 +0100
-Subject: [PATCH 84/89] netfilter: nf_flow_table: add hardware offload support
+Subject: [PATCH 84/90] netfilter: nf_flow_table: add hardware offload support
 
 This patch adds the infrastructure to offload flows to hardware, in case
 the nic/switch comes with built-in flow tables capabilities.

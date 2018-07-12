@@ -1,7 +1,7 @@
-From 133e5d191b0dd0fdec3c993f4ed33105fc725b26 Mon Sep 17 00:00:00 2001
+From 616ff5c9a729fda32fcea798df72836676addd3f Mon Sep 17 00:00:00 2001
 From: John Crispin <john@phrozen.org>
 Date: Wed, 11 Jul 2018 21:14:24 +0000
-Subject: [PATCH 78/89] net: phy: add phy_ethtool_ioctl()
+Subject: [PATCH 78/90] net: phy: add phy_ethtool_ioctl()
 
 Signed-off-by: John Crispin <john@phrozen.org>
 ---

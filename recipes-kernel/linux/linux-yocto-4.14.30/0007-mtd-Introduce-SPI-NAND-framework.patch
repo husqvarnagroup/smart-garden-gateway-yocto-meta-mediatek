@@ -1,7 +1,7 @@
-From 5b58f164f5a8f6a2e698432c3d5e3c100d0c749f Mon Sep 17 00:00:00 2001
+From 7f2f0ae7894829e65daa56020120fb029dba77af Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Tue, 2 Dec 2014 09:58:52 -0300
-Subject: [PATCH 07/89] mtd: Introduce SPI NAND framework
+Subject: [PATCH 07/90] mtd: Introduce SPI NAND framework
 
 Add a new framework, to support SPI NAND devices. The framework registers
 a NAND chip and handles the generic SPI NAND protocol, calling device-specific

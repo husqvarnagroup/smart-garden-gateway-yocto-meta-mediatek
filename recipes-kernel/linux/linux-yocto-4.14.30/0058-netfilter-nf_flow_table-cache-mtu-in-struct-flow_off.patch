@@ -1,7 +1,7 @@
-From 80a61e684ebd6ce59b4e83c10553908cf779b988 Mon Sep 17 00:00:00 2001
+From df7fe42f7d45e90da57fdb70b3ba9d2796a95b22 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 16 Feb 2018 10:57:23 +0100
-Subject: [PATCH 58/89] netfilter: nf_flow_table: cache mtu in struct
+Subject: [PATCH 58/90] netfilter: nf_flow_table: cache mtu in struct
  flow_offload_tuple
 
 Reduces the number of cache lines touched in the offload forwarding path

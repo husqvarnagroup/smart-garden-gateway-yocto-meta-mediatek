@@ -1,7 +1,7 @@
-From 1b174bb2aded5d32596fc03b5acfe241b6b1e3dc Mon Sep 17 00:00:00 2001
+From 726abbf690394cf13bf43fb2986252c702d869d8 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Tue, 20 Feb 2018 14:48:51 +0100
-Subject: [PATCH 65/89] netfilter: nf_flow_table: fix priv pointer for netdev
+Subject: [PATCH 65/90] netfilter: nf_flow_table: fix priv pointer for netdev
  hook
 
 The offload ip hook expects a pointer to the flowtable, not to the

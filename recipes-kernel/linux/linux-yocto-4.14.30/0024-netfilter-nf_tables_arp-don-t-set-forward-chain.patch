@@ -1,7 +1,7 @@
-From dabb7f403648dcb2ed52967cfea7806abe07d266 Mon Sep 17 00:00:00 2001
+From ca6b009b76332b8f5feb4ef7c97e17124725b065 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 10 Dec 2017 01:42:58 +0100
-Subject: [PATCH 24/89] netfilter: nf_tables_arp: don't set forward chain
+Subject: [PATCH 24/90] netfilter: nf_tables_arp: don't set forward chain
 
 46928a0b49f3 ("netfilter: nf_tables: remove multihook chains and
 families") already removed this, this is a leftover.

@@ -1,7 +1,7 @@
-From c835c40c36222f2d4a8c6649c32e63a085bf4e80 Mon Sep 17 00:00:00 2001
+From 84906f5e2acad1f90a709777b00bbdab9d56b269 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 15:40:25 +0100
-Subject: [PATCH 16/89] netfilter: nf_tables: remove multihook chains and
+Subject: [PATCH 16/90] netfilter: nf_tables: remove multihook chains and
  families
 
 Since NFPROTO_INET is handled from the core, we don't need to maintain

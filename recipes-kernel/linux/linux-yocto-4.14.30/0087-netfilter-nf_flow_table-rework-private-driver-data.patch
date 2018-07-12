@@ -1,7 +1,7 @@
-From e209a17c53e514e7fbba9023657c2dd23623f24c Mon Sep 17 00:00:00 2001
+From 246be8b0400752298890bd2b04b441c69f2b2cf9 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 27 Apr 2018 14:42:14 +0200
-Subject: [PATCH 87/89] netfilter: nf_flow_table: rework private driver data
+Subject: [PATCH 87/90] netfilter: nf_flow_table: rework private driver data
 
 Move the timeout out of the union, since it can be shared between the
 driver and the stack. Add a private pointer that the driver can use to

@@ -1,7 +1,7 @@
-From fda354c69518662bb5d47a2349468fe7e747e93e Mon Sep 17 00:00:00 2001
+From bb2106a6095296a6bda8aa3a6a9214ff043e2594 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Wed, 20 Dec 2017 16:12:55 +0100
-Subject: [PATCH 19/89] netfilter: remove saveroute indirection in struct
+Subject: [PATCH 19/90] netfilter: remove saveroute indirection in struct
  nf_afinfo
 
 This is only used by nf_queue.c and this function comes with no symbol

@@ -1,7 +1,7 @@
-From af807c361c77a26e6dd8474bdf87087eccd10387 Mon Sep 17 00:00:00 2001
+From 4316d6da584581d8cc073b7eb775af56e833caa3 Mon Sep 17 00:00:00 2001
 From: Harsha Sharma <harshasharmaiitr@gmail.com>
 Date: Wed, 27 Dec 2017 00:59:00 +0530
-Subject: [PATCH 52/89] netfilter: nf_tables: allocate handle and delete
+Subject: [PATCH 52/90] netfilter: nf_tables: allocate handle and delete
  objects via handle
 
 This patch allows deletion of objects via unique handle which can be

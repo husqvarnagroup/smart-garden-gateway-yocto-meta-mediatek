@@ -1,7 +1,7 @@
-From 983dc0ccf5c27b2720565c40731a1ff64d065a37 Mon Sep 17 00:00:00 2001
+From 923dd19a580273df2b9c374f9475caa5dace5d28 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Thu, 1 Feb 2018 18:49:00 +0100
-Subject: [PATCH 47/89] netfilter: nft_flow_offload: wait for garbage collector
+Subject: [PATCH 47/90] netfilter: nft_flow_offload: wait for garbage collector
  to run after cleanup
 
 If netdevice goes down, then flowtable entries are scheduled to be

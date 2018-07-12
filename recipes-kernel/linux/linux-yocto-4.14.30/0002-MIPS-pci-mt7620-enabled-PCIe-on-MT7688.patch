@@ -1,7 +1,7 @@
-From e476b41fd949dc7a09f9885c5fa58c2b33445523 Mon Sep 17 00:00:00 2001
+From 67ba628ec037c100199ef4dc3c5339e23e7cbde1 Mon Sep 17 00:00:00 2001
 From: Daniel Golle <daniel@makrotopia.org>
 Date: Sat, 3 Jun 2017 20:00:03 +0200
-Subject: [PATCH 02/89] MIPS: pci-mt7620: enabled PCIe on MT7688
+Subject: [PATCH 02/90] MIPS: pci-mt7620: enabled PCIe on MT7688
 
 Use PCIe support for MT7628AN also on MT7688.
 Tested on WRTNODE2R.

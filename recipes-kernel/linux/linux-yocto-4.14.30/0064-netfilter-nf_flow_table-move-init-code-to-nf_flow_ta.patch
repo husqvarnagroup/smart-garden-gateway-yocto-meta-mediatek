@@ -1,7 +1,7 @@
-From 9c33790523d6ec61de56c1dfa52678f0ab1d5a87 Mon Sep 17 00:00:00 2001
+From a5d2158633643953f9423928f658c55ad342779e Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 18 Feb 2018 18:16:31 +0100
-Subject: [PATCH 64/89] netfilter: nf_flow_table: move init code to
+Subject: [PATCH 64/90] netfilter: nf_flow_table: move init code to
  nf_flow_table_core.c
 
 Reduces duplication of .gc and .params in flowtable type definitions and

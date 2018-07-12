@@ -1,7 +1,7 @@
-From 50fcce71c183453049cc4aa58054c06c2993cd1d Mon Sep 17 00:00:00 2001
+From 2012263281c7dc59ba678a7eb00b4b5316705e09 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Wed, 11 Jul 2018 18:05:02 +0000
-Subject: [PATCH 11/89] SG-8509 Import MediaTek Ethernet patches from OpenWrt
+Subject: [PATCH 11/90] SG-8509 Import MediaTek Ethernet patches from OpenWrt
 
 Repo: git://git.openwrt.org/openwrt/openwrt.git
 Commit: 954faac7bc1dd34047bc4132cd28a96089fcce4e

@@ -1,7 +1,7 @@
-From 0be1b1a85720807b5cd262408e32378bbe5458e2 Mon Sep 17 00:00:00 2001
+From 17ad25ca14857207ddf372cfc759741c8c9b7a51 Mon Sep 17 00:00:00 2001
 From: Wei Yongjun <weiyongjun1@huawei.com>
 Date: Wed, 10 Jan 2018 07:04:54 +0000
-Subject: [PATCH 37/89] netfilter: nf_tables: fix a typo in
+Subject: [PATCH 37/90] netfilter: nf_tables: fix a typo in
  nf_tables_getflowtable()
 
 Fix a typo, we should check 'flowtable' instead of 'table'.

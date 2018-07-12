@@ -1,7 +1,7 @@
-From 755d69fad165c16a0e771e73a4c664082b18790d Mon Sep 17 00:00:00 2001
+From 05f36a70f1a74621cf8fbf524c22418f6ceba4d3 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Thu, 15 Mar 2018 20:46:31 +0100
-Subject: [PATCH 85/89] netfilter: nf_flow_table: support hw offload through
+Subject: [PATCH 85/90] netfilter: nf_flow_table: support hw offload through
  virtual interfaces
 
 There are hardware offload devices that support offloading VLANs and

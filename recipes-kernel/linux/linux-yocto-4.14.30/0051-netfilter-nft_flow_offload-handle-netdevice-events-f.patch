@@ -1,7 +1,7 @@
-From 7e65fbf2df16613b1148421fca02d1987a2d4ed3 Mon Sep 17 00:00:00 2001
+From a08827ff7f0c77b3320095d53bff43d61ddc84e6 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Thu, 25 Jan 2018 12:58:55 +0100
-Subject: [PATCH 51/89] netfilter: nft_flow_offload: handle netdevice events
+Subject: [PATCH 51/90] netfilter: nft_flow_offload: handle netdevice events
  from nf_flow_table
 
 Move the code that deals with device events to the core.

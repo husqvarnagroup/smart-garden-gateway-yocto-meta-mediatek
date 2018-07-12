@@ -1,7 +1,7 @@
-From ec9a77750c9b4eb950e24956c79baefcff3f1db4 Mon Sep 17 00:00:00 2001
+From 83f1bbef3fa6462db9b95faea9ed88b6f2067d50 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 17:05:53 +0100
-Subject: [PATCH 23/89] netfilter: remove struct nf_afinfo and its helper
+Subject: [PATCH 23/90] netfilter: remove struct nf_afinfo and its helper
  functions
 
 This abstraction has no clients anymore, remove it.

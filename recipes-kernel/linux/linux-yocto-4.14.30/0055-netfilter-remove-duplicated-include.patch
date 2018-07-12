@@ -1,7 +1,7 @@
-From 095a5e2d4ee536d6debbc8cc7f27fb833ee59799 Mon Sep 17 00:00:00 2001
+From 501b2099695497c7c6125609b28ea12cabbac371 Mon Sep 17 00:00:00 2001
 From: Wei Yongjun <weiyongjun1@huawei.com>
 Date: Wed, 10 Jan 2018 13:06:46 +0000
-Subject: [PATCH 55/89] netfilter: remove duplicated include
+Subject: [PATCH 55/90] netfilter: remove duplicated include
 
 Signed-off-by: Wei Yongjun <weiyongjun1@huawei.com>
 Signed-off-by: Pablo Neira Ayuso <pablo@netfilter.org>

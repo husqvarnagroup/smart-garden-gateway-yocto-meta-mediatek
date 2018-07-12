@@ -1,7 +1,7 @@
-From 1e03de7e8674349420bb8a720a240e739aa60ff9 Mon Sep 17 00:00:00 2001
+From f02d6a484c409a887d72939ccf062f6e77d17060 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 19 Dec 2017 14:07:52 +0100
-Subject: [PATCH 39/89] netfilter: nf_tables: remove flag field from struct
+Subject: [PATCH 39/90] netfilter: nf_tables: remove flag field from struct
  nft_af_info
 
 Replace it by a direct check for the netdev protocol family.

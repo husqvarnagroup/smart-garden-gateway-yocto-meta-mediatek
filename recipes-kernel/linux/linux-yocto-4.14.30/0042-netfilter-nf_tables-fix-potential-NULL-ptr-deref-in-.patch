@@ -1,7 +1,7 @@
-From f2a6789c49e9b5c41328fed37031d8c264893b03 Mon Sep 17 00:00:00 2001
+From c738dc9dd40141ceb32eb439c97af92d0041fa61 Mon Sep 17 00:00:00 2001
 From: Hangbin Liu <liuhangbin@gmail.com>
 Date: Mon, 25 Dec 2017 11:34:54 +0800
-Subject: [PATCH 42/89] netfilter: nf_tables: fix potential NULL-ptr deref in
+Subject: [PATCH 42/90] netfilter: nf_tables: fix potential NULL-ptr deref in
  nf_tables_dump_obj_done()
 
 If there is no NFTA_OBJ_TABLE and NFTA_OBJ_TYPE, the c.data will be NULL in

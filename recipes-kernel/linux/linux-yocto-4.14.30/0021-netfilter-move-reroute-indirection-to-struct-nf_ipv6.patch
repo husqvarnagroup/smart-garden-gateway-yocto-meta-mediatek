@@ -1,7 +1,7 @@
-From 6c93681b6688d70b015139b9691b9038edb3a6c9 Mon Sep 17 00:00:00 2001
+From 59c6875050f0561998f0162a9030814a810697d2 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 27 Nov 2017 22:50:26 +0100
-Subject: [PATCH 21/89] netfilter: move reroute indirection to struct
+Subject: [PATCH 21/90] netfilter: move reroute indirection to struct
  nf_ipv6_ops
 
 We cannot make a direct call to nf_ip6_reroute() because that would result

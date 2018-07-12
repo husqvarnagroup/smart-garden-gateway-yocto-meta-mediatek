@@ -1,7 +1,7 @@
-From 51f20bc22515e225780cf8ad53e3206ee2180abc Mon Sep 17 00:00:00 2001
+From 227900fbc21b7654278559f58c38234aeef8d5f1 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 10 Dec 2017 01:43:14 +0100
-Subject: [PATCH 13/89] netfilter: nf_tables: explicit nft_set_pktinfo() call
+Subject: [PATCH 13/90] netfilter: nf_tables: explicit nft_set_pktinfo() call
  from hook path
 
 Instead of calling this function from the family specific variant, this

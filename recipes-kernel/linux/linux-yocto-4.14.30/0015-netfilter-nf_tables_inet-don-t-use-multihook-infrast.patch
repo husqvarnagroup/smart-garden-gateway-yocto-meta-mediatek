@@ -1,7 +1,7 @@
-From 9891758a1177281d014e1d487b3d2508b04ef48e Mon Sep 17 00:00:00 2001
+From fe1eda00e7ef5f18a3a2ced2d16e14fb80b1813a Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 15:36:24 +0100
-Subject: [PATCH 15/89] netfilter: nf_tables_inet: don't use multihook
+Subject: [PATCH 15/90] netfilter: nf_tables_inet: don't use multihook
  infrastructure anymore
 
 Use new native NFPROTO_INET support in netfilter core, this gets rid of

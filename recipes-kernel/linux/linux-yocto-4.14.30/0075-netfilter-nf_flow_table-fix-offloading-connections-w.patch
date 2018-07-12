@@ -1,7 +1,7 @@
-From 47ccdffb564d15061bcdbb4a9f04107defa029a1 Mon Sep 17 00:00:00 2001
+From 0fd4d9736760ad962912680978ed6472881f6e92 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 23 Mar 2018 19:12:30 +0100
-Subject: [PATCH 75/89] netfilter: nf_flow_table: fix offloading connections
+Subject: [PATCH 75/90] netfilter: nf_flow_table: fix offloading connections
  with SNAT+DNAT
 
 Pass all NAT types to the flow offload struct, otherwise parts of the

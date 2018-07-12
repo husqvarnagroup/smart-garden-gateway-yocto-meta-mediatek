@@ -1,7 +1,7 @@
-From bba6b40f768b1236937c8b6ca6f0e7e4ed3a62b3 Mon Sep 17 00:00:00 2001
+From e15ea602b55b364c4118819773584a0786a46c3a Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 11 Jul 2018 21:16:00 +0000
-Subject: [PATCH 80/89] kernel: add a new version of my netfilter speedup
+Subject: [PATCH 80/90] kernel: add a new version of my netfilter speedup
  patches for linux 2.6.39 and 3.0
 
 Signed-off-by: Felix Fietkau <nbd@nbd.name>

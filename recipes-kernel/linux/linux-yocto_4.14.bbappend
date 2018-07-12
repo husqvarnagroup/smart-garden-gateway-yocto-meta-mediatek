@@ -105,6 +105,7 @@ SRC_URI_append_mt7688 = " \
         file://0087-netfilter-nf_flow_table-rework-private-driver-data.patch \
         file://0088-net-swconfig-adds-openwrt-switch-layer.patch \
         file://0089-Add-ethernet-and-esw-to-DTS.patch \
+        file://0090-Enable-watchdog-in-DTS.patch \
         "
 
 # KERNEL_FEATURES_append_mt7688 = ""

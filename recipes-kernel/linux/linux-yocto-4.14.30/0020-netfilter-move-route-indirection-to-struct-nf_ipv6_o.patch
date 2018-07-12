@@ -1,7 +1,7 @@
-From fbebc953af78a03e8398f04ec5a7fba70ecb7d44 Mon Sep 17 00:00:00 2001
+From 55547c74807ff17e5f1be61e039549f7024c352d Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 27 Nov 2017 22:29:52 +0100
-Subject: [PATCH 20/89] netfilter: move route indirection to struct nf_ipv6_ops
+Subject: [PATCH 20/90] netfilter: move route indirection to struct nf_ipv6_ops
 
 We cannot make a direct call to nf_ip6_route() because that would result
 in autoloading the 'ipv6' module because of symbol dependencies.

@@ -1,7 +1,7 @@
-From d89002f9ca4c93c9f6751389170c7a451f68664e Mon Sep 17 00:00:00 2001
+From 879bd10a89660ac938c359fd244fa19e624b0296 Mon Sep 17 00:00:00 2001
 From: Abhimanyu Vishwakarma <Abhimanyu.Vishwakarma@imgtec.com>
 Date: Sat, 25 Feb 2017 16:42:50 +0000
-Subject: [PATCH 04/89] mtd: nor: support mtd name from device tree
+Subject: [PATCH 04/90] mtd: nor: support mtd name from device tree
 
 Signed-off-by: Abhimanyu Vishwakarma <Abhimanyu.Vishwakarma@imgtec.com>
 ---

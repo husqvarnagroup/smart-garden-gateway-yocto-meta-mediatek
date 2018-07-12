@@ -1,7 +1,7 @@
-From c1ccd16f92316b759b71bdc1a8d73996c1e171bc Mon Sep 17 00:00:00 2001
+From 5c10d56b903fb9bbf896916c2408be350984e97b Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 13 Jun 2018 12:33:39 +0200
-Subject: [PATCH 77/89] netfilter: nf_flow_table: fix offloaded connection
+Subject: [PATCH 77/90] netfilter: nf_flow_table: fix offloaded connection
  timeout corner case
 
 The full teardown of offloaded flows is deferred to a gc work item,

@@ -1,7 +1,7 @@
-From 032efec875c4c019d924d9f9985945d3079be800 Mon Sep 17 00:00:00 2001
+From 459df69cdce97b34fb76c6eb4841656ec8959392 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 15:37:27 +0100
-Subject: [PATCH 67/89] netfilter: nf_flow_table: make flow_offload_dead inline
+Subject: [PATCH 67/90] netfilter: nf_flow_table: make flow_offload_dead inline
 
 It is too trivial to keep as a separate exported function
 

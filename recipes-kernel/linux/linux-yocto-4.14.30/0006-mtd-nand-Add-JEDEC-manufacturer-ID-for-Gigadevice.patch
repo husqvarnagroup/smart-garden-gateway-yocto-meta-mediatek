@@ -1,7 +1,7 @@
-From 323c86a623c093db245709e4734f419ffa3dde25 Mon Sep 17 00:00:00 2001
+From 77d6f205f6b56072efd3ebdb1fce214c21916517 Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Sat, 25 Feb 2017 15:43:09 +0000
-Subject: [PATCH 06/89] mtd: nand: Add JEDEC manufacturer ID for Gigadevice
+Subject: [PATCH 06/90] mtd: nand: Add JEDEC manufacturer ID for Gigadevice
 
 This commit adds Gigadevice to the list of manufacturer ID and name strings.
 

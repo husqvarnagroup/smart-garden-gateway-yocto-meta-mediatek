@@ -1,7 +1,7 @@
-From 2533f4cf1e496ad72021a9d6a3c76b67905bb76d Mon Sep 17 00:00:00 2001
+From 9708cd872cb8624fa1b5c6703b93a7daa192a60b Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 15:43:17 +0100
-Subject: [PATCH 25/89] netfilter: nf_tables: remove hooks from family
+Subject: [PATCH 25/90] netfilter: nf_tables: remove hooks from family
  definition
 
 They don't belong to the family definition, move them to the filter

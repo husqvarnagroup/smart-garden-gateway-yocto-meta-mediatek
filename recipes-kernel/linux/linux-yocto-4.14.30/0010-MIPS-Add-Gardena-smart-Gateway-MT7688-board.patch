@@ -1,7 +1,7 @@
-From 74e79be97cbec03939f999b311f243c8f86dfefe Mon Sep 17 00:00:00 2001
+From 574851360c9d7d6f12a81d1fc957daa6ce107a6c Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Tue, 26 Jun 2018 19:41:14 +0200
-Subject: [PATCH 10/89] MIPS: Add Gardena smart Gateway MT7688 board
+Subject: [PATCH 10/90] MIPS: Add Gardena smart Gateway MT7688 board
 
 ---
  arch/mips/boot/dts/ralink/Makefile                     |  1 +

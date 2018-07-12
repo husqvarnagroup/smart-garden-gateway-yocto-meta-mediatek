@@ -1,7 +1,7 @@
-From 53c842b36f708d3e6e4c8e413357f3a0b7d71726 Mon Sep 17 00:00:00 2001
+From d823a16b17a066318cb3582893122c8b391ee88d Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 16 Feb 2018 09:41:18 +0100
-Subject: [PATCH 56/89] netfilter: nf_flow_table: use IP_CT_DIR_* values for
+Subject: [PATCH 56/90] netfilter: nf_flow_table: use IP_CT_DIR_* values for
  FLOW_OFFLOAD_DIR_*
 
 Simplifies further code cleanups

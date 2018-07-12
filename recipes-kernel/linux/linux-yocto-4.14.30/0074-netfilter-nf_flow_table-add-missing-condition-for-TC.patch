@@ -1,7 +1,7 @@
-From ae6792d7009e678a842ad387084617d6e60450c8 Mon Sep 17 00:00:00 2001
+From 5cafa0bc8ea0cc945a4988e44904242c147596a8 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 23 Mar 2018 17:15:22 +0100
-Subject: [PATCH 74/89] netfilter: nf_flow_table: add missing condition for TCP
+Subject: [PATCH 74/90] netfilter: nf_flow_table: add missing condition for TCP
  state check
 
 Avoid looking at unrelated fields in UDP packets

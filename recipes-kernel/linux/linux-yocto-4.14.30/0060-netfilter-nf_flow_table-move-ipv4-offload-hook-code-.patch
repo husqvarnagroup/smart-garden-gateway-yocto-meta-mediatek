@@ -1,7 +1,7 @@
-From 14b55c6b12d932a7327ee9ebf22d8eb41c6353c7 Mon Sep 17 00:00:00 2001
+From 452f85569f060ed1e115f368707152cbdae294ec Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sat, 17 Feb 2018 11:49:44 +0100
-Subject: [PATCH 60/89] netfilter: nf_flow_table: move ipv4 offload hook code
+Subject: [PATCH 60/90] netfilter: nf_flow_table: move ipv4 offload hook code
  to nf_flow_table
 
 Allows some minor code sharing with the ipv6 hook code and is also

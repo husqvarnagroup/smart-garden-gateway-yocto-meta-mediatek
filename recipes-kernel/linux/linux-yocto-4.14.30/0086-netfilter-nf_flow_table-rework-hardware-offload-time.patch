@@ -1,7 +1,7 @@
-From a00b084b7438507ee8af625b540e081b13d14d03 Mon Sep 17 00:00:00 2001
+From 434107c7a1a77ad0236245ff7faf1bca85e767f0 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Mar 2018 21:10:55 +0200
-Subject: [PATCH 86/89] netfilter: nf_flow_table: rework hardware offload
+Subject: [PATCH 86/90] netfilter: nf_flow_table: rework hardware offload
  timeout handling
 
 Some offload implementations send keepalive packets + explicit

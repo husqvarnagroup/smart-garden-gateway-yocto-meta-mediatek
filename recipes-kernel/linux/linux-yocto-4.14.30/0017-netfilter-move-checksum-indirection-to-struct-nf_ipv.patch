@@ -1,7 +1,7 @@
-From 3cca82f31f3299252c75291d0c21f31c5687c23d Mon Sep 17 00:00:00 2001
+From bfdb1d0909a5f0c68f04d0dc78c137a516e8e746 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 27 Nov 2017 21:55:14 +0100
-Subject: [PATCH 17/89] netfilter: move checksum indirection to struct
+Subject: [PATCH 17/90] netfilter: move checksum indirection to struct
  nf_ipv6_ops
 
 We cannot make a direct call to nf_ip6_checksum() because that would

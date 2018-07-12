@@ -1,7 +1,7 @@
-From 6387354ddee04422fc7b2286ea8e4d99164e666a Mon Sep 17 00:00:00 2001
+From 20d4e575f632d6ad12d842fb3784dcb524c93be0 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Wed, 20 Dec 2017 16:04:18 +0100
-Subject: [PATCH 18/89] netfilter: move checksum_partial indirection to struct
+Subject: [PATCH 18/90] netfilter: move checksum_partial indirection to struct
  nf_ipv6_ops
 
 We cannot make a direct call to nf_ip6_checksum_partial() because that

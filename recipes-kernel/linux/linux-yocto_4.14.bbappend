@@ -8,7 +8,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:${THISDIR}/${PN}-${PV}/${MACH
 
 # KBRANCH_mt7688 ?= "standard/base"
 
-KCONFIG_MODE = "--alldefconfig"
+KCONFIG_MODE = "--allnoconfig"
 
 KERNEL_DEVICETREE_mt7688 = " \
         ralink/gardena_smart_gateway_mt7688.dtb \

@@ -1,0 +1,30 @@
+From 4d5d9d7b91dfee6192e0f5a7bfbcd3b1345a7854 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <code@reto-schneider.ch>
+Date: Thu, 19 Jul 2018 00:27:25 +0000
+Subject: [PATCH 98/98] Woraround: Move initialization of the switch after
+ ethernet
+
+---
+ drivers/net/ethernet/mediatek/esw_rt3050.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/net/ethernet/mediatek/esw_rt3050.c b/drivers/net/ethernet/mediatek/esw_rt3050.c
+index 816c588dd7f2..77fd647affa3 100644
+--- a/drivers/net/ethernet/mediatek/esw_rt3050.c
++++ b/drivers/net/ethernet/mediatek/esw_rt3050.c
+@@ -1350,6 +1350,12 @@ static int esw_probe(struct platform_device *pdev)
+ 	struct switch_dev *swdev;
+ 	struct rt305x_esw *esw;
+ 	int ret;
++	static bool defered = false;
++
++	if (!defered) {
++		defered = true;
++		return -EPROBE_DEFER;
++	}
+ 
+ 	esw = devm_kzalloc(&pdev->dev, sizeof(*esw), GFP_KERNEL);
+ 	if (!esw)
+-- 
+2.11.0
+

@@ -1,7 +1,8 @@
-From 42ebff638003be18fab503b37de4ad7853244e95 Mon Sep 17 00:00:00 2001
+From 3bc0cd54a2297c6ad81a08db552f06a478f5408f Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Sat, 25 Feb 2017 15:58:22 +0000
-Subject: mtd: nand: Check length of ID before reading bits per cell
+Subject: [PATCH 05/90] mtd: nand: Check length of ID before reading bits per
+ cell
 
 The table-based NAND identification currently reads the number
 of bits per cell from the 3rd byte of the extended ID. This is done
@@ -19,9 +20,11 @@ Signed-off-by: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
  drivers/mtd/nand/nand_base.c | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/mtd/nand/nand_base.c b/drivers/mtd/nand/nand_base.c
+index 528e04f96c13..7cc353c6f543 100644
 --- a/drivers/mtd/nand/nand_base.c
 +++ b/drivers/mtd/nand/nand_base.c
-@@ -3803,7 +3803,8 @@ static bool find_full_id_nand(struct nan
+@@ -3803,7 +3803,8 @@ static bool find_full_id_nand(struct nand_chip *chip,
  		mtd->erasesize = type->erasesize;
  		mtd->oobsize = type->oobsize;
  
@@ -31,3 +34,6 @@ Signed-off-by: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
  		chip->chipsize = (uint64_t)type->chipsize << 20;
  		chip->options |= type->options;
  		chip->ecc_strength_ds = NAND_ECC_STRENGTH(type);
+-- 
+2.11.0
+

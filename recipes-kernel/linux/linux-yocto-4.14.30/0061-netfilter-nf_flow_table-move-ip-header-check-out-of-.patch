@@ -1,0 +1,40 @@
+From 296f30c508186f6ec26e35ce320acca39fe8fc8d Mon Sep 17 00:00:00 2001
+From: Felix Fietkau <nbd@nbd.name>
+Date: Sat, 17 Feb 2018 11:51:20 +0100
+Subject: [PATCH 61/90] netfilter: nf_flow_table: move ip header check out of
+ nf_flow_exceeds_mtu
+
+Allows the function to be shared with the IPv6 hook code
+
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+---
+ net/netfilter/nf_flow_table_ip.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/net/netfilter/nf_flow_table_ip.c b/net/netfilter/nf_flow_table_ip.c
+index 7c97126ace0e..79976c25891b 100644
+--- a/net/netfilter/nf_flow_table_ip.c
++++ b/net/netfilter/nf_flow_table_ip.c
+@@ -181,9 +181,6 @@ static bool nf_flow_exceeds_mtu(const struct sk_buff *skb, unsigned int mtu)
+ 	if (skb->len <= mtu)
+ 		return false;
+ 
+-	if ((ip_hdr(skb)->frag_off & htons(IP_DF)) == 0)
+-		return false;
+-
+ 	if (skb_is_gso(skb) && skb_gso_validate_mtu(skb, mtu))
+ 		return false;
+ 
+@@ -222,7 +219,8 @@ nf_flow_offload_ip_hook(void *priv, struct sk_buff *skb,
+ 	flow = container_of(tuplehash, struct flow_offload, tuplehash[dir]);
+ 	rt = (const struct rtable *)flow->tuplehash[dir].tuple.dst_cache;
+ 
+-	if (unlikely(nf_flow_exceeds_mtu(skb, flow->tuplehash[dir].tuple.mtu)))
++	if (unlikely(nf_flow_exceeds_mtu(skb, flow->tuplehash[dir].tuple.mtu)) &&
++	    (ip_hdr(skb)->frag_off & htons(IP_DF)) != 0)
+ 		return NF_ACCEPT;
+ 
+ 	if (skb_try_make_writable(skb, sizeof(*iph)))
+-- 
+2.11.0
+

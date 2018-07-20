@@ -1,16 +1,18 @@
-From 5ede027f6c4a57ed25da872420508b7f1168b36b Mon Sep 17 00:00:00 2001
+From c67db9b75e90e3ad47c375b51148dc53009ae7b6 Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Mon, 7 Dec 2015 17:15:32 +0100
-Subject: [PATCH 13/53] owrt: hack: fix mt7688 cache issue
+Subject: [PATCH 03/90] owrt: hack: fix mt7688 cache issue
 
 Signed-off-by: John Crispin <blogic@openwrt.org>
 ---
- arch/mips/kernel/setup.c |    2 +-
+ arch/mips/kernel/setup.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
+index 795caa763da3..18a148004487 100644
 --- a/arch/mips/kernel/setup.c
 +++ b/arch/mips/kernel/setup.c
-@@ -910,7 +910,6 @@ static void __init arch_mem_init(char **
+@@ -910,7 +910,6 @@ static void __init arch_mem_init(char **cmdline_p)
  				crashk_res.end - crashk_res.start + 1,
  				BOOTMEM_DEFAULT);
  #endif
@@ -26,3 +28,6 @@ Signed-off-by: John Crispin <blogic@openwrt.org>
  }
  
  unsigned long kernelsp[NR_CPUS];
+-- 
+2.11.0
+

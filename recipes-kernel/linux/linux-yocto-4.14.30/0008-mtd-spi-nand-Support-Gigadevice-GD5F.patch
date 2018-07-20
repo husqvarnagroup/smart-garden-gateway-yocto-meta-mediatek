@@ -1,7 +1,7 @@
-From 7723e59d483a883578115a73eb87eb7fff0ff724 Mon Sep 17 00:00:00 2001
+From cee24375566f1cfd3889affa2344ff71a95f653c Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Tue, 28 Feb 2017 10:37:24 +0000
-Subject: mtd: spi-nand: Support Gigadevice GD5F
+Subject: [PATCH 08/90] mtd: spi-nand: Support Gigadevice GD5F
 
 This commit uses the recently introduced SPI NAND framework to support
 the Gigadevice GD5F serial NAND device.
@@ -26,6 +26,8 @@ Signed-off-by: Ian Pozella <Ian.Pozella@imgtec.com>
  3 files changed, 483 insertions(+)
  create mode 100644 drivers/mtd/spi-nand/spi-nand-device.c
 
+diff --git a/drivers/mtd/spi-nand/Kconfig b/drivers/mtd/spi-nand/Kconfig
+index 17b31e118232..ab6bb6c7fac5 100644
 --- a/drivers/mtd/spi-nand/Kconfig
 +++ b/drivers/mtd/spi-nand/Kconfig
 @@ -5,3 +5,13 @@ menuconfig MTD_SPI_NAND
@@ -42,11 +44,16 @@ Signed-off-by: Ian Pozella <Ian.Pozella@imgtec.com>
 +	  Select this option if you require support for SPI NAND devices.
 +
 +endif # MTD_SPI_NAND
+diff --git a/drivers/mtd/spi-nand/Makefile b/drivers/mtd/spi-nand/Makefile
+index d454c522f498..6e460d181481 100644
 --- a/drivers/mtd/spi-nand/Makefile
 +++ b/drivers/mtd/spi-nand/Makefile
 @@ -1 +1,2 @@
  obj-$(CONFIG_MTD_SPI_NAND)		+= spi-nand-base.o
 +obj-$(CONFIG_MTD_SPI_NAND_DEVICES)     += spi-nand-device.o
+diff --git a/drivers/mtd/spi-nand/spi-nand-device.c b/drivers/mtd/spi-nand/spi-nand-device.c
+new file mode 100644
+index 000000000000..95db20b050fc
 --- /dev/null
 +++ b/drivers/mtd/spi-nand/spi-nand-device.c
 @@ -0,0 +1,472 @@
@@ -522,3 +529,6 @@ Signed-off-by: Ian Pozella <Ian.Pozella@imgtec.com>
 +MODULE_AUTHOR("Ezequiel Garcia <ezequiel.garcia@imgtec.com>");
 +MODULE_DESCRIPTION("SPI NAND device support");
 +MODULE_LICENSE("GPL v2");
+-- 
+2.11.0
+

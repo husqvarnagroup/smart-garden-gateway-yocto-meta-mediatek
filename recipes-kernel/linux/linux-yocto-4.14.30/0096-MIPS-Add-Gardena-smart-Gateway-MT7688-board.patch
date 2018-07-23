@@ -1,0 +1,104 @@
+From be84775278a5b81997f25524c5182d2c42022a9a Mon Sep 17 00:00:00 2001
+From: Reto Schneider <reto.schneider@husqvarnagroup.com>
+Date: Tue, 26 Jun 2018 19:41:14 +0200
+Subject: [PATCH 96/96] MIPS: Add Gardena smart Gateway MT7688 board
+
+---
+ arch/mips/boot/dts/ralink/Makefile                 |  1 +
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 55 ++++++++++++++++++++++
+ arch/mips/ralink/Kconfig                           |  5 ++
+ 3 files changed, 61 insertions(+)
+ create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+
+diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
+index a80eeeecf613..fc8e3a32583f 100644
+--- a/arch/mips/boot/dts/ralink/Makefile
++++ b/arch/mips/boot/dts/ralink/Makefile
+@@ -4,6 +4,7 @@ dtb-$(CONFIG_DTB_RT305X_EVAL)	+= rt3052_eval.dtb
+ dtb-$(CONFIG_DTB_RT3883_EVAL)	+= rt3883_eval.dtb
+ dtb-$(CONFIG_DTB_MT7620A_EVAL)	+= mt7620a_eval.dtb
+ dtb-$(CONFIG_DTB_OMEGA2P)	+= omega2p.dtb
++dtb-$(CONFIG_DTB_GARDENA_SMART_GATEWAY_MT7688)	+= gardena_smart_gateway_mt7688.dtb
+ dtb-$(CONFIG_DTB_VOCORE2)	+= vocore2.dtb
+ 
+ obj-y				+= $(patsubst %.dtb, %.dtb.o, $(dtb-y))
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+new file mode 100644
+index 000000000000..c58146989dc8
+--- /dev/null
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -0,0 +1,55 @@
++/dts-v1/;
++
++/include/ "mt7628a.dtsi"
++
++/ {
++	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7688a-soc", "ralink,mt7628a-soc";
++	model = "Gardena smart Gateway MT7688";
++
++	memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x8000000>;
++	};
++
++	chosen {
++		bootargs = "console=ttyS0,57600";
++		stdout-path = &uart0;
++	};
++};
++
++&pinctrl {
++	state_default: pinctrl0 {
++		gpio {
++			ralink,group = "gpio";
++			ralink,function = "gpio";
++		};
++
++		spis {
++			ralink,group = "spis";
++			ralink,function = "gpio";
++		};
++	};
++};
++
++&spi0 {
++	status = "okay";
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi_pins>, <&spi_cs1_pins>;
++
++	m25p80@0 {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		spi-max-frequency = <40000000>;
++		m25p,chunked-io = <31>;
++	};
++
++	nand_flash@1 {
++		compatible = "gigadevice,gd5f";
++		linux,mtd-name = "gd5f";
++		reg = <1>;
++		spi-max-frequency = <40000000>;
++	};
++};
+diff --git a/arch/mips/ralink/Kconfig b/arch/mips/ralink/Kconfig
+index f26736b7080b..5e0089a61eed 100644
+--- a/arch/mips/ralink/Kconfig
++++ b/arch/mips/ralink/Kconfig
+@@ -88,6 +88,11 @@ choice
+ 		depends on SOC_MT7620
+ 		select BUILTIN_DTB
+ 
++	config DTB_GARDENA_SMART_GATEWAY_MT7688
++		bool "Gardena smart Gateway MT7688"
++		depends on SOC_MT7620
++		select BUILTIN_DTB
++
+ 	config DTB_VOCORE2
+ 		bool "VoCore2"
+ 		depends on SOC_MT7620
+-- 
+2.11.0
+

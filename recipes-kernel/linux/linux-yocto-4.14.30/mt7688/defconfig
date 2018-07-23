@@ -1398,7 +1398,7 @@ CONFIG_SPI_MASTER=y
 # CONFIG_SPI_CADENCE is not set
 # CONFIG_SPI_DESIGNWARE is not set
 # CONFIG_SPI_GPIO is not set
-CONFIG_SPI_IMG_SPFI=y
+# CONFIG_SPI_IMG_SPFI is not set
 # CONFIG_SPI_FSL_SPI is not set
 # CONFIG_SPI_OC_TINY is not set
 # CONFIG_SPI_PXA2XX_PCI is not set
@@ -1411,7 +1411,7 @@ CONFIG_SPI_IMG_SPFI=y
 #
 # SPI Protocol Masters
 #
-CONFIG_SPI_SPIDEV=y
+# CONFIG_SPI_SPIDEV is not set
 # CONFIG_SPI_TLE62X0 is not set
 # CONFIG_SPI_SLAVE is not set
 # CONFIG_SPMI is not set

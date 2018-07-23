@@ -1,0 +1,127 @@
+From 0391f67ef96865d06607225f7dd07a9a7e58338f Mon Sep 17 00:00:00 2001
+From: Reto Schneider <code@reto-schneider.ch>
+Date: Thu, 12 Jul 2018 00:55:45 +0000
+Subject: [PATCH 93/96] MIPS: dts: ralink: Add more hardware to MT7628a
+
+---
+ arch/mips/boot/dts/ralink/mt7628a.dtsi | 78 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 77 insertions(+), 1 deletion(-)
+
+diff --git a/arch/mips/boot/dts/ralink/mt7628a.dtsi b/arch/mips/boot/dts/ralink/mt7628a.dtsi
+index 9ff7e8faaecc..3af8860ff416 100644
+--- a/arch/mips/boot/dts/ralink/mt7628a.dtsi
++++ b/arch/mips/boot/dts/ralink/mt7628a.dtsi
+@@ -1,7 +1,7 @@
+ / {
+ 	#address-cells = <1>;
+ 	#size-cells = <1>;
+-	compatible = "ralink,mt7628a-soc";
++	compatible = "ralink,mt7628a-soc", "ralink,mt7688-soc";
+ 
+ 	cpus {
+ 		#address-cells = <1>;
+@@ -39,6 +39,17 @@
+ 			reg = <0x0 0x100>;
+ 		};
+ 
++		watchdog: watchdog@100 {
++			compatible = "ralink,mt7628a-wdt", "mediatek,mt7621-wdt";
++			reg = <0x100 0x30>;
++
++			resets = <&resetc 8>;
++			reset-names = "wdt";
++
++			interrupt-parent = <&intc>;
++			interrupts = <24>;
++		};
++
+ 		intc: interrupt-controller@200 {
+ 			compatible = "ralink,rt2880-intc";
+ 			reg = <0x200 0x100>;
+@@ -62,6 +73,22 @@
+ 			reg = <0x300 0x100>;
+ 		};
+ 
++		spi0: spi@b00 {
++			compatible = "ralink,mt7621-spi";
++			reg = <0xb00 0x100>;
++
++			resets = <&resetc 18>;
++			reset-names = "spi";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			pinctrl-names = "default";
++			pinctrl-0 = <&spi_pins>;
++
++			status = "disabled";
++		};
++
+ 		uart0: uartlite@c00 {
+ 			compatible = "ns16550a";
+ 			reg = <0xc00 0x100>;
+@@ -102,6 +129,29 @@
+ 		};
+ 	};
+ 
++	pinctrl: pinctrl {
++		compatible = "ralink,rt2880-pinmux";
++		pinctrl-names = "default";
++		pinctrl-0 = <&state_default>;
++
++		state_default: pinctrl0 {
++		};
++
++		spi_pins: spi {
++			spi {
++				ralink,group = "spi";
++				ralink,function = "spi";
++			};
++		};
++
++		spi_cs1_pins: spi_cs1 {
++			spi_cs1 {
++				ralink,group = "spi cs1";
++				ralink,function = "spi cs1";
++			};
++		};
++	};
++
+ 	usb_phy: usb-phy@10120000 {
+ 		compatible = "mediatek,mt7628-usbphy";
+ 		reg = <0x10120000 0x1000>;
+@@ -123,4 +173,30 @@
+ 		interrupt-parent = <&intc>;
+ 		interrupts = <18>;
+ 	};
++
++	ethernet: ethernet@10100000 {
++		compatible = "ralink,rt5350-eth";
++		reg = <0x10100000 0x10000>;
++
++		interrupt-parent = <&cpuintc>;
++		interrupts = <5>;
++
++		resets = <&resetc 21 &resetc 23>;
++		reset-names = "fe", "esw";
++
++		mediatek,switch = <&esw>;
++	};
++
++	esw: esw@10110000 {
++		compatible = "mediatek,mt7628-esw", "ralink,rt3050-esw";
++		reg = <0x10110000 0x8000>;
++
++		resets = <&resetc 23>;
++		reset-names = "esw";
++
++		interrupt-parent = <&intc>;
++		interrupts = <17>;
++	};
++
++
+ };
+-- 
+2.11.0
+

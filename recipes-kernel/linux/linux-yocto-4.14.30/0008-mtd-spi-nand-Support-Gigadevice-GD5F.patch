@@ -1,7 +1,7 @@
-From cee24375566f1cfd3889affa2344ff71a95f653c Mon Sep 17 00:00:00 2001
+From 86fa153a4d7ea421443c2c5e46232742e70eed15 Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Tue, 28 Feb 2017 10:37:24 +0000
-Subject: [PATCH 08/90] mtd: spi-nand: Support Gigadevice GD5F
+Subject: [PATCH 08/96] mtd: spi-nand: Support Gigadevice GD5F
 
 This commit uses the recently introduced SPI NAND framework to support
 the Gigadevice GD5F serial NAND device.

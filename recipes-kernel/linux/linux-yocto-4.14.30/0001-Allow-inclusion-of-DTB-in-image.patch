@@ -1,7 +1,7 @@
-From 67dbfbbf07c3ee626f67ec00ee958d26d4951980 Mon Sep 17 00:00:00 2001
+From 2abc45c246b2f9ffac9e41669bb7aac5d4d42001 Mon Sep 17 00:00:00 2001
 From: Ulf Samuelsson <ulf@emagii.com>
 Date: Tue, 21 Nov 2017 18:11:23 +0100
-Subject: [PATCH 01/90] Allow inclusion of DTB in image
+Subject: [PATCH 01/96] Allow inclusion of DTB in image
 
 Signed-off-by: Ulf Samuelsson <ulf@emagii.com>
 ---

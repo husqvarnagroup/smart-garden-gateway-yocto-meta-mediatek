@@ -1,0 +1,29 @@
+From b00931cd99a3cb7a8de4a6f81b2e2d55c8db73c6 Mon Sep 17 00:00:00 2001
+From: Felix Fietkau <nbd@nbd.name>
+Date: Wed, 11 Jul 2018 21:16:05 +0000
+Subject: [PATCH 81/96] netfilter: reduce match memory access
+
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+---
+ net/ipv4/netfilter/ip_tables.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/net/ipv4/netfilter/ip_tables.c b/net/ipv4/netfilter/ip_tables.c
+index e4178df8b88c..ff1d0c2ca4c4 100644
+--- a/net/ipv4/netfilter/ip_tables.c
++++ b/net/ipv4/netfilter/ip_tables.c
+@@ -55,9 +55,9 @@ ip_packet_match(const struct iphdr *ip,
+ 	if (ipinfo->flags & IPT_F_NO_DEF_MATCH)
+ 		return true;
+ 
+-	if (NF_INVF(ipinfo, IPT_INV_SRCIP,
++	if (NF_INVF(ipinfo, IPT_INV_SRCIP, ipinfo->smsk.s_addr &&
+ 		    (ip->saddr & ipinfo->smsk.s_addr) != ipinfo->src.s_addr) ||
+-	    NF_INVF(ipinfo, IPT_INV_DSTIP,
++	    NF_INVF(ipinfo, IPT_INV_DSTIP, ipinfo->dmsk.s_addr &&
+ 		    (ip->daddr & ipinfo->dmsk.s_addr) != ipinfo->dst.s_addr))
+ 		return false;
+ 
+-- 
+2.11.0
+

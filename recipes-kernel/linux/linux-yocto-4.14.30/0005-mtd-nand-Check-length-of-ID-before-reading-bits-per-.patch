@@ -1,7 +1,7 @@
-From 3bc0cd54a2297c6ad81a08db552f06a478f5408f Mon Sep 17 00:00:00 2001
+From 1c3795e557b649418daeca3a771acb07f1842d6a Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Sat, 25 Feb 2017 15:58:22 +0000
-Subject: [PATCH 05/90] mtd: nand: Check length of ID before reading bits per
+Subject: [PATCH 05/96] mtd: nand: Check length of ID before reading bits per
  cell
 
 The table-based NAND identification currently reads the number

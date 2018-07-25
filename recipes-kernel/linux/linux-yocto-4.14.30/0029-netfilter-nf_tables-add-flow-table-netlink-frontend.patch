@@ -1,7 +1,7 @@
-From 3cc206326efb1fb54f20592722b41542c5b7a261 Mon Sep 17 00:00:00 2001
+From a8e59e0224b93185220c9e64588cc2e7431b868e Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:04:07 +0100
-Subject: [PATCH 29/96] netfilter: nf_tables: add flow table netlink frontend
+Subject: [PATCH 29/98] netfilter: nf_tables: add flow table netlink frontend
 
 This patch introduces a netlink control plane to create, delete and dump
 flow tables. Flow tables are identified by name, this name is used from
@@ -77,10 +77,11 @@ index ff9c7daa5923..75cede8805d3 100644
  	u64				hgenerator;
  	u32				use;
  	u16				flags:14,
-@@ -1075,6 +1078,44 @@ int nft_register_obj(struct nft_object_type *obj_type);
+@@ -1074,6 +1077,44 @@ struct nft_object_ops {
+ int nft_register_obj(struct nft_object_type *obj_type);
  void nft_unregister_obj(struct nft_object_type *obj_type);
  
- /**
++/**
 + *	struct nft_flowtable - nf_tables flow table
 + *
 + *	@list: flow table list node in table list
@@ -118,10 +119,9 @@ index ff9c7daa5923..75cede8805d3 100644
 +void nft_register_flowtable_type(struct nf_flowtable_type *type);
 +void nft_unregister_flowtable_type(struct nf_flowtable_type *type);
 +
-+/**
+ /**
   *	struct nft_traceinfo - nft tracing information and state
   *
-  *	@pkt: pktinfo currently processed
 @@ -1310,4 +1351,11 @@ struct nft_trans_obj {
  #define nft_trans_obj(trans)	\
  	(((struct nft_trans_obj *)trans->data)->obj)
@@ -158,10 +158,11 @@ index 2efbf9744c2a..591b53bce070 100644
  	NFT_MSG_MAX,
  };
  
-@@ -1310,6 +1316,53 @@ enum nft_object_attributes {
+@@ -1309,6 +1315,53 @@ enum nft_object_attributes {
+ };
  #define NFTA_OBJ_MAX		(__NFTA_OBJ_MAX - 1)
  
- /**
++/**
 + * enum nft_flowtable_attributes - nf_tables flow table netlink attributes
 + *
 + * @NFTA_FLOWTABLE_TABLE: name of the table containing the expression (NLA_STRING)
@@ -208,10 +209,9 @@ index 2efbf9744c2a..591b53bce070 100644
 +#define NFTA_DEVICE_MAX		(__NFTA_DEVICE_MAX - 1)
 +
 +
-+/**
+ /**
   * enum nft_trace_attributes - nf_tables trace netlink attributes
   *
-  * @NFTA_TRACE_TABLE: name of the table (NLA_STRING)
 diff --git a/net/netfilter/nf_tables_api.c b/net/netfilter/nf_tables_api.c
 index 13e7c0f37af7..d58b5a4f244e 100644
 --- a/net/netfilter/nf_tables_api.c
@@ -1093,5 +1093,5 @@ index 13e7c0f37af7..d58b5a4f244e 100644
  	nf_tables_core_module_exit();
  	kfree(info);
 -- 
-2.11.0
+2.16.4
 

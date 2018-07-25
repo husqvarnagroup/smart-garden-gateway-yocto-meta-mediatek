@@ -1,7 +1,7 @@
-From ffe5bab11a3c849c3b3a1cb601d0bc348f859271 Mon Sep 17 00:00:00 2001
+From c5b5a2feeca8c3bbd6aaac407cdd6561f044c5b0 Mon Sep 17 00:00:00 2001
 From: Florian Westphal <fw@strlen.de>
 Date: Fri, 8 Dec 2017 17:01:54 +0100
-Subject: [PATCH 13/96] netfilter: core: only allow one nat hook per hook point
+Subject: [PATCH 13/98] netfilter: core: only allow one nat hook per hook point
 
 The netfilter NAT core cannot deal with more than one NAT hook per hook
 location (prerouting, input ...), because the NAT hooks install a NAT null
@@ -162,5 +162,5 @@ index 5b504aa653f5..d2168fc61038 100644
  
  		chain->flags |= NFT_BASE_CHAIN;
 -- 
-2.11.0
+2.16.4
 

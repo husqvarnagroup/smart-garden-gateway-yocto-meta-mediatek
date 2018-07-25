@@ -1,7 +1,7 @@
-From 3e9462492988a3c84bfb9ac3ad82c3b3445db9d3 Mon Sep 17 00:00:00 2001
+From 6fbaad4d1cf67e673ac2ddf808fc149a00082955 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:04:11 +0100
-Subject: [PATCH 30/96] netfilter: add generic flow table infrastructure
+Subject: [PATCH 30/98] netfilter: add generic flow table infrastructure
 
 This patch defines the API to interact with flow tables, this allows to
 add, delete and lookup for entries in the flow table. This also adds the
@@ -600,5 +600,5 @@ index 000000000000..2f5099cb85b8
 +MODULE_LICENSE("GPL");
 +MODULE_AUTHOR("Pablo Neira Ayuso <pablo@netfilter.org>");
 -- 
-2.11.0
+2.16.4
 

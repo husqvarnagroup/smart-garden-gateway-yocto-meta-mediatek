@@ -1,7 +1,7 @@
-From be84775278a5b81997f25524c5182d2c42022a9a Mon Sep 17 00:00:00 2001
+From 56634f88b23f52591803efa6ad99532a46f6a048 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Tue, 26 Jun 2018 19:41:14 +0200
-Subject: [PATCH 96/96] MIPS: Add Gardena smart Gateway MT7688 board
+Subject: [PATCH 98/98] MIPS: Add Gardena smart Gateway MT7688 board
 
 ---
  arch/mips/boot/dts/ralink/Makefile                 |  1 +
@@ -100,5 +100,5 @@ index f26736b7080b..5e0089a61eed 100644
  		bool "VoCore2"
  		depends on SOC_MT7620
 -- 
-2.11.0
+2.16.4
 

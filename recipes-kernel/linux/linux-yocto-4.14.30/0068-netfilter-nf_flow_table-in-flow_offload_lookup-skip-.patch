@@ -1,7 +1,7 @@
-From 09ad6a87abc10f3f5027325f8e596d530625d308 Mon Sep 17 00:00:00 2001
+From e360ba4a96f9cd7ef985d4bf372cbe9ab351a06e Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 15:39:56 +0100
-Subject: [PATCH 68/96] netfilter: nf_flow_table: in flow_offload_lookup, skip
+Subject: [PATCH 68/98] netfilter: nf_flow_table: in flow_offload_lookup, skip
  entries being deleted
 
 Preparation for sending flows back to the slow path
@@ -40,5 +40,5 @@ index b45b13a55147..a1ecee9ed7fb 100644
  EXPORT_SYMBOL_GPL(flow_offload_lookup);
  
 -- 
-2.11.0
+2.16.4
 

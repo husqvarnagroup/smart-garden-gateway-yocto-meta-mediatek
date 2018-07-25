@@ -1,7 +1,7 @@
-From 37e621cfd6336d3c7227cb3136d43ca6162d5c5c Mon Sep 17 00:00:00 2001
+From 3535543aba9ed2ac907c7a12bb6ab6e031cb28eb Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 16 Feb 2018 09:42:32 +0100
-Subject: [PATCH 56/96] netfilter: nf_flow_table: clean up flow_offload_alloc
+Subject: [PATCH 56/98] netfilter: nf_flow_table: clean up flow_offload_alloc
 
 Reduce code duplication and make it much easier to read
 
@@ -122,5 +122,5 @@ index 462696d85575..c7fffe072b89 100644
  	if (ct->status & IPS_SRC_NAT)
  		flow->flags |= FLOW_OFFLOAD_SNAT;
 -- 
-2.11.0
+2.16.4
 

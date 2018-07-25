@@ -1,7 +1,7 @@
-From aba53a8a3736a7c1ecb0530507cedc980adc6a47 Mon Sep 17 00:00:00 2001
+From 8a23203ae4bc187093622166b6eda2f2e0f0840a Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 9 Jan 2018 02:38:03 +0100
-Subject: [PATCH 42/96] netfilter: nf_tables: add single table list for all
+Subject: [PATCH 42/98] netfilter: nf_tables: add single table list for all
  families
 
 Place all existing user defined tables in struct net *, instead of
@@ -1489,5 +1489,5 @@ index 1e66538bf0ff..c64cbe78dee7 100644
  EXPORT_SYMBOL_GPL(nft_redir_init);
  
 -- 
-2.11.0
+2.16.4
 

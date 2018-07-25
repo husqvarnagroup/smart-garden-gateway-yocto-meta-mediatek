@@ -1,7 +1,7 @@
-From bca9c9ace4e352792962a55dfe7e97e14ff66eb4 Mon Sep 17 00:00:00 2001
+From dddeb3853aae5f15ea4ec89e8f2c1fda6f022ac4 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sat, 17 Feb 2018 12:02:28 +0100
-Subject: [PATCH 62/96] netfilter: nf_flow_table: relax mixed ipv4/ipv6
+Subject: [PATCH 62/98] netfilter: nf_flow_table: relax mixed ipv4/ipv6
  flowtable dependencies
 
 Since the offload hook code was moved, this table no longer depends on
@@ -27,5 +27,5 @@ index 87f7d57150a1..d517b80814d6 100644
            This option adds the flow table mixed IPv4/IPv6 support.
  
 -- 
-2.11.0
+2.16.4
 

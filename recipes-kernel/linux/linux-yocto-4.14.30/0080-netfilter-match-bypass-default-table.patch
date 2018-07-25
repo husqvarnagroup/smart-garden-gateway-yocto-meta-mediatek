@@ -1,7 +1,7 @@
-From 551fcaaf4d627a62f5b05c8439416a43a7b323fc Mon Sep 17 00:00:00 2001
+From e9776f4769a18b9e950558ba2572af9698117b96 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 11 Jul 2018 21:16:02 +0000
-Subject: [PATCH 80/96] netfilter: match bypass default table
+Subject: [PATCH 80/98] netfilter: match bypass default table
 
 Signed-off-by: Felix Fietkau <nbd@nbd.name>
 ---
@@ -114,5 +114,5 @@ index 677e1d3db260..e4178df8b88c 100644
  	do {
  		const struct xt_entry_target *t;
 -- 
-2.11.0
+2.16.4
 

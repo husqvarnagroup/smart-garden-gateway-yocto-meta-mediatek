@@ -1,7 +1,7 @@
-From 391e9775b66c2f578680313bbcfd34de507dc1c8 Mon Sep 17 00:00:00 2001
+From 266beab71acc73594af9513a18a7532d98b496fd Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 16 Feb 2018 11:08:47 +0100
-Subject: [PATCH 58/96] netfilter: nf_flow_table: rename nf_flow_table.c to
+Subject: [PATCH 58/98] netfilter: nf_flow_table: rename nf_flow_table.c to
  nf_flow_table_core.c
 
 Preparation for adding more code to the same module
@@ -31,5 +31,5 @@ similarity index 100%
 rename from net/netfilter/nf_flow_table.c
 rename to net/netfilter/nf_flow_table_core.c
 -- 
-2.11.0
+2.16.4
 

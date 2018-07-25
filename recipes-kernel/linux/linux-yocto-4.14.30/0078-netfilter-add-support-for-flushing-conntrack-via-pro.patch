@@ -1,7 +1,7 @@
-From fa3a0279d9fd76d806bd0cda51d093a99e152383 Mon Sep 17 00:00:00 2001
+From fdd16e13b4fce8f57075febe29a57903ed3a9d9a Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 11 Jul 2018 21:15:58 +0000
-Subject: [PATCH 78/96] netfilter: add support for flushing conntrack via /proc
+Subject: [PATCH 78/98] netfilter: add support for flushing conntrack via /proc
 
 lede-commit 8193bbe59a74d34d6a26d4a8cb857b1952905314
 Signed-off-by: Felix Fietkau <nbd@nbd.name>
@@ -98,5 +98,5 @@ index 46d32baad095..a7e455ff2187 100644
  		goto out_nf_conntrack;
  
 -- 
-2.11.0
+2.16.4
 

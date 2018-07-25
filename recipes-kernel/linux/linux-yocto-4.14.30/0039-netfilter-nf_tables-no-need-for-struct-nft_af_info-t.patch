@@ -1,7 +1,7 @@
-From 74e43165735304efe36f2fe97d1c4547dbc26921 Mon Sep 17 00:00:00 2001
+From d3c513ca5815fb22c874db6cdee704fed68e685d Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 19 Dec 2017 12:17:52 +0100
-Subject: [PATCH 39/96] netfilter: nf_tables: no need for struct nft_af_info to
+Subject: [PATCH 39/98] netfilter: nf_tables: no need for struct nft_af_info to
  enable/disable table
 
 nf_tables_table_enable() and nf_tables_table_disable() take a pointer to
@@ -84,5 +84,5 @@ index e7fbb6b57dcb..65bbd782ef4c 100644
  					trans->ctx.table->flags |= NFT_TABLE_F_DORMANT;
  				}
 -- 
-2.11.0
+2.16.4
 

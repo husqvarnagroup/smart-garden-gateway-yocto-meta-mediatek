@@ -1,7 +1,7 @@
-From 1855d4b190bc5292fa2ef064b60d0cac52ae2de9 Mon Sep 17 00:00:00 2001
+From acfe3ec35a9e94ef938b58c099dc659424bd8b71 Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Sun, 27 Jul 2014 11:15:12 +0100
-Subject: [PATCH 91/96] SPI: ralink: add Ralink SoC spi driver
+Subject: [PATCH 91/98] SPI: ralink: add Ralink SoC spi driver
 
 Add the driver needed to make SPI work on Ralink SoC.
 
@@ -580,5 +580,5 @@ index 000000000000..c286c94f9ff1
 +MODULE_AUTHOR("Gabor Juhos <juhosg@openwrt.org>");
 +MODULE_LICENSE("GPL");
 -- 
-2.11.0
+2.16.4
 

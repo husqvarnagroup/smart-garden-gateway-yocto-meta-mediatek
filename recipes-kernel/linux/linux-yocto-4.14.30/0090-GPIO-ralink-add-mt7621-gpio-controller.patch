@@ -1,7 +1,7 @@
-From 250097944caa907fe214bd96425d24d0ce5662fd Mon Sep 17 00:00:00 2001
+From ef14e5f5b0ee7242829b9ee0d34e6102c2f7ff9c Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Sun, 27 Jul 2014 11:00:32 +0100
-Subject: [PATCH 90/96] GPIO: ralink: add mt7621 gpio controller
+Subject: [PATCH 90/98] GPIO: ralink: add mt7621 gpio controller
 
 Signed-off-by: John Crispin <blogic@openwrt.org>
 ---
@@ -413,5 +413,5 @@ index 000000000000..9ee4a0ea4245
 +
 +subsys_initcall(mediatek_gpio_init);
 -- 
-2.11.0
+2.16.4
 

@@ -1,7 +1,7 @@
-From 2f5081c32715717bc27a2fb63383dc21224a2b0f Mon Sep 17 00:00:00 2001
+From 2c7942f7c271d658d765d8d8f6bbefa05b2cc415 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sat, 17 Feb 2018 11:55:51 +0100
-Subject: [PATCH 61/96] netfilter: nf_flow_table: move ipv6 offload hook code
+Subject: [PATCH 61/98] netfilter: nf_flow_table: move ipv6 offload hook code
  to nf_flow_table
 
 Useful as preparation for adding iptables support for offload
@@ -490,5 +490,5 @@ index 79976c25891b..fc6f00c42d48 100644
 +}
 +EXPORT_SYMBOL_GPL(nf_flow_offload_ipv6_hook);
 -- 
-2.11.0
+2.16.4
 

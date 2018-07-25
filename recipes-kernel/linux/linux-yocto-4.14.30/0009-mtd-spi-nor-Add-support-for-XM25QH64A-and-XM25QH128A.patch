@@ -1,7 +1,7 @@
-From f44825fc2d658a2fdd501b97f5ab2b60941da670 Mon Sep 17 00:00:00 2001
+From 527dc94a3c362a7fb21ee5b2327ad89bad56b4ae Mon Sep 17 00:00:00 2001
 From: Hauke Mehrtens <hauke@hauke-m.de>
 Date: Wed, 18 Apr 2018 22:25:32 +0200
-Subject: [PATCH 09/96] mtd: spi-nor: Add support for XM25QH64A and XM25QH128A
+Subject: [PATCH 09/98] mtd: spi-nor: Add support for XM25QH64A and XM25QH128A
 
 These devices are produced by Wuhan Xinxin Semiconductor Manufacturing
 Corp. (XMC) and found on some routers from Chinese manufactures.
@@ -33,5 +33,5 @@ index 7eb977fb7781..92338dc33395 100644
  };
  
 -- 
-2.11.0
+2.16.4
 

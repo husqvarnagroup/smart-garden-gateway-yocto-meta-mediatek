@@ -1,7 +1,7 @@
-From e8448b3598d9917ff53a0924734089c9d0e80e6e Mon Sep 17 00:00:00 2001
+From 778c8293b04c3e293e135fc83a86e830313ba90e Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Mon, 23 Jul 2018 10:54:44 +0000
-Subject: [PATCH 95/96] Add support for GD5F1GQ4UB NAND
+Subject: [PATCH 97/98] Add support for GD5F1GQ4UB NAND
 
 Please note: The original OpenWrt driver (most likely) was/is written
 for the GD5F4GQ4xC (e.g. GD5F4GQ4xCxIG_Rev1.8-1.pdf)
@@ -462,5 +462,5 @@ index 0f479079dbcf..f5cacc4e6be9 100644
  }
  
 -- 
-2.11.0
+2.16.4
 

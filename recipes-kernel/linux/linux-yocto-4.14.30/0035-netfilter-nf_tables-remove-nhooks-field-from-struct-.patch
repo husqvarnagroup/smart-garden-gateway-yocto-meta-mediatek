@@ -1,7 +1,7 @@
-From df0623b492b0093500094a497f955e27aa1af39d Mon Sep 17 00:00:00 2001
+From 432fb27f643b7155b0d94096eed5791a21418177 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 19 Dec 2017 13:53:45 +0100
-Subject: [PATCH 35/96] netfilter: nf_tables: remove nhooks field from struct
+Subject: [PATCH 35/98] netfilter: nf_tables: remove nhooks field from struct
  nft_af_info
 
 We already validate the hook through bitmask, so this check is
@@ -138,5 +138,5 @@ index 42f6f6d42a6d..3da3dc7de945 100644
  	.flags		= NFT_AF_NEEDS_DEV,
  };
 -- 
-2.11.0
+2.16.4
 

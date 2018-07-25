@@ -1,7 +1,7 @@
-From 8712563e68381b26dfb299a05ad7629a4c2bde00 Mon Sep 17 00:00:00 2001
+From dd18d61d4f98ce767f0bdebd077c8aaa9d77c18a Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 17:22:55 +0100
-Subject: [PATCH 71/96] netfilter: nf_flow_table: fix checksum when handling
+Subject: [PATCH 71/98] netfilter: nf_flow_table: fix checksum when handling
  DNAT
 
 Add a missing call to csum_replace4 like on SNAT
@@ -24,5 +24,5 @@ index df58ed8be330..6d9d4b0599cc 100644
  	return nf_flow_nat_ip_l4proto(skb, iph, thoff, addr, new_addr);
  }
 -- 
-2.11.0
+2.16.4
 

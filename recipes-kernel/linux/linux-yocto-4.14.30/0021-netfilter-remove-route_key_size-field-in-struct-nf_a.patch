@@ -1,7 +1,7 @@
-From de01ff241dbfcce7430d511915f98f7dc2add4aa Mon Sep 17 00:00:00 2001
+From e8c990e148c6ee90c635564c23efca985940ccb5 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 27 Nov 2017 22:58:37 +0100
-Subject: [PATCH 21/96] netfilter: remove route_key_size field in struct
+Subject: [PATCH 21/98] netfilter: remove route_key_size field in struct
  nf_afinfo
 
 This is only needed by nf_queue, place this code where it belongs.
@@ -108,5 +108,5 @@ index ebbb8bd74521..df820cad60cf 100644
  
  	nf_queue_entry_get_refs(entry);
 -- 
-2.11.0
+2.16.4
 

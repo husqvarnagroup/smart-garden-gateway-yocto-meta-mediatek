@@ -1,7 +1,7 @@
-From f4beb48f80132b4890cf841b32ebb530ba54a993 Mon Sep 17 00:00:00 2001
+From 424f94b720006e0afa36ec0550caef0554ec747c Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 15:43:17 +0100
-Subject: [PATCH 24/96] netfilter: nf_tables: remove hooks from family
+Subject: [PATCH 24/98] netfilter: nf_tables: remove hooks from family
  definition
 
 They don't belong to the family definition, move them to the filter
@@ -259,5 +259,5 @@ index 018e2c5b4a49..42f6f6d42a6d 100644
  
  static void nft_netdev_event(unsigned long event, struct net_device *dev,
 -- 
-2.11.0
+2.16.4
 

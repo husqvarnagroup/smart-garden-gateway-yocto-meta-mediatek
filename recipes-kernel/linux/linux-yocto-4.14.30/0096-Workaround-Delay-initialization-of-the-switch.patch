@@ -1,7 +1,7 @@
-From 9d1769289f015d3330469345f5f063fbeb4e7e5f Mon Sep 17 00:00:00 2001
+From 6cc60fa1c75f41f86df8dd6c1be103d0bdbc36d9 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Thu, 19 Jul 2018 00:27:25 +0000
-Subject: [PATCH 94/96] Workaround: Delay initialization of the switch
+Subject: [PATCH 96/98] Workaround: Delay initialization of the switch
 
 Reason: This is a script-less workaround for issue discussed here:
  - https://github.com/openwrt/openwrt/blob/972c126eb6390f3dcc34220d42c24843ee79c375/target/linux/ramips/base-files/lib/preinit/07_set_preinit_iface_ramips
@@ -33,5 +33,5 @@ index 816c588dd7f2..77fd647affa3 100644
  	esw = devm_kzalloc(&pdev->dev, sizeof(*esw), GFP_KERNEL);
  	if (!esw)
 -- 
-2.11.0
+2.16.4
 

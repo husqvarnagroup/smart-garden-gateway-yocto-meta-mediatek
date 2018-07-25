@@ -1,7 +1,7 @@
-From 7b066f81f0317b829b17aa518aaa1cf21bc5e54b Mon Sep 17 00:00:00 2001
+From 318d9638cd5c5a4e4f35ec4ac08312c44eff20a9 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 19 Dec 2017 13:40:22 +0100
-Subject: [PATCH 40/96] netfilter: nf_tables: remove struct nft_af_info
+Subject: [PATCH 40/98] netfilter: nf_tables: remove struct nft_af_info
  parameter in nf_tables_chain_type_lookup()
 
 Pass family number instead, this comes in preparation for the removal of
@@ -64,5 +64,5 @@ index 65bbd782ef4c..cbf5bd025b9d 100644
  			return PTR_ERR(type);
  	}
 -- 
-2.11.0
+2.16.4
 

@@ -1,7 +1,7 @@
-From 730cfc12a6a953670acc2335b33e8042dbc507d4 Mon Sep 17 00:00:00 2001
+From 71893a9dd1353cc1dcc865b51b48e388d18f0a44 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Thu, 15 Mar 2018 18:21:43 +0100
-Subject: [PATCH 72/96] netfilter: nf_flow_table: clean up and fix dst handling
+Subject: [PATCH 72/98] netfilter: nf_flow_table: clean up and fix dst handling
 
 dst handling in the code is inconsistent and possibly wrong. In my test,
 skb_dst(skb) holds the dst entry after routing but before NAT, so the
@@ -96,5 +96,5 @@ index 5458a79f7484..81fcb5c45942 100644
  
  	route->tuple[dir].dst		= this_dst;
 -- 
-2.11.0
+2.16.4
 

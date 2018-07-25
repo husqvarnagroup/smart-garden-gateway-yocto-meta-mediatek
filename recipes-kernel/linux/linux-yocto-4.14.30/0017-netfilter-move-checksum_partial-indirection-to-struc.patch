@@ -1,7 +1,7 @@
-From baff54fbb454f8eb694d001cf939aa7f2a8b28af Mon Sep 17 00:00:00 2001
+From d08e7bc1dc94a26d8a780376d304870d6e140d18 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Wed, 20 Dec 2017 16:04:18 +0100
-Subject: [PATCH 17/96] netfilter: move checksum_partial indirection to struct
+Subject: [PATCH 17/98] netfilter: move checksum_partial indirection to struct
  nf_ipv6_ops
 
 We cannot make a direct call to nf_ip6_checksum_partial() because that
@@ -226,5 +226,5 @@ index 159a9cdcfe1e..ca6d8d62496d 100644
 +}
 +EXPORT_SYMBOL_GPL(nf_checksum_partial);
 -- 
-2.11.0
+2.16.4
 

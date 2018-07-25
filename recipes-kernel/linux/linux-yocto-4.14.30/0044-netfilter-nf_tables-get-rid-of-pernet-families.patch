@@ -1,7 +1,7 @@
-From f844127640a0635b7d0d745f289d631fc790b562 Mon Sep 17 00:00:00 2001
+From 5474fdcc742f4b68628453b0eec014778240d6e5 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 9 Jan 2018 02:42:11 +0100
-Subject: [PATCH 44/96] netfilter: nf_tables: get rid of pernet families
+Subject: [PATCH 44/98] netfilter: nf_tables: get rid of pernet families
 
 Now that we have a single table list for each netns, we can get rid of
 one pointer per family and the global afinfo list, thus, shrinking
@@ -626,5 +626,5 @@ index 01b61a67a2ac..404b49acb125 100644
  
  module_init(nf_tables_netdev_init);
 -- 
-2.11.0
+2.16.4
 

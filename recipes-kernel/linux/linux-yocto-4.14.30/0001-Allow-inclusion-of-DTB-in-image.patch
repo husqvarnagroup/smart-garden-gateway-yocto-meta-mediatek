@@ -1,7 +1,7 @@
-From 2abc45c246b2f9ffac9e41669bb7aac5d4d42001 Mon Sep 17 00:00:00 2001
+From b680c09fe9bfe0a2ef21bfb6962dfc0f5c7aec7e Mon Sep 17 00:00:00 2001
 From: Ulf Samuelsson <ulf@emagii.com>
 Date: Tue, 21 Nov 2017 18:11:23 +0100
-Subject: [PATCH 01/96] Allow inclusion of DTB in image
+Subject: [PATCH 01/98] Allow inclusion of DTB in image
 
 Signed-off-by: Ulf Samuelsson <ulf@emagii.com>
 ---
@@ -106,5 +106,5 @@ index c22da16d67b8..e57db050f4e1 100644
  	@ln -sf $(notdir $<) $@
  	@echo '  Image $@ is ready'
 -- 
-2.11.0
+2.16.4
 

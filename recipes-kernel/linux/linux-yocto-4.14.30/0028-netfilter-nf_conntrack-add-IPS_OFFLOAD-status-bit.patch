@@ -1,7 +1,7 @@
-From 08e48ee0364178326dc7b2ad61e237b5bb8a9434 Mon Sep 17 00:00:00 2001
+From 11a93952661ce92b5a4e1a9669c1d45e5228c0b9 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:03:56 +0100
-Subject: [PATCH 28/96] netfilter: nf_conntrack: add IPS_OFFLOAD status bit
+Subject: [PATCH 28/98] netfilter: nf_conntrack: add IPS_OFFLOAD status bit
 
 This new bit tells us that the conntrack entry is owned by the flow
 table offload infrastructure.
@@ -185,5 +185,5 @@ index 5a101caa3e12..46d32baad095 100644
  
  	if (seq_has_overflowed(s))
 -- 
-2.11.0
+2.16.4
 

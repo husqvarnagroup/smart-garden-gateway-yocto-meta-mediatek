@@ -1,4 +1,4 @@
-From d50440d6bdfec02af352a4e273076f292a07a882 Mon Sep 17 00:00:00 2001
+From 1976a800fb0c5c551d839fd648414c5f974d0c8c Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Thu, 1 Feb 2018 18:49:01 +0100
 Subject: [PATCH 47/98] netfilter: nft_flow_offload: no need to flush entries

@@ -1,4 +1,4 @@
-From acfe3ec35a9e94ef938b58c099dc659424bd8b71 Mon Sep 17 00:00:00 2001
+From 642000176f5abf065a6073c115caaff91118470f Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Sun, 27 Jul 2014 11:15:12 +0100
 Subject: [PATCH 91/98] SPI: ralink: add Ralink SoC spi driver

@@ -1,4 +1,4 @@
-From 64c002283c8fd0b34da2169b319c55c7c97c6719 Mon Sep 17 00:00:00 2001
+From dff78349ba9190eac1aa311e51d01ad96f6ae5ba Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 30 Dec 2017 22:41:46 +0100
 Subject: [PATCH 25/98] netfilter: remove defensive check on malformed packets

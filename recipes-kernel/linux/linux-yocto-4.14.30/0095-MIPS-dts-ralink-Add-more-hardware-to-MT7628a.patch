@@ -1,14 +1,14 @@
-From d7dd05238a6a22b97e96e715702ad7c81c053c6b Mon Sep 17 00:00:00 2001
+From 16510f16841dec92770cc23190100cb13a926dbc Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Thu, 12 Jul 2018 00:55:45 +0000
 Subject: [PATCH 95/98] MIPS: dts: ralink: Add more hardware to MT7628a
 
 ---
- arch/mips/boot/dts/ralink/mt7628a.dtsi | 78 +++++++++++++++++++++++++++++++++-
- 1 file changed, 77 insertions(+), 1 deletion(-)
+ arch/mips/boot/dts/ralink/mt7628a.dtsi | 101 ++++++++++++++++++++++++++++++++-
+ 1 file changed, 100 insertions(+), 1 deletion(-)
 
 diff --git a/arch/mips/boot/dts/ralink/mt7628a.dtsi b/arch/mips/boot/dts/ralink/mt7628a.dtsi
-index 9ff7e8faaecc..3af8860ff416 100644
+index 9ff7e8faaecc..3903c390aa49 100644
 --- a/arch/mips/boot/dts/ralink/mt7628a.dtsi
 +++ b/arch/mips/boot/dts/ralink/mt7628a.dtsi
 @@ -1,7 +1,7 @@
@@ -38,10 +38,26 @@ index 9ff7e8faaecc..3af8860ff416 100644
  		intc: interrupt-controller@200 {
  			compatible = "ralink,rt2880-intc";
  			reg = <0x200 0x100>;
-@@ -62,6 +73,22 @@
+@@ -62,6 +73,38 @@
  			reg = <0x300 0x100>;
  		};
  
++		i2c: i2c@900 {
++			compatible = "mediatek,mt7621-i2c";
++			reg = <0x900 0x100>;
++
++			resets = <&resetc 16>;
++			reset-names = "i2c";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			status = "disabled";
++
++			pinctrl-names = "default";
++			pinctrl-0 = <&i2c_pins>;
++		};
++
 +		spi0: spi@b00 {
 +			compatible = "ralink,mt7621-spi";
 +			reg = <0xb00 0x100>;
@@ -61,7 +77,7 @@ index 9ff7e8faaecc..3af8860ff416 100644
  		uart0: uartlite@c00 {
  			compatible = "ns16550a";
  			reg = <0xc00 0x100>;
-@@ -102,6 +129,29 @@
+@@ -102,6 +145,36 @@
  		};
  	};
  
@@ -86,12 +102,19 @@ index 9ff7e8faaecc..3af8860ff416 100644
 +				ralink,function = "spi cs1";
 +			};
 +		};
++
++		i2c_pins: i2c {
++			i2c {
++				ralink,group = "i2c";
++				ralink,function = "i2c";
++			};
++		};
 +	};
 +
  	usb_phy: usb-phy@10120000 {
  		compatible = "mediatek,mt7628-usbphy";
  		reg = <0x10120000 0x1000>;
-@@ -123,4 +173,30 @@
+@@ -123,4 +196,30 @@
  		interrupt-parent = <&intc>;
  		interrupts = <18>;
  	};

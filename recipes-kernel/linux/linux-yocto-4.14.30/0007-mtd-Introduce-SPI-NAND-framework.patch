@@ -1,4 +1,4 @@
-From 47deae6eac450ed22173042003c0a58f4cd317a6 Mon Sep 17 00:00:00 2001
+From ba106b4770ca46e22e4631f64d25ca13bea2333d Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Tue, 2 Dec 2014 09:58:52 -0300
 Subject: [PATCH 07/98] mtd: Introduce SPI NAND framework

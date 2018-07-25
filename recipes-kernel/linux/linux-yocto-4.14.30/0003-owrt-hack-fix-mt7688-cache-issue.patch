@@ -1,4 +1,4 @@
-From 8ba523ac4d71fba161793454ec547fc23035cb7d Mon Sep 17 00:00:00 2001
+From 9559cf7487e7cb3ff8286961b0f3a1b7b00c8c9b Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Mon, 7 Dec 2015 17:15:32 +0100
 Subject: [PATCH 03/98] owrt: hack: fix mt7688 cache issue

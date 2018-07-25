@@ -1,4 +1,4 @@
-From 68226738aa7c536a3b78ba06a2257238b61fa5b6 Mon Sep 17 00:00:00 2001
+From 46900a17e3784ca50f9ca5dbbf246115c327ca4c Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 9 Jan 2018 02:48:47 +0100
 Subject: [PATCH 45/98] netfilter: nf_tables: get rid of struct nft_af_info

@@ -1,4 +1,4 @@
-From 5e2f47f3000a3ec9793931baa8aae7cd87f1b16f Mon Sep 17 00:00:00 2001
+From 49793095b1f33efc440c57348595b3e4a9097695 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Fri, 3 Nov 2017 16:26:32 +0100
 Subject: [PATCH 27/98] netfilter: conntrack: move nf_ct_netns_{get,put}() to

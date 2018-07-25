@@ -1,4 +1,4 @@
-From fb94f1698322499ec4c8c1bcc3f24f80b821ef7d Mon Sep 17 00:00:00 2001
+From b0a658a2535268b22f99569fc0a608a46e1761db Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 13 Jun 2018 12:33:39 +0200
 Subject: [PATCH 76/98] netfilter: nf_flow_table: fix offloaded connection

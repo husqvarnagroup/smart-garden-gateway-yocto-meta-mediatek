@@ -1,4 +1,4 @@
-From a8e59e0224b93185220c9e64588cc2e7431b868e Mon Sep 17 00:00:00 2001
+From 6aa348fbecf0992dbba44eb3e57412f6c16cc080 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:04:07 +0100
 Subject: [PATCH 29/98] netfilter: nf_tables: add flow table netlink frontend

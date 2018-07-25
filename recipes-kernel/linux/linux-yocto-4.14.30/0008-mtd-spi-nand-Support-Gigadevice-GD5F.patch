@@ -1,4 +1,4 @@
-From a18703af48d5109aa4c8ce4d61e6e9119b2c03f5 Mon Sep 17 00:00:00 2001
+From 43b33a0b1f071b06c5d6941a0a528b778148600c Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Tue, 28 Feb 2017 10:37:24 +0000
 Subject: [PATCH 08/98] mtd: spi-nand: Support Gigadevice GD5F

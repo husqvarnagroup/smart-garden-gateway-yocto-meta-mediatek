@@ -1,4 +1,4 @@
-From 8b4668aaa47b3634e58756354266115001eeec02 Mon Sep 17 00:00:00 2001
+From 3a3c8752acf46d7ff585d48964fa666e9322a227 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 23 Mar 2018 17:15:22 +0100
 Subject: [PATCH 73/98] netfilter: nf_flow_table: add missing condition for TCP

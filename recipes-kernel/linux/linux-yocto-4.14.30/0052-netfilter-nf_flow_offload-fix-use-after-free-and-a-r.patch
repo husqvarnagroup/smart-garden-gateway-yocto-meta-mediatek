@@ -1,4 +1,4 @@
-From b96c74acbf65c9f8420d314d62c88ee3ee40232b Mon Sep 17 00:00:00 2001
+From 84859d7b10cdc270cf005ed27df6ddffefbfdfd2 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 7 Feb 2018 09:23:25 +0100
 Subject: [PATCH 52/98] netfilter: nf_flow_offload: fix use-after-free and a

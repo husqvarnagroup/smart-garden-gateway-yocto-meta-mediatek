@@ -1,4 +1,4 @@
-From 3349954e5e7ba4e9262f566c394256f7e9345743 Mon Sep 17 00:00:00 2001
+From a58049dfc12f0c333fbc803cca2f9b9de53d9657 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:04:19 +0100
 Subject: [PATCH 32/98] netfilter: flow table support for IPv6

@@ -1,4 +1,4 @@
-From f650d2b9e9891bad12a90a1fc37ba3914664ff56 Mon Sep 17 00:00:00 2001
+From 8250f7935183805c5b41b97d8260d5ca364a1bbb Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Mon, 7 Dec 2015 17:21:27 +0100
 Subject: [PATCH 94/98] i2c: add mt7621 driver

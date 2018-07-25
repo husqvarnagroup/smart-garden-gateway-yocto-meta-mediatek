@@ -1,4 +1,4 @@
-From a117b412bc55ffed8ac2b76f3577faa8a41387be Mon Sep 17 00:00:00 2001
+From 7f3b4d83276763904b3664e777bd30cef1c2e80d Mon Sep 17 00:00:00 2001
 From: Wei Yongjun <weiyongjun1@huawei.com>
 Date: Wed, 10 Jan 2018 13:06:46 +0000
 Subject: [PATCH 54/98] netfilter: remove duplicated include

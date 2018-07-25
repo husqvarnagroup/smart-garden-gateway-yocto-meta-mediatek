@@ -1,4 +1,4 @@
-From de55f6955eda8b9d22ea3d4534d4fb981a07f245 Mon Sep 17 00:00:00 2001
+From f88e6cf6006fa3b642d20db7e0bedba7e148aa9b Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 10 Dec 2017 01:43:14 +0100
 Subject: [PATCH 12/98] netfilter: nf_tables: explicit nft_set_pktinfo() call

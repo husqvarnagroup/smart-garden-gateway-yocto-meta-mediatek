@@ -1,4 +1,4 @@
-From 8a23203ae4bc187093622166b6eda2f2e0f0840a Mon Sep 17 00:00:00 2001
+From 159fa7ed4213a7f168f2436fbaf6c3812c1e69d0 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 9 Jan 2018 02:38:03 +0100
 Subject: [PATCH 42/98] netfilter: nf_tables: add single table list for all

@@ -1,4 +1,4 @@
-From 3fa77ba124fafb327f4bd20c59eb0d7996443b78 Mon Sep 17 00:00:00 2001
+From b43a6645f36a174777477a6127f1c625c738c64b Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 11 Jul 2018 21:16:00 +0000
 Subject: [PATCH 79/98] kernel: add a new version of my netfilter speedup

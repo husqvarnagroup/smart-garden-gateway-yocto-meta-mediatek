@@ -1,4 +1,4 @@
-From d10a1d016916ab1fa6e04496779a7697565063c0 Mon Sep 17 00:00:00 2001
+From cfc67a86476d0ce2b6dbb9bc489a26decbea1f8c Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 27 Apr 2018 14:42:14 +0200
 Subject: [PATCH 86/98] netfilter: nf_flow_table: rework private driver data

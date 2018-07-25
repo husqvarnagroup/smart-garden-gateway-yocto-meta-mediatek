@@ -1,4 +1,4 @@
-From 7200c8ca6f2ee91813cf4d78fa43daddf7b9b01e Mon Sep 17 00:00:00 2001
+From 87e21e2807303014768c83c4262d6f51dfa74561 Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Sat, 25 Feb 2017 15:58:22 +0000
 Subject: [PATCH 05/98] mtd: nand: Check length of ID before reading bits per

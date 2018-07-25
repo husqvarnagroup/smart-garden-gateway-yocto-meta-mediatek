@@ -1,4 +1,4 @@
-From ab82f7d787e88c1ea3c0cc75a6ee86a0af02d767 Mon Sep 17 00:00:00 2001
+From 9de6d9d3f1242bb7e137feffd7f18758ca5239d6 Mon Sep 17 00:00:00 2001
 From: Arnd Bergmann <arnd@arndb.de>
 Date: Wed, 10 Jan 2018 18:10:59 +0100
 Subject: [PATCH 37/98] netfilter: improve flow table Kconfig dependencies

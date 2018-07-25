@@ -1,4 +1,4 @@
-From 601dc6093173382ab5a81d52226f96ced9a88263 Mon Sep 17 00:00:00 2001
+From aab1a777c6fdf457ab6876d0e3fa7903d83c8c77 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 27 Nov 2017 21:55:14 +0100
 Subject: [PATCH 16/98] netfilter: move checksum indirection to struct

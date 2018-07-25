@@ -1,4 +1,4 @@
-From bdc64b00b8f2d0a572ce01965c812ee9fa61c338 Mon Sep 17 00:00:00 2001
+From 61e8135321878447fd2f76ca2f893c747d87db55 Mon Sep 17 00:00:00 2001
 From: Hangbin Liu <liuhangbin@gmail.com>
 Date: Mon, 25 Dec 2017 11:34:54 +0800
 Subject: [PATCH 41/98] netfilter: nf_tables: fix potential NULL-ptr deref in

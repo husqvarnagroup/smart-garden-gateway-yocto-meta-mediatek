@@ -1,4 +1,4 @@
-From fdd16e13b4fce8f57075febe29a57903ed3a9d9a Mon Sep 17 00:00:00 2001
+From 9d091a2157fb22c88ed752a4e2344da46ceee9a1 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 11 Jul 2018 21:15:58 +0000
 Subject: [PATCH 78/98] netfilter: add support for flushing conntrack via /proc

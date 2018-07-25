@@ -1,4 +1,4 @@
-From 11a93952661ce92b5a4e1a9669c1d45e5228c0b9 Mon Sep 17 00:00:00 2001
+From 4320758dca8394db32e89293eec6ae3e40229eea Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:03:56 +0100
 Subject: [PATCH 28/98] netfilter: nf_conntrack: add IPS_OFFLOAD status bit

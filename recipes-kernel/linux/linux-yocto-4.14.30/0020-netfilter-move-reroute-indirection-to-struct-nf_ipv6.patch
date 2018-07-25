@@ -1,4 +1,4 @@
-From 1ffea4545a5e3637b49742c753cec9c5d82374d9 Mon Sep 17 00:00:00 2001
+From 4fdaf6bff71909687f891c9aaf0a99bac50a4537 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 27 Nov 2017 22:50:26 +0100
 Subject: [PATCH 20/98] netfilter: move reroute indirection to struct

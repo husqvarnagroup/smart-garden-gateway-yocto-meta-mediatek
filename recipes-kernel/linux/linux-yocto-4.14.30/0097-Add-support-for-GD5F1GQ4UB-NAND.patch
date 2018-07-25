@@ -1,4 +1,4 @@
-From 778c8293b04c3e293e135fc83a86e830313ba90e Mon Sep 17 00:00:00 2001
+From 8934c447cf11bf3a7080ec84a39c97f7077b2ee3 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Mon, 23 Jul 2018 10:54:44 +0000
 Subject: [PATCH 97/98] Add support for GD5F1GQ4UB NAND

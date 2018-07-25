@@ -1,4 +1,4 @@
-From 2b8cd87f21996dd9e1dfe1481654a3bfa512d3ca Mon Sep 17 00:00:00 2001
+From 9efdb7b3bf15a6c56bfa23d8c7bedff944ccb74e Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Sun, 27 Jul 2014 09:49:07 +0100
 Subject: [PATCH 92/98] spi: add mt7621 support

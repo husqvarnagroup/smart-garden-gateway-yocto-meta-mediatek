@@ -1,4 +1,4 @@
-From 8eee894b3b5d559e7409b0b48549b7b942bf6eca Mon Sep 17 00:00:00 2001
+From bfdf5537551246d38252fa707e682ec0a4efec19 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 5 Feb 2018 21:44:50 +0100
 Subject: [PATCH 49/98] netfilter: nf_tables: fix flowtable free

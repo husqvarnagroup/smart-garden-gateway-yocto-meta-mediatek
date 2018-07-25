@@ -1,4 +1,4 @@
-From 6cc60fa1c75f41f86df8dd6c1be103d0bdbc36d9 Mon Sep 17 00:00:00 2001
+From f5a49f46ddb4ffc80c5fc4d168ab3d7326bd5768 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Thu, 19 Jul 2018 00:27:25 +0000
 Subject: [PATCH 96/98] Workaround: Delay initialization of the switch

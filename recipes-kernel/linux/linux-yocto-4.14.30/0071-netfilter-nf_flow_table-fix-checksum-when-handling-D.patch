@@ -1,4 +1,4 @@
-From dd18d61d4f98ce767f0bdebd077c8aaa9d77c18a Mon Sep 17 00:00:00 2001
+From f73f7c3019a0fe62992db8e08f626cf027265c9c Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 17:22:55 +0100
 Subject: [PATCH 71/98] netfilter: nf_flow_table: fix checksum when handling

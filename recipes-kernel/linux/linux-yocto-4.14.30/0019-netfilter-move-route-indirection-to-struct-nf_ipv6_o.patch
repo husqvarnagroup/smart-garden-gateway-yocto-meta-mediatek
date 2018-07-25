@@ -1,4 +1,4 @@
-From fb3ad943be2ae00ef3f670bb76757b65f6ae14b0 Mon Sep 17 00:00:00 2001
+From 43393d4480a858c652a67b6e265433ee2e51abdd Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 27 Nov 2017 22:29:52 +0100
 Subject: [PATCH 19/98] netfilter: move route indirection to struct nf_ipv6_ops

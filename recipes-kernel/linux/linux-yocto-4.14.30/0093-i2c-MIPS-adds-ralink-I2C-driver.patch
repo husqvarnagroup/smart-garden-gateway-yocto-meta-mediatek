@@ -1,4 +1,4 @@
-From aa84755505f31e7b8419756bf9ad32210daf3855 Mon Sep 17 00:00:00 2001
+From fcb6bcef030ad817790f24e4f1b824f3b06ca469 Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Sun, 27 Jul 2014 09:52:56 +0100
 Subject: [PATCH 93/98] i2c: MIPS: adds ralink I2C driver

@@ -1,4 +1,4 @@
-From 366a1053a865cba41e81ec7a5ea93bd899020569 Mon Sep 17 00:00:00 2001
+From f8841a31f17e3b5771a7b122df65167098bb306c Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 16 Feb 2018 09:41:18 +0100
 Subject: [PATCH 55/98] netfilter: nf_flow_table: use IP_CT_DIR_* values for

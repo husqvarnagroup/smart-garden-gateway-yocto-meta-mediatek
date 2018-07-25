@@ -1,4 +1,4 @@
-From 86b0d5c65e3d1c0040b6df89b9c92c15b10b00cb Mon Sep 17 00:00:00 2001
+From 57a4c537f77f91116ade08fd65a60fb03b8e59d4 Mon Sep 17 00:00:00 2001
 From: Daniel Golle <daniel@makrotopia.org>
 Date: Sat, 3 Jun 2017 20:00:03 +0200
 Subject: [PATCH 02/98] MIPS: pci-mt7620: enabled PCIe on MT7688

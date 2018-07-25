@@ -1,4 +1,4 @@
-From 432fb27f643b7155b0d94096eed5791a21418177 Mon Sep 17 00:00:00 2001
+From 15392cf5b3e2fbd3dfefc29a0a0f8441298eca21 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 19 Dec 2017 13:53:45 +0100
 Subject: [PATCH 35/98] netfilter: nf_tables: remove nhooks field from struct

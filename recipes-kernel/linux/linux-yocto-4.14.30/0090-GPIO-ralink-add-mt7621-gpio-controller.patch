@@ -1,4 +1,4 @@
-From ef14e5f5b0ee7242829b9ee0d34e6102c2f7ff9c Mon Sep 17 00:00:00 2001
+From 7053f03dc7b1a07d34b66a506eddda7ed787f6fb Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Sun, 27 Jul 2014 11:00:32 +0100
 Subject: [PATCH 90/98] GPIO: ralink: add mt7621 gpio controller

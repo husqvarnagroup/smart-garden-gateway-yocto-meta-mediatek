@@ -1,4 +1,4 @@
-From 9238036ab653fb227b5c1dc9400dcf16477bae03 Mon Sep 17 00:00:00 2001
+From 47a91e6782f1eede73b6ac9c7304edeb46c848b9 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 16 Feb 2018 10:57:23 +0100
 Subject: [PATCH 57/98] netfilter: nf_flow_table: cache mtu in struct

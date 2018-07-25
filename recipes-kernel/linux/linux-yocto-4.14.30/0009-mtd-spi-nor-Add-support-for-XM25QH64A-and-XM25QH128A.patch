@@ -1,4 +1,4 @@
-From 527dc94a3c362a7fb21ee5b2327ad89bad56b4ae Mon Sep 17 00:00:00 2001
+From 3b6c77cfbff1afefc330fd76f0a2974c1f0de40e Mon Sep 17 00:00:00 2001
 From: Hauke Mehrtens <hauke@hauke-m.de>
 Date: Wed, 18 Apr 2018 22:25:32 +0200
 Subject: [PATCH 09/98] mtd: spi-nor: Add support for XM25QH64A and XM25QH128A

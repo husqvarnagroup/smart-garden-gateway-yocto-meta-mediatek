@@ -1,4 +1,4 @@
-From 3535543aba9ed2ac907c7a12bb6ab6e031cb28eb Mon Sep 17 00:00:00 2001
+From 488318044fc030c479581701730d0f003864f205 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 16 Feb 2018 09:42:32 +0100
 Subject: [PATCH 56/98] netfilter: nf_flow_table: clean up flow_offload_alloc

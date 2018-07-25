@@ -1,4 +1,4 @@
-From 4304a348c9a94e874dd92584c08f720e09c4981a Mon Sep 17 00:00:00 2001
+From 78a02efbd9ac3da0c9f3e936783e26b6b51a392c Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Thu, 1 Feb 2018 18:49:00 +0100
 Subject: [PATCH 46/98] netfilter: nft_flow_offload: wait for garbage collector

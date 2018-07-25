@@ -1,4 +1,4 @@
-From 00365c39e4c00589e74bd609a8d2a6e81801cad0 Mon Sep 17 00:00:00 2001
+From b743f42fa91f0d3164271ef56af452ae1183ad78 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Thu, 11 Jan 2018 16:32:00 +0100
 Subject: [PATCH 83/98] netfilter: nf_flow_table: add hardware offload support

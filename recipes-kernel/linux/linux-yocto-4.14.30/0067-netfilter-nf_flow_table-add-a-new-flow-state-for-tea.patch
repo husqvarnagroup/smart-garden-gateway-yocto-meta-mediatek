@@ -1,4 +1,4 @@
-From c61631e6bf33c47169229b521a7009f52e9f88bb Mon Sep 17 00:00:00 2001
+From 7f0e0fc6c6a2aee34d097e4d1b513f97f07050ec Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 15:38:31 +0100
 Subject: [PATCH 67/98] netfilter: nf_flow_table: add a new flow state for

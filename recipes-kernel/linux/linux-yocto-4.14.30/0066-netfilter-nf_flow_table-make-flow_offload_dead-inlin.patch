@@ -1,4 +1,4 @@
-From f4a08f9495fbacdcb6f2fdb62a70985796fce99c Mon Sep 17 00:00:00 2001
+From bd57e3c2242646bb9c5960486d9aa0956a8ac4c8 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 15:37:27 +0100
 Subject: [PATCH 66/98] netfilter: nf_flow_table: make flow_offload_dead inline

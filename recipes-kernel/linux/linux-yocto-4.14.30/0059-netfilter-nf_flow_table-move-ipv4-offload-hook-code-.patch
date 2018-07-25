@@ -1,4 +1,4 @@
-From 2f4a3328af8f389bc2e227855fb43a7a0826cf3e Mon Sep 17 00:00:00 2001
+From a9029ccd9ee31fd036ec9913ed0122201d86996b Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sat, 17 Feb 2018 11:49:44 +0100
 Subject: [PATCH 59/98] netfilter: nf_flow_table: move ipv4 offload hook code

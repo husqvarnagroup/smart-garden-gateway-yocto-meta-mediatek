@@ -1,4 +1,4 @@
-From ad2bde08c418c70ff6b59aa99c74e57365cd0088 Mon Sep 17 00:00:00 2001
+From 07f34dd1273003a6d0b358c18a2555a0b2fd3edb Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 10 Dec 2017 01:42:58 +0100
 Subject: [PATCH 23/98] netfilter: nf_tables_arp: don't set forward chain

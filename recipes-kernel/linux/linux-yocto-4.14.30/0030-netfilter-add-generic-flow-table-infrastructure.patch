@@ -1,4 +1,4 @@
-From 6fbaad4d1cf67e673ac2ddf808fc149a00082955 Mon Sep 17 00:00:00 2001
+From 2728e2d6359e4248d37833f701a93f136082178c Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:04:11 +0100
 Subject: [PATCH 30/98] netfilter: add generic flow table infrastructure

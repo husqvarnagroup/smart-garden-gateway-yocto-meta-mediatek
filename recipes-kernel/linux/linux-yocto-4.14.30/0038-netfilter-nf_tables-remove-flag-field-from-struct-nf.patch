@@ -1,4 +1,4 @@
-From ebe51a28973ae1125a72b7360f77ad2320c44804 Mon Sep 17 00:00:00 2001
+From 8802879e49a65a4afd0676fa0e01df8455cae21a Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 19 Dec 2017 14:07:52 +0100
 Subject: [PATCH 38/98] netfilter: nf_tables: remove flag field from struct

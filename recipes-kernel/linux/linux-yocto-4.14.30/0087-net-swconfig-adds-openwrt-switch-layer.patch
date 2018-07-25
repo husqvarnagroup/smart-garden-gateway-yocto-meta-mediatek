@@ -1,4 +1,4 @@
-From d2c09efc3e652108c2f88db443f6bcf1d3cc2d75 Mon Sep 17 00:00:00 2001
+From 62cd6dd6d7258655ed38bba7eef0f0a9d21a5cfd Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 7 Jul 2017 17:24:23 +0200
 Subject: [PATCH 87/98] net: swconfig: adds openwrt switch layer

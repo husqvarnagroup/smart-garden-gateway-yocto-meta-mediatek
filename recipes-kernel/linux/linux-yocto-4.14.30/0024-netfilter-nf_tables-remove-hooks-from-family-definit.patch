@@ -1,4 +1,4 @@
-From 424f94b720006e0afa36ec0550caef0554ec747c Mon Sep 17 00:00:00 2001
+From 1f4edc6d38da219a6ced826d99d577d8917282ca Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 15:43:17 +0100
 Subject: [PATCH 24/98] netfilter: nf_tables: remove hooks from family

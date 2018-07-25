@@ -1,4 +1,4 @@
-From 7acd10ab7ad9327934b7704c4cc2f4853dc55a0f Mon Sep 17 00:00:00 2001
+From ec8a3370267e548f56489fa475973a9506244b19 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 15:36:24 +0100
 Subject: [PATCH 14/98] netfilter: nf_tables_inet: don't use multihook

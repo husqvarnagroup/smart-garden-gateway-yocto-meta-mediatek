@@ -1,4 +1,4 @@
-From dddeb3853aae5f15ea4ec89e8f2c1fda6f022ac4 Mon Sep 17 00:00:00 2001
+From 2b6a6ca99b5c0c90567e8f50f396b79860c6e0c8 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sat, 17 Feb 2018 12:02:28 +0100
 Subject: [PATCH 62/98] netfilter: nf_flow_table: relax mixed ipv4/ipv6

@@ -1,4 +1,4 @@
-From 4b3467ea894afbc27aa0054ce68a6db540d4de94 Mon Sep 17 00:00:00 2001
+From 295d9fb42529704e936b5ff7f927c16fa9ccea4f Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Thu, 25 Jan 2018 12:58:55 +0100
 Subject: [PATCH 50/98] netfilter: nft_flow_offload: handle netdevice events

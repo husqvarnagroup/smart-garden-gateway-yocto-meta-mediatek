@@ -1,13 +1,13 @@
-From 56634f88b23f52591803efa6ad99532a46f6a048 Mon Sep 17 00:00:00 2001
+From 82822c7a5a99ffb4f43c5a5eb3deea4c7b31013f Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Tue, 26 Jun 2018 19:41:14 +0200
 Subject: [PATCH 98/98] MIPS: Add Gardena smart Gateway MT7688 board
 
 ---
  arch/mips/boot/dts/ralink/Makefile                 |  1 +
- .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 55 ++++++++++++++++++++++
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 59 ++++++++++++++++++++++
  arch/mips/ralink/Kconfig                           |  5 ++
- 3 files changed, 61 insertions(+)
+ 3 files changed, 65 insertions(+)
  create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 
 diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
@@ -24,10 +24,10 @@ index a80eeeecf613..fc8e3a32583f 100644
  obj-y				+= $(patsubst %.dtb, %.dtb.o, $(dtb-y))
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 new file mode 100644
-index 000000000000..c58146989dc8
+index 000000000000..42e8e07ca89a
 --- /dev/null
 +++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
-@@ -0,0 +1,55 @@
+@@ -0,0 +1,59 @@
 +/dts-v1/;
 +
 +/include/ "mt7628a.dtsi"
@@ -82,6 +82,10 @@ index 000000000000..c58146989dc8
 +		reg = <1>;
 +		spi-max-frequency = <40000000>;
 +	};
++};
++
++&i2c {
++	status = "okay";
 +};
 diff --git a/arch/mips/ralink/Kconfig b/arch/mips/ralink/Kconfig
 index f26736b7080b..5e0089a61eed 100644

@@ -1,4 +1,4 @@
-From 121f8f1aa78ede7169b66fa1886689ad36fafe5e Mon Sep 17 00:00:00 2001
+From 181532350fdb28074579d32776a2652927928379 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 17:05:53 +0100
 Subject: [PATCH 22/98] netfilter: remove struct nf_afinfo and its helper

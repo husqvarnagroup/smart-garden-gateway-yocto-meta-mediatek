@@ -1,4 +1,4 @@
-From f17a96423241085169e4c63bbb9b2fde5aa37977 Mon Sep 17 00:00:00 2001
+From 4083e866e083107dda00b71c10ff7e4f2a600a7e Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Wed, 11 Jul 2018 18:05:02 +0000
 Subject: [PATCH 10/98] Import MediaTek Ethernet patches from OpenWrt

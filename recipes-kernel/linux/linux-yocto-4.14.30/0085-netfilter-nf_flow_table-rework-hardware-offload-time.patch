@@ -1,4 +1,4 @@
-From 83cc93097162c4a7c6696b9bc730d528eec910ef Mon Sep 17 00:00:00 2001
+From e52a7fd08d61da4562186c94b7099b3b44eda141 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Mar 2018 21:10:55 +0200
 Subject: [PATCH 85/98] netfilter: nf_flow_table: rework hardware offload

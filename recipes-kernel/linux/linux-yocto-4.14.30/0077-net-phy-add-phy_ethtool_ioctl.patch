@@ -1,4 +1,4 @@
-From 5a42ae66a27037f91ac5d6c84ed70c933ba4272f Mon Sep 17 00:00:00 2001
+From 990af02015ad3e6bb292e7c8b1bae535c248abd0 Mon Sep 17 00:00:00 2001
 From: John Crispin <john@phrozen.org>
 Date: Wed, 11 Jul 2018 21:14:24 +0000
 Subject: [PATCH 77/98] net: phy: add phy_ethtool_ioctl()

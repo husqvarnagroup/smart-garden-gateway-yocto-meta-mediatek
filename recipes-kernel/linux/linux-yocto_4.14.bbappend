@@ -21,6 +21,7 @@ SRC_URI_append_mt7688 = " \
         file://enable_mediatek_gpio_support.cfg \
         file://enable_mediatek_spi_support.cfg \
         file://enable_mediatek_i2c.cfg \
+        file://enable_ppp.cfg \
         file://0001-Allow-inclusion-of-DTB-in-image.patch \
         file://0002-MIPS-pci-mt7620-enabled-PCIe-on-MT7688.patch \
         file://0003-owrt-hack-fix-mt7688-cache-issue.patch \
@@ -119,6 +120,7 @@ SRC_URI_append_mt7688 = " \
         file://0096-Workaround-Delay-initialization-of-the-switch.patch \
         file://0097-Add-support-for-GD5F1GQ4UB-NAND.patch \
         file://0098-MIPS-Add-Gardena-smart-Gateway-MT7688-board.patch \
+        file://0099-UART-to-RM-DTS-changes.patch \
         "
 
 # KERNEL_FEATURES_append_mt7688 = ""

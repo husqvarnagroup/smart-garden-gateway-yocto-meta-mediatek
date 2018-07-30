@@ -1,0 +1,127 @@
+From b84afd20fd2cfe3610938b91d799c46b978729f9 Mon Sep 17 00:00:00 2001
+From: Tsvetomir Ivanov <tsvetomir@seluxit.com>
+Date: Mon, 30 Jul 2018 09:02:06 +0000
+Subject: [PATCH] UART to RM DTS changes
+
+    - Remove USB and child systems
+    - Add GPIO to MT7688 device tree
+    - Enable GPIO banks for gardena_smart_gateway
+    - Enable UART1 for gardena_smart_gateway and configure RTS and CTS pins
+---
+ .../ralink/gardena_smart_gateway_mt7688.dts   | 22 ++++++++
+ arch/mips/boot/dts/ralink/mt7628a.dtsi        | 54 +++++++++++--------
+ 2 files changed, 54 insertions(+), 22 deletions(-)
+
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+index c58146989dc8..98b260b5b923 100644
+--- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -2,6 +2,9 @@
+
+ /include/ "mt7628a.dtsi"
+
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++
+ / {
+ 	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7688a-soc", "ralink,mt7628a-soc";
+ 	model = "Gardena smart Gateway MT7688";
+@@ -53,3 +56,22 @@
+ 		spi-max-frequency = <40000000>;
+ 	};
+ };
++
++&gpio0 {
++	status = "okay";
++};
++
++&gpio1 {
++	status = "okay";
++};
++
++&gpio2 {
++	status = "okay";
++};
++
++&uart1 {
++	status = "okay";
++
++	rts-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
++	cts-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
++};
+\ No newline at end of file
+diff --git a/arch/mips/boot/dts/ralink/mt7628a.dtsi b/arch/mips/boot/dts/ralink/mt7628a.dtsi
+index 3af8860ff416..68c3f0b80604 100644
+--- a/arch/mips/boot/dts/ralink/mt7628a.dtsi
++++ b/arch/mips/boot/dts/ralink/mt7628a.dtsi
+@@ -127,6 +127,38 @@
+
+ 			reg-shift = <2>;
+ 		};
++
++		gpio@600 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			compatible = "mtk,mt7628-gpio", "mtk,mt7621-gpio";
++			reg = <0x600 0x100>;
++
++			interrupt-parent = <&intc>;
++			interrupts = <6>;
++
++			gpio0: bank@0 {
++				reg = <0>;
++				compatible = "mtk,mt7621-gpio-bank";
++				gpio-controller;
++				#gpio-cells = <2>;
++			};
++
++			gpio1: bank@1 {
++				reg = <1>;
++				compatible = "mtk,mt7621-gpio-bank";
++				gpio-controller;
++				#gpio-cells = <2>;
++			};
++
++			gpio2: bank@2 {
++				reg = <2>;
++				compatible = "mtk,mt7621-gpio-bank";
++				gpio-controller;
++				#gpio-cells = <2>;
++			};
++		};
+ 	};
+
+ 	pinctrl: pinctrl {
+@@ -152,28 +184,6 @@
+ 		};
+ 	};
+
+-	usb_phy: usb-phy@10120000 {
+-		compatible = "mediatek,mt7628-usbphy";
+-		reg = <0x10120000 0x1000>;
+-
+-		#phy-cells = <0>;
+-
+-		ralink,sysctl = <&sysc>;
+-		resets = <&resetc 22 &resetc 25>;
+-		reset-names = "host", "device";
+-	};
+-
+-	ehci@101c0000 {
+-		compatible = "generic-ehci";
+-		reg = <0x101c0000 0x1000>;
+-
+-		phys = <&usb_phy>;
+-		phy-names = "usb";
+-
+-		interrupt-parent = <&intc>;
+-		interrupts = <18>;
+-	};
+-
+ 	ethernet: ethernet@10100000 {
+ 		compatible = "ralink,rt5350-eth";
+ 		reg = <0x10100000 0x10000>;
+--
+2.18.0
+

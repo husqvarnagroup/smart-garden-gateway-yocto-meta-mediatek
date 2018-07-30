@@ -1,7 +1,7 @@
-From b00931cd99a3cb7a8de4a6f81b2e2d55c8db73c6 Mon Sep 17 00:00:00 2001
+From c857ffebf97fe68c8191865ea18156fbf0640f13 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 11 Jul 2018 21:16:05 +0000
-Subject: [PATCH 81/96] netfilter: reduce match memory access
+Subject: [PATCH 81/98] netfilter: reduce match memory access
 
 Signed-off-by: Felix Fietkau <nbd@nbd.name>
 ---
@@ -25,5 +25,5 @@ index e4178df8b88c..ff1d0c2ca4c4 100644
  		return false;
  
 -- 
-2.11.0
+2.16.4
 

@@ -1,7 +1,7 @@
-From d4b5527f22d0538b52dbfa97613a9f9a05513c0a Mon Sep 17 00:00:00 2001
+From 1cf3824ca222cc64b90489dfece119e989349c04 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 30 May 2018 20:43:15 +0200
-Subject: [PATCH 75/96] netfilter: nf_flow_table: attach dst to skbs
+Subject: [PATCH 75/98] netfilter: nf_flow_table: attach dst to skbs
 
 Some drivers, such as vxlan and wireguard, use the skb's dst in order to
 determine things like PMTU. They therefore loose functionality when flow
@@ -53,5 +53,5 @@ index c2d1685365d8..2f1fb5a3eb4f 100644
  
  	return NF_STOLEN;
 -- 
-2.11.0
+2.16.4
 

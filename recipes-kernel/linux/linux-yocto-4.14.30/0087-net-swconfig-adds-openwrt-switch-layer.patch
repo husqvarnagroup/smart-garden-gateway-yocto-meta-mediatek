@@ -1,7 +1,7 @@
-From 3c0cb986b16a08fe416482c147174a230bd78dc4 Mon Sep 17 00:00:00 2001
+From 62cd6dd6d7258655ed38bba7eef0f0a9d21a5cfd Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 7 Jul 2017 17:24:23 +0200
-Subject: [PATCH 87/96] net: swconfig: adds openwrt switch layer
+Subject: [PATCH 87/98] net: swconfig: adds openwrt switch layer
 
 Signed-off-by: Felix Fietkau <nbd@nbd.name>
 ---
@@ -130,5 +130,5 @@ index 00f097e18c68..f023102a9999 100644
  obj-$(CONFIG_MDIO_BCM_UNIMAC)	+= mdio-bcm-unimac.o
  obj-$(CONFIG_MDIO_BITBANG)	+= mdio-bitbang.o
 -- 
-2.11.0
+2.16.4
 

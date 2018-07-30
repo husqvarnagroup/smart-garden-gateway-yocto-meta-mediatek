@@ -1,7 +1,7 @@
-From a62e349ebf6399a5a84e16ee2fef424f6f56c417 Mon Sep 17 00:00:00 2001
+From eb3d230feaf5fd08eb396538e2607594f9713108 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 15:41:11 +0100
-Subject: [PATCH 69/96] netfilter: nf_flow_table: add support for sending flows
+Subject: [PATCH 69/98] netfilter: nf_flow_table: add support for sending flows
  back to the slow path
 
 Reset the timeout. For TCP, also set the state to indicate to use the
@@ -103,5 +103,5 @@ index a1ecee9ed7fb..a9d3099fae25 100644
  EXPORT_SYMBOL_GPL(flow_offload_teardown);
  
 -- 
-2.11.0
+2.16.4
 

@@ -1,7 +1,7 @@
-From 1c3795e557b649418daeca3a771acb07f1842d6a Mon Sep 17 00:00:00 2001
+From 87e21e2807303014768c83c4262d6f51dfa74561 Mon Sep 17 00:00:00 2001
 From: Ezequiel Garcia <ezequiel.garcia@imgtec.com>
 Date: Sat, 25 Feb 2017 15:58:22 +0000
-Subject: [PATCH 05/96] mtd: nand: Check length of ID before reading bits per
+Subject: [PATCH 05/98] mtd: nand: Check length of ID before reading bits per
  cell
 
 The table-based NAND identification currently reads the number
@@ -35,5 +35,5 @@ index 528e04f96c13..7cc353c6f543 100644
  		chip->options |= type->options;
  		chip->ecc_strength_ds = NAND_ECC_STRENGTH(type);
 -- 
-2.11.0
+2.16.4
 

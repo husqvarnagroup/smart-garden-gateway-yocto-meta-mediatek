@@ -1,7 +1,7 @@
-From 8f80e3467ac3ecd541216e181a82fcb2e751c42f Mon Sep 17 00:00:00 2001
+From 84859d7b10cdc270cf005ed27df6ddffefbfdfd2 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 7 Feb 2018 09:23:25 +0100
-Subject: [PATCH 52/96] netfilter: nf_flow_offload: fix use-after-free and a
+Subject: [PATCH 52/98] netfilter: nf_flow_offload: fix use-after-free and a
  resource leak
 
 flow_offload_del frees the flow, so all associated resource must be
@@ -102,5 +102,5 @@ index 32483aa874c7..462696d85575 100644
  out:
  	rhashtable_walk_stop(&hti);
 -- 
-2.11.0
+2.16.4
 

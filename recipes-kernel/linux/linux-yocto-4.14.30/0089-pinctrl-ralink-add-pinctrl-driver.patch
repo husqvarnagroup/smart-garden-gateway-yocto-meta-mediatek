@@ -1,7 +1,7 @@
-From 191ebdcc807717ec8fd7ed3055c1d6c8d827f46f Mon Sep 17 00:00:00 2001
+From 809b658775161589fa076a44157ce0749e322437 Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Sun, 27 Jul 2014 09:34:05 +0100
-Subject: [PATCH 89/96] pinctrl: ralink: add pinctrl driver
+Subject: [PATCH 89/98] pinctrl: ralink: add pinctrl driver
 
 Signed-off-by: John Crispin <blogic@openwrt.org>
 ---
@@ -532,5 +532,5 @@ index 000000000000..34faf75b6862
 +
 +core_initcall_sync(rt2880_pinmux_init);
 -- 
-2.11.0
+2.16.4
 

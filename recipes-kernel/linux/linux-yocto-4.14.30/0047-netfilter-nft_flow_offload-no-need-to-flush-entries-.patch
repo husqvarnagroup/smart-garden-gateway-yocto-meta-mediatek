@@ -1,7 +1,7 @@
-From d6a2312d5cc9870861070dd9fa5c9b0a94c67549 Mon Sep 17 00:00:00 2001
+From 1976a800fb0c5c551d839fd648414c5f974d0c8c Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Thu, 1 Feb 2018 18:49:01 +0100
-Subject: [PATCH 47/96] netfilter: nft_flow_offload: no need to flush entries
+Subject: [PATCH 47/98] netfilter: nft_flow_offload: no need to flush entries
  on module removal
 
 nft_flow_offload module removal does not require to flush existing
@@ -33,5 +33,5 @@ index 1739ff8ca21f..e5c45c7ac02a 100644
  
  module_init(nft_flow_offload_module_init);
 -- 
-2.11.0
+2.16.4
 

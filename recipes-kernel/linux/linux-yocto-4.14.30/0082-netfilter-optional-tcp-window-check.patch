@@ -1,7 +1,7 @@
-From d0bb540568db19e71d39391234259bfb2cf5b0ac Mon Sep 17 00:00:00 2001
+From 91c64bce237b2909c41d0d61defbdb17640d95af Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 11 Jul 2018 21:16:07 +0000
-Subject: [PATCH 82/96] netfilter: optional tcp window check
+Subject: [PATCH 82/98] netfilter: optional tcp window check
 
 Signed-off-by: Felix Fietkau <nbd@nbd.name>
 ---
@@ -47,5 +47,5 @@ index 156f529d1668..3311f2698993 100644
  };
  #endif /* CONFIG_SYSCTL */
 -- 
-2.11.0
+2.16.4
 

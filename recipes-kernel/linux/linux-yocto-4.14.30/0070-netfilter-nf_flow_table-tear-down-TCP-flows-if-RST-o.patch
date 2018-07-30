@@ -1,7 +1,7 @@
-From bc6465cc2b5605483107b71b7c50d46624d43679 Mon Sep 17 00:00:00 2001
+From 23648983595f4ea17d85fbb4f53085c2a4aa6fb3 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 15:42:58 +0100
-Subject: [PATCH 70/96] netfilter: nf_flow_table: tear down TCP flows if RST or
+Subject: [PATCH 70/98] netfilter: nf_flow_table: tear down TCP flows if RST or
  FIN was seen
 
 Allow the slow path to handle the shutdown of the connection with proper
@@ -85,5 +85,5 @@ index fc6f00c42d48..df58ed8be330 100644
  		return NF_DROP;
  
 -- 
-2.11.0
+2.16.4
 

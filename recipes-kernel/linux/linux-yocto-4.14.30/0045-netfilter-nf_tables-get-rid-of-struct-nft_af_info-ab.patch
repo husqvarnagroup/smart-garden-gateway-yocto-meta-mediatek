@@ -1,7 +1,7 @@
-From b484b9352eb2d5b7c4e86d10345d879d4873275f Mon Sep 17 00:00:00 2001
+From 46900a17e3784ca50f9ca5dbbf246115c327ca4c Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 9 Jan 2018 02:48:47 +0100
-Subject: [PATCH 45/96] netfilter: nf_tables: get rid of struct nft_af_info
+Subject: [PATCH 45/98] netfilter: nf_tables: get rid of struct nft_af_info
  abstraction
 
 Remove the infrastructure to register/unregister nft_af_info structure,
@@ -1229,5 +1229,5 @@ index 404b49acb125..4041fafca934 100644
 -MODULE_ALIAS_NFT_FAMILY(5); /* NFPROTO_NETDEV */
 +MODULE_ALIAS_NFT_CHAIN(5, "filter"); /* NFPROTO_NETDEV */
 -- 
-2.11.0
+2.16.4
 

@@ -1,7 +1,7 @@
-From 4d1e868a3b303fb17fb8e1eeca2d2bf97b9da47a Mon Sep 17 00:00:00 2001
+From bd57e3c2242646bb9c5960486d9aa0956a8ac4c8 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 15:37:27 +0100
-Subject: [PATCH 66/96] netfilter: nf_flow_table: make flow_offload_dead inline
+Subject: [PATCH 66/98] netfilter: nf_flow_table: make flow_offload_dead inline
 
 It is too trivial to keep as a separate exported function
 
@@ -45,5 +45,5 @@ index cf68a2797f58..0f82fb217beb 100644
  {
  	const struct flow_offload_tuple *tuple = data;
 -- 
-2.11.0
+2.16.4
 

@@ -1,7 +1,7 @@
-From 0fb36642b4ed0f9893418444a1c6a3a06cc69fd5 Mon Sep 17 00:00:00 2001
+From 71c2e657c9c9fcedd6614753b8a662c9b40ac49e Mon Sep 17 00:00:00 2001
 From: Florian Westphal <fw@strlen.de>
 Date: Sun, 9 Jul 2017 08:58:30 +0200
-Subject: [PATCH 11/96] netfilter: conntrack: cache route for forwarded
+Subject: [PATCH 11/98] netfilter: conntrack: cache route for forwarded
  connections
 
 ... to avoid per-packet FIB lookup if possible.
@@ -40,16 +40,16 @@ diff --git a/include/net/netfilter/nf_conntrack_extend.h b/include/net/netfilter
 index 21f887c5058c..2cc858ce4913 100644
 --- a/include/net/netfilter/nf_conntrack_extend.h
 +++ b/include/net/netfilter/nf_conntrack_extend.h
-@@ -28,6 +28,9 @@ enum nf_ct_ext_id {
+@@ -27,6 +27,9 @@ enum nf_ct_ext_id {
+ #endif
  #if IS_ENABLED(CONFIG_NETFILTER_SYNPROXY)
  	NF_CT_EXT_SYNPROXY,
- #endif
++#endif
 +#if IS_ENABLED(CONFIG_NF_CONNTRACK_RTCACHE)
 +	NF_CT_EXT_RTCACHE,
-+#endif
+ #endif
  	NF_CT_EXT_NUM,
  };
- 
 @@ -40,6 +43,7 @@ enum nf_ct_ext_id {
  #define NF_CT_EXT_TIMEOUT_TYPE struct nf_conn_timeout
  #define NF_CT_EXT_LABELS_TYPE struct nf_conn_labels
@@ -570,5 +570,5 @@ index 000000000000..7740ecb5ecef
 +MODULE_AUTHOR("Florian Westphal <fw@strlen.de>");
 +MODULE_DESCRIPTION("Conntrack route cache extension");
 -- 
-2.11.0
+2.16.4
 

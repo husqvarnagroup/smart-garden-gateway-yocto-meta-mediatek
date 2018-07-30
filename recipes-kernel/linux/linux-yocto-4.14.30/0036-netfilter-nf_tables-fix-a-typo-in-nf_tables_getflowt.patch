@@ -1,7 +1,7 @@
-From d4366b82df21fb624fb7cbd58845e1d02b93c34c Mon Sep 17 00:00:00 2001
+From 677348b5d6a1a2e7107af5952d25d4c5780ae99b Mon Sep 17 00:00:00 2001
 From: Wei Yongjun <weiyongjun1@huawei.com>
 Date: Wed, 10 Jan 2018 07:04:54 +0000
-Subject: [PATCH 36/96] netfilter: nf_tables: fix a typo in
+Subject: [PATCH 36/98] netfilter: nf_tables: fix a typo in
  nf_tables_getflowtable()
 
 Fix a typo, we should check 'flowtable' instead of 'table'.
@@ -27,5 +27,5 @@ index f76578fb1ecb..25031a906cc2 100644
  
  	skb2 = alloc_skb(NLMSG_GOODSIZE, GFP_KERNEL);
 -- 
-2.11.0
+2.16.4
 

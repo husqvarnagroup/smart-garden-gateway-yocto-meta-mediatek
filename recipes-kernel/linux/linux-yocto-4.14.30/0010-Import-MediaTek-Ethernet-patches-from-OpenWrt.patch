@@ -1,7 +1,7 @@
-From 5380a70828036033e17d1d1cf907e3765e6b6aa5 Mon Sep 17 00:00:00 2001
+From 4083e866e083107dda00b71c10ff7e4f2a600a7e Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Wed, 11 Jul 2018 18:05:02 +0000
-Subject: [PATCH 10/96] Import MediaTek Ethernet patches from OpenWrt
+Subject: [PATCH 10/98] Import MediaTek Ethernet patches from OpenWrt
 
 Repo: git://git.openwrt.org/openwrt/openwrt.git
 Commit: 954faac7bc1dd34047bc4132cd28a96089fcce4e
@@ -36736,5 +36736,5 @@ index 000000000000..ea449653fafa
 +
 +#endif /* _UAPI_LINUX_SWITCH_H */
 -- 
-2.11.0
+2.16.4
 

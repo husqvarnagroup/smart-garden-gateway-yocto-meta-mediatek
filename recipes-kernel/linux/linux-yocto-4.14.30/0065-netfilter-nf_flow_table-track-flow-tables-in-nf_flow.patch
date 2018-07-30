@@ -1,7 +1,7 @@
-From e1b208e22c5e5d4abdcaa94be6e3d235de9d6a56 Mon Sep 17 00:00:00 2001
+From ff86183c7c2caafa47fbf068de664369e1a5cd1d Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Tue, 20 Feb 2018 14:08:14 +0100
-Subject: [PATCH 65/96] netfilter: nf_flow_table: track flow tables in
+Subject: [PATCH 65/98] netfilter: nf_flow_table: track flow tables in
  nf_flow_table directly
 
 Avoids having nf_flow_table depend on nftables (useful for future
@@ -127,5 +127,5 @@ index 7fdca6eaed69..bf9d26d5a8bb 100644
  					       struct nft_flowtable *flowtable)
  {
 -- 
-2.11.0
+2.16.4
 

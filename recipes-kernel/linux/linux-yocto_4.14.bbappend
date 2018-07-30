@@ -117,6 +117,7 @@ SRC_URI_append_mt7688 = " \
         file://0094-Workaround-Delay-initialization-of-the-switch.patch \
         file://0095-Add-support-for-GD5F1GQ4UB-NAND.patch \
         file://0096-MIPS-Add-Gardena-smart-Gateway-MT7688-board.patch \
+        file://0097-UART-to-RM-DTS-changes.patch \
         "
 
 # KERNEL_FEATURES_append_mt7688 = ""

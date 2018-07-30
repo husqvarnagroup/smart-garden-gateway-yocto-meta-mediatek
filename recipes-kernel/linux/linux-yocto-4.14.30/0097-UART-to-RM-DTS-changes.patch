@@ -3,7 +3,7 @@ From: Tsvetomir Ivanov <tsvetomir@seluxit.com>
 Date: Mon, 30 Jul 2018 09:02:06 +0000
 Subject: [PATCH] UART to RM DTS changes
 
-    - Remove USB and child systems
+    - Remove USB and child systems. RTS and CTS share same pins as the USB system
     - Add GPIO to MT7688 device tree
     - Enable GPIO banks for gardena_smart_gateway
     - Enable UART1 for gardena_smart_gateway and configure RTS and CTS pins

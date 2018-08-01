@@ -121,6 +121,7 @@ SRC_URI_append_mt7688 = " \
         file://0097-Add-support-for-GD5F1GQ4UB-NAND.patch \
         file://0098-MIPS-Add-Gardena-smart-Gateway-MT7688-board.patch \
         file://0099-UART-to-RM-DTS-changes.patch \
+        file://0100-GPIO-pins-setup.patch \
         "
 
 # KERNEL_FEATURES_append_mt7688 = ""

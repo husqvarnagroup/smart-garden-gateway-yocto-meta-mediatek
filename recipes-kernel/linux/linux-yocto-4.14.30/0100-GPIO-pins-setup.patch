@@ -1,0 +1,84 @@
+From 93205db03f81bd2f3ec78c99ba12f1d5dd051bef Mon Sep 17 00:00:00 2001
+From: Tsvetomir Ivanov <tsvetomir@seluxit.com>
+Date: Wed, 1 Aug 2018 12:53:41 +0200
+Subject: [PATCH] GPIO pins setup
+
+	- All involved pinctrl groups must be set to GPIO explicitly
+	- Pinctrl groups set up the GPIO1_MODE and GPIO2_MODE registers
+	- Enable UART2 - ensures the pins are setup correctly
+	- Group names can be found in arch/mips/ralink/mt7620.c mt7628an_pinmux_data[]
+	- U-boot currently sets up LED pins as analog GPIOs - can be adjusted in user space
+---
+ .../ralink/gardena_smart_gateway_mt7688.dts   | 45 +++++++++++++++++++
+ 1 file changed, 45 insertions(+)
+
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+index 6dd5b8eb3727..25863840688b 100644
+--- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -27,10 +27,50 @@
+ 			ralink,function = "gpio";
+ 		};
+ 
++		i2s {
++			ralink,group = "i2s";
++			ralink,function = "gpio";
++		};
++
++		p1led {
++			ralink,group = "p1led_an";
++			ralink,function = "gpio";
++		};
++
+ 		spis {
+ 			ralink,group = "spis";
+ 			ralink,function = "gpio";
+ 		};
++
++		wled_an {
++			ralink,group = "wled_an";
++			ralink,function = "gpio";
++		};
++
++		sdmode {
++			ralink,group = "sdmode";
++			ralink,function = "gpio";
++		};
++
++		refclk {
++			ralink,group = "refclk";
++			ralink,function = "gpio";
++		};
++
++		perst {
++			ralink,group = "perst";
++			ralink,function = "gpio";
++		};
++
++		pwm0 {
++			ralink,group = "pwm0";
++			ralink,function = "gpio";
++		};
++
++		pwm1 {
++			ralink,group = "pwm1";
++			ralink,function = "gpio";
++		};
+ 	};
+ };
+ 
+@@ -75,6 +115,11 @@
+ 	rts-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
+ 	cts-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
+ };
++
++&uart2 {
++	status = "okay";
++};
++
+ &i2c {
+ 	status = "okay";
+ };
+-- 
+2.18.0
+

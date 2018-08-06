@@ -1,8 +1,8 @@
-From ec8a3370267e548f56489fa475973a9506244b19 Mon Sep 17 00:00:00 2001
+From 9f61c8f44512179c0da9463c5bdb2bd29e17c33e Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 15:36:24 +0100
-Subject: [PATCH 14/98] netfilter: nf_tables_inet: don't use multihook
- infrastructure anymore
+Subject: [PATCH] netfilter: nf_tables_inet: don't use multihook infrastructure
+ anymore
 
 Use new native NFPROTO_INET support in netfilter core, this gets rid of
 ad-hoc code in the nf_tables API codebase.
@@ -177,5 +177,5 @@ index f713cc205669..c6194b3509aa 100644
  
  static int __net_init nf_tables_inet_init_net(struct net *net)
 -- 
-2.16.4
+2.11.0
 

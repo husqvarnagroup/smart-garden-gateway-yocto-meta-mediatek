@@ -1,8 +1,8 @@
-From 5903f5fe8c0f0a45d710fa4f944fcb00556e6e33 Mon Sep 17 00:00:00 2001
+From b968037a39f714062a336c8a5481d66f6e126a15 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 23 Jan 2018 17:46:09 +0100
-Subject: [PATCH 48/98] netfilter: nft_flow_offload: move flowtable cleanup
- routines to nf_flow_table
+Subject: [PATCH] netfilter: nft_flow_offload: move flowtable cleanup routines
+ to nf_flow_table
 
 Move the flowtable cleanup routines to nf_flow_table and expose the
 nf_flow_table_cleanup() helper function.
@@ -107,5 +107,5 @@ index e5c45c7ac02a..b65829b2be22 100644
  	return NOTIFY_DONE;
  }
 -- 
-2.16.4
+2.11.0
 

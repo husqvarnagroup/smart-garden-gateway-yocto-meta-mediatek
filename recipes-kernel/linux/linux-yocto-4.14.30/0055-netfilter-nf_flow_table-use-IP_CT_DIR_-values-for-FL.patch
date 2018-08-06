@@ -1,7 +1,7 @@
-From f8841a31f17e3b5771a7b122df65167098bb306c Mon Sep 17 00:00:00 2001
+From 9e883a202ef22eb97e1cec3b610dad1058f46876 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Fri, 16 Feb 2018 09:41:18 +0100
-Subject: [PATCH 55/98] netfilter: nf_flow_table: use IP_CT_DIR_* values for
+Subject: [PATCH] netfilter: nf_flow_table: use IP_CT_DIR_* values for
  FLOW_OFFLOAD_DIR_*
 
 Simplifies further code cleanups
@@ -39,5 +39,5 @@ index 833752dd0c58..09ba67598991 100644
  struct flow_offload_tuple {
  	union {
 -- 
-2.16.4
+2.11.0
 

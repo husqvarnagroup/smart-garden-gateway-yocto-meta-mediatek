@@ -1,8 +1,7 @@
-From 181532350fdb28074579d32776a2652927928379 Mon Sep 17 00:00:00 2001
+From 4dc405a42b3d99b2911fa63e1a5a1f89a2763ffe Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 17:05:53 +0100
-Subject: [PATCH 22/98] netfilter: remove struct nf_afinfo and its helper
- functions
+Subject: [PATCH] netfilter: remove struct nf_afinfo and its helper functions
 
 This abstraction has no clients anymore, remove it.
 
@@ -190,5 +189,5 @@ index 11e39cb19441..40846cd54063 100644
  struct static_key nf_hooks_needed[NFPROTO_NUMPROTO][NF_MAX_HOOKS];
  EXPORT_SYMBOL(nf_hooks_needed);
 -- 
-2.16.4
+2.11.0
 

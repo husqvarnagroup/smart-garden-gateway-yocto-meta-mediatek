@@ -1,8 +1,8 @@
-From f88e6cf6006fa3b642d20db7e0bedba7e148aa9b Mon Sep 17 00:00:00 2001
+From 4da6537f053f00c5ec77df2a27e7c944df0b80fe Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 10 Dec 2017 01:43:14 +0100
-Subject: [PATCH 12/98] netfilter: nf_tables: explicit nft_set_pktinfo() call
- from hook path
+Subject: [PATCH] netfilter: nf_tables: explicit nft_set_pktinfo() call from
+ hook path
 
 Instead of calling this function from the family specific variant, this
 reduces the code size in the fast path for the netdev, bridge and inet
@@ -328,5 +328,5 @@ index 403432988313..3cd127dd2895 100644
  	}
  
 -- 
-2.16.4
+2.11.0
 

@@ -1,8 +1,8 @@
-From 7f0e0fc6c6a2aee34d097e4d1b513f97f07050ec Mon Sep 17 00:00:00 2001
+From c8b880302a863e154c806bbceeda1acec43ca074 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Feb 2018 15:38:31 +0100
-Subject: [PATCH 67/98] netfilter: nf_flow_table: add a new flow state for
- tearing down offloading
+Subject: [PATCH] netfilter: nf_flow_table: add a new flow state for tearing
+ down offloading
 
 Will be used to tear down the offload entry while keeping the conntrack
 entry alive.
@@ -90,5 +90,5 @@ index 0f82fb217beb..b45b13a55147 100644
  
  static void nf_flow_table_iterate_cleanup(struct nf_flowtable *flowtable,
 -- 
-2.16.4
+2.11.0
 

@@ -1,8 +1,7 @@
-From 81d11763511a72521f609b070f20dd2d29a0d76c Mon Sep 17 00:00:00 2001
+From 58f9a08c2ea619f55c52becc062a4738b3c3ff1b Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 9 Dec 2017 15:40:25 +0100
-Subject: [PATCH 15/98] netfilter: nf_tables: remove multihook chains and
- families
+Subject: [PATCH] netfilter: nf_tables: remove multihook chains and families
 
 Since NFPROTO_INET is handled from the core, we don't need to maintain
 extra infrastructure in nf_tables to handle the double hook
@@ -420,5 +419,5 @@ index b89f4f65b2a0..dcff0dc8d28b 100644
  		hook_mask = 1 << ops->hooknum;
  		if (match->hooks && !(hook_mask & match->hooks))
 -- 
-2.16.4
+2.11.0
 

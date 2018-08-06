@@ -1,4 +1,4 @@
-From 93205db03f81bd2f3ec78c99ba12f1d5dd051bef Mon Sep 17 00:00:00 2001
+From e8f9efca57505338394d569efd887ce4f3b81212 Mon Sep 17 00:00:00 2001
 From: Tsvetomir Ivanov <tsvetomir@seluxit.com>
 Date: Wed, 1 Aug 2018 12:53:41 +0200
 Subject: [PATCH] GPIO pins setup
@@ -9,7 +9,7 @@ Subject: [PATCH] GPIO pins setup
 	- Group names can be found in arch/mips/ralink/mt7620.c mt7628an_pinmux_data[]
 	- U-boot currently sets up LED pins as analog GPIOs - can be adjusted in user space
 ---
- .../ralink/gardena_smart_gateway_mt7688.dts   | 45 +++++++++++++++++++
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 45 ++++++++++++++++++++++
  1 file changed, 45 insertions(+)
 
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
@@ -80,5 +80,5 @@ index 6dd5b8eb3727..25863840688b 100644
  	status = "okay";
  };
 -- 
-2.18.0
+2.11.0
 

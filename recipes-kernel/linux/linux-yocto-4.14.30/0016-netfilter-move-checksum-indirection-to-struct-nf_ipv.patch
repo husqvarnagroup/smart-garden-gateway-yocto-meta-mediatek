@@ -1,8 +1,7 @@
-From aab1a777c6fdf457ab6876d0e3fa7903d83c8c77 Mon Sep 17 00:00:00 2001
+From e501c1959832ae5c745cc09adbeabb6b8b34a17b Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 27 Nov 2017 21:55:14 +0100
-Subject: [PATCH 16/98] netfilter: move checksum indirection to struct
- nf_ipv6_ops
+Subject: [PATCH] netfilter: move checksum indirection to struct nf_ipv6_ops
 
 We cannot make a direct call to nf_ip6_checksum() because that would
 result in autoloading the 'ipv6' module because of symbol dependencies.
@@ -198,5 +197,5 @@ index 000000000000..159a9cdcfe1e
 +}
 +EXPORT_SYMBOL_GPL(nf_checksum);
 -- 
-2.16.4
+2.11.0
 

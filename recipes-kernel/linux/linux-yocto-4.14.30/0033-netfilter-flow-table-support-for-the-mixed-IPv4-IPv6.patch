@@ -1,8 +1,7 @@
-From 0d79d76a2f3d431bebff43af482e57a333df1e23 Mon Sep 17 00:00:00 2001
+From 39b6a95b008c441811ea63c9617912ee7bb163ee Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:04:22 +0100
-Subject: [PATCH 33/98] netfilter: flow table support for the mixed IPv4/IPv6
- family
+Subject: [PATCH] netfilter: flow table support for the mixed IPv4/IPv6 family
 
 This patch adds the IPv6 flow table type, that implements the datapath
 flow table to forward IPv6 traffic.
@@ -162,5 +161,5 @@ index 000000000000..281209aeba8f
 +MODULE_AUTHOR("Pablo Neira Ayuso <pablo@netfilter.org>");
 +MODULE_ALIAS_NF_FLOWTABLE(1); /* NFPROTO_INET */
 -- 
-2.16.4
+2.11.0
 

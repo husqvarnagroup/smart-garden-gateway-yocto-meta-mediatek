@@ -1,7 +1,7 @@
-From d273f842ad4a7f802a25b0308066d9a32543ae6e Mon Sep 17 00:00:00 2001
+From c4088ff7272721538713f2684c3223456cea96d4 Mon Sep 17 00:00:00 2001
 From: Abhimanyu Vishwakarma <Abhimanyu.Vishwakarma@imgtec.com>
 Date: Sat, 25 Feb 2017 16:42:50 +0000
-Subject: [PATCH 04/98] mtd: nor: support mtd name from device tree
+Subject: [PATCH] mtd: nor: support mtd name from device tree
 
 Signed-off-by: Abhimanyu Vishwakarma <Abhimanyu.Vishwakarma@imgtec.com>
 ---
@@ -35,5 +35,5 @@ index 19c000722cbc..7eb977fb7781 100644
  	mtd->priv = nor;
  	mtd->type = MTD_NORFLASH;
 -- 
-2.16.4
+2.11.0
 

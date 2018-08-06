@@ -1,8 +1,7 @@
-From 159fa7ed4213a7f168f2436fbaf6c3812c1e69d0 Mon Sep 17 00:00:00 2001
+From 7b80d8f9c1ffe5641cce2c281a05888411c33137 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Tue, 9 Jan 2018 02:38:03 +0100
-Subject: [PATCH 42/98] netfilter: nf_tables: add single table list for all
- families
+Subject: [PATCH] netfilter: nf_tables: add single table list for all families
 
 Place all existing user defined tables in struct net *, instead of
 having one list per family. This saves us from one level of indentation
@@ -1489,5 +1488,5 @@ index 1e66538bf0ff..c64cbe78dee7 100644
  EXPORT_SYMBOL_GPL(nft_redir_init);
  
 -- 
-2.16.4
+2.11.0
 

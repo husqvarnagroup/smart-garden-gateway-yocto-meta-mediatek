@@ -1,7 +1,7 @@
-From 7f3b4d83276763904b3664e777bd30cef1c2e80d Mon Sep 17 00:00:00 2001
+From 83e0b29b65b95b7d869ee1b05aa05cfb2a0a6033 Mon Sep 17 00:00:00 2001
 From: Wei Yongjun <weiyongjun1@huawei.com>
 Date: Wed, 10 Jan 2018 13:06:46 +0000
-Subject: [PATCH 54/98] netfilter: remove duplicated include
+Subject: [PATCH] netfilter: remove duplicated include
 
 Signed-off-by: Wei Yongjun <weiyongjun1@huawei.com>
 Signed-off-by: Pablo Neira Ayuso <pablo@netfilter.org>
@@ -36,5 +36,5 @@ index df820cad60cf..ada7289998f4 100644
  #include <net/netfilter/nf_queue.h>
  #include <net/dst.h>
 -- 
-2.16.4
+2.11.0
 

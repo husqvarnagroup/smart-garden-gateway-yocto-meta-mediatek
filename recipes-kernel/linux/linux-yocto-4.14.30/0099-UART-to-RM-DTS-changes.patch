@@ -1,4 +1,4 @@
-From b84afd20fd2cfe3610938b91d799c46b978729f9 Mon Sep 17 00:00:00 2001
+From 7393f25af35e0b7c07a7f1e10edbd2a89fedf572 Mon Sep 17 00:00:00 2001
 From: Tsvetomir Ivanov <tsvetomir@seluxit.com>
 Date: Mon, 30 Jul 2018 09:02:06 +0000
 Subject: [PATCH] UART to RM DTS changes
@@ -8,29 +8,28 @@ Subject: [PATCH] UART to RM DTS changes
     - Enable GPIO banks for gardena_smart_gateway
     - Enable UART1 for gardena_smart_gateway and configure RTS and CTS pins
 ---
- .../ralink/gardena_smart_gateway_mt7688.dts   | 22 ++++++++
- arch/mips/boot/dts/ralink/mt7628a.dtsi        | 54 +++++++++++--------
- 2 files changed, 54 insertions(+), 22 deletions(-)
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 21 +++++++++
+ arch/mips/boot/dts/ralink/mt7628a.dtsi             | 54 +++++++++++++---------
+ 2 files changed, 53 insertions(+), 22 deletions(-)
 
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
-index c58146989dc8..98b260b5b923 100644
+index 42e8e07ca89a..6dd5b8eb3727 100644
 --- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 +++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 @@ -2,6 +2,9 @@
-
+ 
  /include/ "mt7628a.dtsi"
-
+ 
 +#include <dt-bindings/gpio/gpio.h>
 +#include <dt-bindings/input/input.h>
 +
  / {
  	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7688a-soc", "ralink,mt7628a-soc";
  	model = "Gardena smart Gateway MT7688";
-@@ -53,3 +56,22 @@
- 		spi-max-frequency = <40000000>;
+@@ -54,6 +57,24 @@
  	};
  };
-+
+ 
 +&gpio0 {
 +	status = "okay";
 +};
@@ -49,13 +48,15 @@ index c58146989dc8..98b260b5b923 100644
 +	rts-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
 +	cts-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
 +};
-\ No newline at end of file
+ &i2c {
+ 	status = "okay";
+ };
 diff --git a/arch/mips/boot/dts/ralink/mt7628a.dtsi b/arch/mips/boot/dts/ralink/mt7628a.dtsi
-index 3af8860ff416..68c3f0b80604 100644
+index 3903c390aa49..294648c0049b 100644
 --- a/arch/mips/boot/dts/ralink/mt7628a.dtsi
 +++ b/arch/mips/boot/dts/ralink/mt7628a.dtsi
-@@ -127,6 +127,38 @@
-
+@@ -143,6 +143,38 @@
+ 
  			reg-shift = <2>;
  		};
 +
@@ -91,12 +92,12 @@ index 3af8860ff416..68c3f0b80604 100644
 +			};
 +		};
  	};
-
+ 
  	pinctrl: pinctrl {
-@@ -152,28 +184,6 @@
+@@ -175,28 +207,6 @@
  		};
  	};
-
+ 
 -	usb_phy: usb-phy@10120000 {
 -		compatible = "mediatek,mt7628-usbphy";
 -		reg = <0x10120000 0x1000>;
@@ -122,6 +123,6 @@ index 3af8860ff416..68c3f0b80604 100644
  	ethernet: ethernet@10100000 {
  		compatible = "ralink,rt5350-eth";
  		reg = <0x10100000 0x10000>;
---
-2.18.0
+-- 
+2.11.0
 

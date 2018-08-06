@@ -1,8 +1,8 @@
-From dff78349ba9190eac1aa311e51d01ad96f6ae5ba Mon Sep 17 00:00:00 2001
+From 68fee78e5f2d06dd6ceb921105c5a590da3d0ca6 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sat, 30 Dec 2017 22:41:46 +0100
-Subject: [PATCH 25/98] netfilter: remove defensive check on malformed packets
- from raw sockets
+Subject: [PATCH] netfilter: remove defensive check on malformed packets from
+ raw sockets
 
 Users cannot forge malformed IPv4/IPv6 headers via raw sockets that they
 can inject into the stack. Specifically, not for IPv4 since 55888dfb6ba7
@@ -342,5 +342,5 @@ index 313987e2b1fe..58b9be7480bb 100644
  		[NF_INET_PRE_ROUTING]	= nft_do_chain_inet,
  		[NF_INET_POST_ROUTING]	= nft_do_chain_inet,
 -- 
-2.16.4
+2.11.0
 

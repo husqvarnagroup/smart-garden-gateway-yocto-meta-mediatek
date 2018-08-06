@@ -1,7 +1,7 @@
-From 16510f16841dec92770cc23190100cb13a926dbc Mon Sep 17 00:00:00 2001
+From 13ee9f04bbde512f4b1331e02cf690e747824c78 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Thu, 12 Jul 2018 00:55:45 +0000
-Subject: [PATCH 95/98] MIPS: dts: ralink: Add more hardware to MT7628a
+Subject: [PATCH] MIPS: dts: ralink: Add more hardware to MT7628a
 
 ---
  arch/mips/boot/dts/ralink/mt7628a.dtsi | 101 ++++++++++++++++++++++++++++++++-
@@ -146,5 +146,5 @@ index 9ff7e8faaecc..3903c390aa49 100644
 +
  };
 -- 
-2.16.4
+2.11.0
 

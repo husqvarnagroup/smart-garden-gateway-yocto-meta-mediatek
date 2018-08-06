@@ -1,8 +1,7 @@
-From 49793095b1f33efc440c57348595b3e4a9097695 Mon Sep 17 00:00:00 2001
+From e66a491e4ab810ff0777f229ed4c0ff6de556a31 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Fri, 3 Nov 2017 16:26:32 +0100
-Subject: [PATCH 27/98] netfilter: conntrack: move nf_ct_netns_{get,put}() to
- core
+Subject: [PATCH] netfilter: conntrack: move nf_ct_netns_{get,put}() to core
 
 So we can call this from other expression that need conntrack in place
 to work.
@@ -150,5 +149,5 @@ index bd0975d7dd6f..2647b895f4b0 100644
  
  static int nft_ct_get_dump(struct sk_buff *skb, const struct nft_expr *expr)
 -- 
-2.16.4
+2.11.0
 

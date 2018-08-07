@@ -1,7 +1,7 @@
-From 9de6d9d3f1242bb7e137feffd7f18758ca5239d6 Mon Sep 17 00:00:00 2001
+From 7238b11aa7009d93b597427443660f197f6da036 Mon Sep 17 00:00:00 2001
 From: Arnd Bergmann <arnd@arndb.de>
 Date: Wed, 10 Jan 2018 18:10:59 +0100
-Subject: [PATCH 37/98] netfilter: improve flow table Kconfig dependencies
+Subject: [PATCH] netfilter: improve flow table Kconfig dependencies
 
 The newly added NF_FLOW_TABLE options cause some build failures in
 randconfig kernels:
@@ -116,5 +116,5 @@ index 4f4cb73079cb..8adcde6dee9d 100644
  	  This option adds the flow table core infrastructure.
  
 -- 
-2.16.4
+2.11.0
 

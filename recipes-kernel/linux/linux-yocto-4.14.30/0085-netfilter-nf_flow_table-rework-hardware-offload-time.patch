@@ -1,8 +1,8 @@
-From e52a7fd08d61da4562186c94b7099b3b44eda141 Mon Sep 17 00:00:00 2001
+From 382583d53407bf4d1456030793b7a4633a1e42d4 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sun, 25 Mar 2018 21:10:55 +0200
-Subject: [PATCH 85/98] netfilter: nf_flow_table: rework hardware offload
- timeout handling
+Subject: [PATCH] netfilter: nf_flow_table: rework hardware offload timeout
+ handling
 
 Some offload implementations send keepalive packets + explicit
 notifications of TCP FIN/RST packets. In this case it is more convenient
@@ -44,5 +44,5 @@ index ca56f4e9b925..69b47bb6a15e 100644
  
  		if (nf_flow_has_expired(flow) || teardown)
 -- 
-2.16.4
+2.11.0
 

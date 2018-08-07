@@ -1,7 +1,7 @@
-From 85f44eea9ec2176721b40e83744f446fb8494e64 Mon Sep 17 00:00:00 2001
+From db0be4f30aecdc9b3ab639095b03a6c5a0de4d84 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Sat, 17 Feb 2018 11:51:20 +0100
-Subject: [PATCH 60/98] netfilter: nf_flow_table: move ip header check out of
+Subject: [PATCH] netfilter: nf_flow_table: move ip header check out of
  nf_flow_exceeds_mtu
 
 Allows the function to be shared with the IPv6 hook code
@@ -36,5 +36,5 @@ index 7c97126ace0e..79976c25891b 100644
  
  	if (skb_try_make_writable(skb, sizeof(*iph)))
 -- 
-2.16.4
+2.11.0
 

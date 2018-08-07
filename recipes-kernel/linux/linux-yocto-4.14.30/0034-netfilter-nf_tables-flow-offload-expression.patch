@@ -1,7 +1,7 @@
-From 63ec60a252c148c9a44b5dd02552514676e3069b Mon Sep 17 00:00:00 2001
+From 6a1bda41974f8148813b684e69626096ba9c85e0 Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:04:26 +0100
-Subject: [PATCH 34/98] netfilter: nf_tables: flow offload expression
+Subject: [PATCH] netfilter: nf_tables: flow offload expression
 
 Add new instruction for the nf_tables VM that allows us to specify what
 flows are offloaded into a given flow table via name. This new
@@ -346,5 +346,5 @@ index 000000000000..dd38785dfed9
 +MODULE_AUTHOR("Pablo Neira Ayuso <pablo@netfilter.org>");
 +MODULE_ALIAS_NFT_EXPR("flow_offload");
 -- 
-2.16.4
+2.11.0
 

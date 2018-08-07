@@ -1,7 +1,7 @@
-From bfdf5537551246d38252fa707e682ec0a4efec19 Mon Sep 17 00:00:00 2001
+From 9d7a7fc2062c348e0cd45b1484ee78a383eb7a7d Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Mon, 5 Feb 2018 21:44:50 +0100
-Subject: [PATCH 49/98] netfilter: nf_tables: fix flowtable free
+Subject: [PATCH] netfilter: nf_tables: fix flowtable free
 
 Every flow_offload entry is added into the table twice. Because of this,
 rhashtable_free_and_destroy can't be used, since it would call kfree for
@@ -159,5 +159,5 @@ index 667abba0a2bc..52b488b45df5 100644
  }
  
 -- 
-2.16.4
+2.11.0
 

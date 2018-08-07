@@ -1,7 +1,7 @@
-From 022eb7ea4c81dc441c07dae350022c72cce187e6 Mon Sep 17 00:00:00 2001
+From ee46f1e6b1297bd0b359669603f19785eba1adc3 Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Tue, 12 Aug 2014 20:49:27 +0200
-Subject: [PATCH 88/98] GPIO: add named gpio exports
+Subject: [PATCH] GPIO: add named gpio exports
 
 Signed-off-by: John Crispin <blogic@openwrt.org>
 ---
@@ -175,5 +175,5 @@ index c4a350d83578..b117ded87033 100644
  			       bool direction_may_change)
  {
 -- 
-2.16.4
+2.11.0
 

@@ -1,8 +1,8 @@
-From efd0a722192a9df49e066e7e33799d90cd509e12 Mon Sep 17 00:00:00 2001
+From 8aca2bd4c456066029af6f69b187eeb62d795802 Mon Sep 17 00:00:00 2001
 From: Harsha Sharma <harshasharmaiitr@gmail.com>
 Date: Wed, 27 Dec 2017 00:59:00 +0530
-Subject: [PATCH 51/98] netfilter: nf_tables: allocate handle and delete
- objects via handle
+Subject: [PATCH] netfilter: nf_tables: allocate handle and delete objects via
+ handle
 
 This patch allows deletion of objects via unique handle which can be
 listed via '-a' option.
@@ -478,5 +478,5 @@ index 52b488b45df5..1e80cec6496f 100644
  
  	nest = nla_nest_start(skb, NFTA_FLOWTABLE_HOOK);
 -- 
-2.16.4
+2.11.0
 

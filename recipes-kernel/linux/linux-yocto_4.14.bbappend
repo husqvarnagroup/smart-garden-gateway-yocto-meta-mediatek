@@ -23,6 +23,9 @@ SRC_URI_append_mt7688 = " \
         file://enable_mediatek_i2c.cfg \
         file://enable_ppp.cfg \
         file://enable_devmem.cfg \
+        file://set_commandline.cfg \
+        file://enable_squashfs.cfg \
+        file://enable_mtd_tests.cfg \
         file://0001-Allow-inclusion-of-DTB-in-image.patch \
         file://0002-MIPS-pci-mt7620-enabled-PCIe-on-MT7688.patch \
         file://0003-owrt-hack-fix-mt7688-cache-issue.patch \

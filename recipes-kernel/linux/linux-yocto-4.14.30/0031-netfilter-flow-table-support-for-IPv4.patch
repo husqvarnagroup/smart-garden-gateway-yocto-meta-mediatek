@@ -1,7 +1,7 @@
-From 9b749f65756eed1646b9abaee3f73adbad2d9e05 Mon Sep 17 00:00:00 2001
+From 840c6f0a502a4fcaab37e4b947be9d634f2a84eb Mon Sep 17 00:00:00 2001
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 Date: Sun, 7 Jan 2018 01:04:15 +0100
-Subject: [PATCH 31/98] netfilter: flow table support for IPv4
+Subject: [PATCH] netfilter: flow table support for IPv4
 
 This patch adds the IPv4 flow table type, that implements the datapath
 flow table to forward IPv4 traffic. Rationale is:
@@ -345,5 +345,5 @@ index 000000000000..ac56c0f0492a
 +MODULE_AUTHOR("Pablo Neira Ayuso <pablo@netfilter.org>");
 +MODULE_ALIAS_NF_FLOWTABLE(AF_INET);
 -- 
-2.16.4
+2.11.0
 

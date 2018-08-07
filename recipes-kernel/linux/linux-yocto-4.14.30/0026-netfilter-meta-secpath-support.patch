@@ -1,7 +1,7 @@
-From cd533bd7a21ca2eefd7b74583eb5afbfb93d711b Mon Sep 17 00:00:00 2001
+From 2797fd1adb5498c71c7badef11c8d46548c1fe5f Mon Sep 17 00:00:00 2001
 From: Florian Westphal <fw@strlen.de>
 Date: Wed, 6 Dec 2017 16:18:16 +0100
-Subject: [PATCH 26/98] netfilter: meta: secpath support
+Subject: [PATCH] netfilter: meta: secpath support
 
 replacement for iptables "-m policy --dir in --policy {ipsec,none}".
 
@@ -108,5 +108,5 @@ index 5a60eb23a7ed..1a91e676f13e 100644
  
  static const struct nft_expr_ops nft_meta_set_ops = {
 -- 
-2.16.4
+2.11.0
 

@@ -1,7 +1,7 @@
-From 8250f7935183805c5b41b97d8260d5ca364a1bbb Mon Sep 17 00:00:00 2001
+From df5c33d36085164adfafe09fc57e499dfc0b7606 Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Mon, 7 Dec 2015 17:21:27 +0100
-Subject: [PATCH 94/98] i2c: add mt7621 driver
+Subject: [PATCH] i2c: add mt7621 driver
 
 Signed-off-by: John Crispin <blogic@openwrt.org>
 ---
@@ -479,5 +479,5 @@ index 000000000000..e2849e849d32
 +MODULE_LICENSE("GPL");
 +MODULE_ALIAS("platform:MT7621-I2C");
 -- 
-2.16.4
+2.11.0
 

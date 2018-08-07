@@ -1,7 +1,7 @@
-From 9efdb7b3bf15a6c56bfa23d8c7bedff944ccb74e Mon Sep 17 00:00:00 2001
+From 06ff9aad26929c51dea25bb99f6a29dc044dd87a Mon Sep 17 00:00:00 2001
 From: John Crispin <blogic@openwrt.org>
 Date: Sun, 27 Jul 2014 09:49:07 +0100
-Subject: [PATCH 92/98] spi: add mt7621 support
+Subject: [PATCH] spi: add mt7621 support
 
 Signed-off-by: John Crispin <blogic@openwrt.org>
 ---
@@ -541,5 +541,5 @@ index 000000000000..0f479079dbcf
 +MODULE_AUTHOR("Felix Fietkau <nbd@nbd.name>");
 +MODULE_LICENSE("GPL");
 -- 
-2.16.4
+2.11.0
 

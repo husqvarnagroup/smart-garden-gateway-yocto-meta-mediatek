@@ -1,8 +1,8 @@
-From b43a6645f36a174777477a6127f1c625c738c64b Mon Sep 17 00:00:00 2001
+From 1a9322ed3faf8b1b81853e5ad87446c20965fe56 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Wed, 11 Jul 2018 21:16:00 +0000
-Subject: [PATCH 79/98] kernel: add a new version of my netfilter speedup
- patches for linux 2.6.39 and 3.0
+Subject: [PATCH] kernel: add a new version of my netfilter speedup patches for
+ linux 2.6.39 and 3.0
 
 Signed-off-by: Felix Fietkau <nbd@nbd.name>
 ---
@@ -116,5 +116,5 @@ index cadb82a906b8..677e1d3db260 100644
  
  	*dstptr += sizeof(struct compat_ipt_entry);
 -- 
-2.16.4
+2.11.0
 

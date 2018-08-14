@@ -1,4 +1,4 @@
-From 93d98829ccd6bbd54c0600b22e103efee1871738 Mon Sep 17 00:00:00 2001
+From 9b51ade4a5ba90f51f05292d9aec10ef06cbb190 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Tue, 26 Jun 2018 19:41:14 +0200
 Subject: [PATCH] MIPS: Add Gardena smart Gateway MT7688 board
@@ -16,10 +16,10 @@ UART1 setup:
 UART2 setup:
   - Bits EPHY_GPIO_AIO_EN need to be set to 1 (digital pads)
 ---
- arch/mips/boot/dts/ralink/Makefile                 |   1 +
- .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 125 +++++++++++++++++++++
- arch/mips/ralink/Kconfig                           |   5 +
- 3 files changed, 131 insertions(+)
+ arch/mips/boot/dts/ralink/Makefile                 |  1 +
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 82 ++++++++++++++++++++++
+ arch/mips/ralink/Kconfig                           |  5 ++
+ 3 files changed, 88 insertions(+)
  create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 
 diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
@@ -36,10 +36,10 @@ index a80eeeecf613..fc8e3a32583f 100644
  obj-y				+= $(patsubst %.dtb, %.dtb.o, $(dtb-y))
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 new file mode 100644
-index 000000000000..25863840688b
+index 000000000000..868edd7862a2
 --- /dev/null
 +++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
-@@ -0,0 +1,125 @@
+@@ -0,0 +1,82 @@
 +/dts-v1/;
 +
 +/include/ "mt7628a.dtsi"
@@ -65,52 +65,9 @@ index 000000000000..25863840688b
 +&pinctrl {
 +	state_default: pinctrl0 {
 +		gpio {
-+			ralink,group = "gpio";
-+			ralink,function = "gpio";
-+		};
-+
-+		i2s {
-+			ralink,group = "i2s";
-+			ralink,function = "gpio";
-+		};
-+
-+		p1led {
-+			ralink,group = "p1led_an";
-+			ralink,function = "gpio";
-+		};
-+
-+		spis {
-+			ralink,group = "spis";
-+			ralink,function = "gpio";
-+		};
-+
-+		wled_an {
-+			ralink,group = "wled_an";
-+			ralink,function = "gpio";
-+		};
-+
-+		sdmode {
-+			ralink,group = "sdmode";
-+			ralink,function = "gpio";
-+		};
-+
-+		refclk {
-+			ralink,group = "refclk";
-+			ralink,function = "gpio";
-+		};
-+
-+		perst {
-+			ralink,group = "perst";
-+			ralink,function = "gpio";
-+		};
-+
-+		pwm0 {
-+			ralink,group = "pwm0";
-+			ralink,function = "gpio";
-+		};
-+
-+		pwm1 {
-+			ralink,group = "pwm1";
++			ralink,group = "gpio", "i2s", "p0led_an", "p1led_an", "p2led_an",
++			               "p3led_an", "p4led_an", "spis", "wled_an", "wdt", "sdmode",
++			               "refclk", "perst", "pwm0", "pwm1";
 +			ralink,function = "gpio";
 +		};
 +	};

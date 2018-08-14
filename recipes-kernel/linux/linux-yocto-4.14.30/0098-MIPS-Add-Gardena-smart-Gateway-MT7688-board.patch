@@ -1,4 +1,4 @@
-From 9b51ade4a5ba90f51f05292d9aec10ef06cbb190 Mon Sep 17 00:00:00 2001
+From 5d12cf976a597bd3fca1f86bb5ee20140abab117 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Tue, 26 Jun 2018 19:41:14 +0200
 Subject: [PATCH] MIPS: Add Gardena smart Gateway MT7688 board
@@ -16,10 +16,10 @@ UART1 setup:
 UART2 setup:
   - Bits EPHY_GPIO_AIO_EN need to be set to 1 (digital pads)
 ---
- arch/mips/boot/dts/ralink/Makefile                 |  1 +
- .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 82 ++++++++++++++++++++++
- arch/mips/ralink/Kconfig                           |  5 ++
- 3 files changed, 88 insertions(+)
+ arch/mips/boot/dts/ralink/Makefile                 |   1 +
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 101 +++++++++++++++++++++
+ arch/mips/ralink/Kconfig                           |   5 +
+ 3 files changed, 107 insertions(+)
  create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 
 diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
@@ -36,10 +36,10 @@ index a80eeeecf613..fc8e3a32583f 100644
  obj-y				+= $(patsubst %.dtb, %.dtb.o, $(dtb-y))
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 new file mode 100644
-index 000000000000..868edd7862a2
+index 000000000000..b6003a0fbe97
 --- /dev/null
 +++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
-@@ -0,0 +1,82 @@
+@@ -0,0 +1,101 @@
 +/dts-v1/;
 +
 +/include/ "mt7628a.dtsi"
@@ -69,6 +69,21 @@ index 000000000000..868edd7862a2
 +			               "p3led_an", "p4led_an", "spis", "wled_an", "wdt", "sdmode",
 +			               "refclk", "perst", "pwm0", "pwm1";
 +			ralink,function = "gpio";
++		};
++
++		uart0 {
++			ralink,group = "uart0";
++			ralink,function = "uart0";
++		};
++
++		uart1 {
++			ralink,group = "uart1";
++			ralink,function = "uart1";
++		};
++
++		uart2 {
++			ralink,group = "uart2";
++			ralink,function = "uart2";
 +		};
 +	};
 +};
@@ -105,6 +120,10 @@ index 000000000000..868edd7862a2
 +};
 +
 +&gpio2 {
++	status = "okay";
++};
++
++&uart0 {
 +	status = "okay";
 +};
 +

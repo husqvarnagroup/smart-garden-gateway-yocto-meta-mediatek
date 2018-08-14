@@ -1,13 +1,25 @@
-From 58b35c1e2b6b22fd31bf3598ec46cbd1f2d5cdb8 Mon Sep 17 00:00:00 2001
+From 93d98829ccd6bbd54c0600b22e103efee1871738 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Tue, 26 Jun 2018 19:41:14 +0200
 Subject: [PATCH] MIPS: Add Gardena smart Gateway MT7688 board
 
+GPIO pins setup:
+  - All involved pinctrl groups must be set to GPIO explicitly
+  - Pinctrl groups set up the GPIO1_MODE and GPIO2_MODE registers
+  - Group names can be found in arch/mips/ralink/mt7620.c mt7628an_pinmux_data[]
+  - U-boot currently sets up LED pins as analog GPIOs - can be adjusted in user space
+
+UART1 setup:
+  - Enable GPIO banks for gardena_smart_gateway
+  - Enable UART1 for gardena_smart_gateway and configure RTS and CTS pins
+
+UART2 setup:
+  - Bits EPHY_GPIO_AIO_EN need to be set to 1 (digital pads)
 ---
- arch/mips/boot/dts/ralink/Makefile                 |  1 +
- .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 59 ++++++++++++++++++++++
- arch/mips/ralink/Kconfig                           |  5 ++
- 3 files changed, 65 insertions(+)
+ arch/mips/boot/dts/ralink/Makefile                 |   1 +
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 125 +++++++++++++++++++++
+ arch/mips/ralink/Kconfig                           |   5 +
+ 3 files changed, 131 insertions(+)
  create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 
 diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
@@ -24,13 +36,16 @@ index a80eeeecf613..fc8e3a32583f 100644
  obj-y				+= $(patsubst %.dtb, %.dtb.o, $(dtb-y))
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 new file mode 100644
-index 000000000000..42e8e07ca89a
+index 000000000000..25863840688b
 --- /dev/null
 +++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
-@@ -0,0 +1,59 @@
+@@ -0,0 +1,125 @@
 +/dts-v1/;
 +
 +/include/ "mt7628a.dtsi"
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
 +
 +/ {
 +	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7688a-soc", "ralink,mt7628a-soc";
@@ -54,8 +69,48 @@ index 000000000000..42e8e07ca89a
 +			ralink,function = "gpio";
 +		};
 +
++		i2s {
++			ralink,group = "i2s";
++			ralink,function = "gpio";
++		};
++
++		p1led {
++			ralink,group = "p1led_an";
++			ralink,function = "gpio";
++		};
++
 +		spis {
 +			ralink,group = "spis";
++			ralink,function = "gpio";
++		};
++
++		wled_an {
++			ralink,group = "wled_an";
++			ralink,function = "gpio";
++		};
++
++		sdmode {
++			ralink,group = "sdmode";
++			ralink,function = "gpio";
++		};
++
++		refclk {
++			ralink,group = "refclk";
++			ralink,function = "gpio";
++		};
++
++		perst {
++			ralink,group = "perst";
++			ralink,function = "gpio";
++		};
++
++		pwm0 {
++			ralink,group = "pwm0";
++			ralink,function = "gpio";
++		};
++
++		pwm1 {
++			ralink,group = "pwm1";
 +			ralink,function = "gpio";
 +		};
 +	};
@@ -82,6 +137,29 @@ index 000000000000..42e8e07ca89a
 +		reg = <1>;
 +		spi-max-frequency = <40000000>;
 +	};
++};
++
++&gpio0 {
++	status = "okay";
++};
++
++&gpio1 {
++	status = "okay";
++};
++
++&gpio2 {
++	status = "okay";
++};
++
++&uart1 {
++	status = "okay";
++
++	rts-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
++	cts-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
++};
++
++&uart2 {
++	status = "okay";
 +};
 +
 +&i2c {

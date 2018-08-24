@@ -1,0 +1,40 @@
+From 72d63d2ca882a3fb27c5174fb3a76d4336ebaa31 Mon Sep 17 00:00:00 2001
+From: Brian Norris <computersforpeace@gmail.com>
+Date: Wed, 1 Aug 2018 10:18:26 +0200
+Subject: [PATCH] mtd: add get/set of_node/flash_node helpers
+
+We are going to begin using the mtd->dev.of_node field for MTD device
+nodes, so let's add helpers for it. Also, we'll be making some
+conversions on spi_nor (and nand_chip eventually) too, so get that ready
+with their own helpers.
+
+Signed-off-by: Brian Norris <computersforpeace@gmail.com>
+Reviewed-by: Boris Brezillon <boris.brezillon@free-electrons.com>
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Reviewed-by: Jagan Teki <jagan@openedev.com>
+---
+ include/linux/mtd/mtd.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/include/linux/mtd/mtd.h b/include/linux/mtd/mtd.h
+index eb39f38887..ea659c354b 100644
+--- a/include/linux/mtd/mtd.h
++++ b/include/linux/mtd/mtd.h
+@@ -306,6 +306,17 @@ struct mtd_info {
+ 	int usecount;
+ };
+ 
++static inline void mtd_set_of_node(struct mtd_info *mtd,
++				   const struct device_node *np)
++{
++	mtd->dev->node.np = np;
++}
++
++static inline const struct device_node *mtd_get_of_node(struct mtd_info *mtd)
++{
++	return mtd->dev->node.np;
++}
++
+ int mtd_ooblayout_ecc(struct mtd_info *mtd, int section,
+ 		      struct mtd_oob_region *oobecc);
+ int mtd_ooblayout_find_eccregion(struct mtd_info *mtd, int eccbyte,

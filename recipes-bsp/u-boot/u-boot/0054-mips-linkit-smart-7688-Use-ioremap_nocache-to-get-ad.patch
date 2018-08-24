@@ -1,0 +1,35 @@
+From 8cbb1bfa213c7f357a8cf7276cb6c66cd36d5037 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Thu, 16 Aug 2018 15:13:03 +0200
+Subject: [PATCH] mips: linkit-smart-7688: Use ioremap_nocache to get address
+
+Use the correct function to get the uncached address to access the SoC
+registers.
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ board/seeed/linkit-smart-7688/board.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/board/seeed/linkit-smart-7688/board.c b/board/seeed/linkit-smart-7688/board.c
+index a28abc00b8..d3d3d50c2c 100644
+--- a/board/seeed/linkit-smart-7688/board.c
++++ b/board/seeed/linkit-smart-7688/board.c
+@@ -6,12 +6,15 @@
+ #include <common.h>
+ #include <asm/io.h>
+ 
+-#define MT76XX_GPIO1_MODE	0xb0000060
++#define MT76XX_GPIO1_MODE	0x10000060
+ 
+ void board_debug_uart_init(void)
+ {
++	void __iomem *gpio_mode;
++
+ 	/* Select UART2 mode instead of GPIO mode (default) */
+-	clrbits_le32((void __iomem *)MT76XX_GPIO1_MODE, GENMASK(27, 26));
++	gpio_mode = ioremap_nocache(MT76XX_GPIO1_MODE, 0x100);
++	clrbits_le32(gpio_mode, GENMASK(27, 26));
+ }
+ 
+ int board_early_init_f(void)

@@ -1,0 +1,63 @@
+From 521660015ae94aa536c0cec986bc0d2d9e216f9b Mon Sep 17 00:00:00 2001
+From: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Date: Wed, 1 Aug 2018 10:18:23 +0200
+Subject: [PATCH] mtd: Uninline mtd_write_oob and move it to mtdcore.c
+
+There's no reason for having mtd_write_oob inlined in mtd.h header.
+Move it to mtdcore.c where it belongs.
+
+Signed-off-by: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Acked-by: Boris Brezillon <boris.brezillon@free-electrons.com>
+Signed-off-by: Jacek Anaszewski <j.anaszewski@samsung.com>
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ drivers/mtd/mtdcore.c   | 12 ++++++++++++
+ include/linux/mtd/mtd.h | 12 +-----------
+ 2 files changed, 13 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/mtd/mtdcore.c b/drivers/mtd/mtdcore.c
+index 60ad28efd4..ad61406dac 100644
+--- a/drivers/mtd/mtdcore.c
++++ b/drivers/mtd/mtdcore.c
+@@ -1031,6 +1031,18 @@ int mtd_read_oob(struct mtd_info *mtd, loff_t from, struct mtd_oob_ops *ops)
+ }
+ EXPORT_SYMBOL_GPL(mtd_read_oob);
+ 
++int mtd_write_oob(struct mtd_info *mtd, loff_t to,
++				struct mtd_oob_ops *ops)
++{
++	ops->retlen = ops->oobretlen = 0;
++	if (!mtd->_write_oob)
++		return -EOPNOTSUPP;
++	if (!(mtd->flags & MTD_WRITEABLE))
++		return -EROFS;
++	return mtd->_write_oob(mtd, to, ops);
++}
++EXPORT_SYMBOL_GPL(mtd_write_oob);
++
+ /**
+  * mtd_ooblayout_ecc - Get the OOB region definition of a specific ECC section
+  * @mtd: MTD device structure
+diff --git a/include/linux/mtd/mtd.h b/include/linux/mtd/mtd.h
+index 823e535b82..eb39f38887 100644
+--- a/include/linux/mtd/mtd.h
++++ b/include/linux/mtd/mtd.h
+@@ -351,17 +351,7 @@ int mtd_panic_write(struct mtd_info *mtd, loff_t to, size_t len, size_t *retlen,
+ 		    const u_char *buf);
+ 
+ int mtd_read_oob(struct mtd_info *mtd, loff_t from, struct mtd_oob_ops *ops);
+-
+-static inline int mtd_write_oob(struct mtd_info *mtd, loff_t to,
+-				struct mtd_oob_ops *ops)
+-{
+-	ops->retlen = ops->oobretlen = 0;
+-	if (!mtd->_write_oob)
+-		return -EOPNOTSUPP;
+-	if (!(mtd->flags & MTD_WRITEABLE))
+-		return -EROFS;
+-	return mtd->_write_oob(mtd, to, ops);
+-}
++int mtd_write_oob(struct mtd_info *mtd, loff_t to, struct mtd_oob_ops *ops);
+ 
+ int mtd_get_fact_prot_info(struct mtd_info *mtd, size_t len, size_t *retlen,
+ 			   struct otp_info *buf);

@@ -1,0 +1,38 @@
+From 08d6925eaaad291f2107ae182246e39ddf6175d9 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Thu, 16 Aug 2018 17:21:52 +0200
+Subject: [PATCH] mips: linkit-smart-7688: defconfig: Enable
+ MIPS_BOOT_CMDLINE_LEGACY
+
+This is needed until a separate DT blob will be used.
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ configs/linkit-smart-7688-ram_defconfig | 1 -
+ configs/linkit-smart-7688_defconfig     | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/configs/linkit-smart-7688-ram_defconfig b/configs/linkit-smart-7688-ram_defconfig
+index ba5a8f26d0..9691fec9ba 100644
+--- a/configs/linkit-smart-7688-ram_defconfig
++++ b/configs/linkit-smart-7688-ram_defconfig
+@@ -2,7 +2,6 @@ CONFIG_MIPS=y
+ CONFIG_SYS_TEXT_BASE=0x80010000
+ CONFIG_ARCH_MT7620=y
+ CONFIG_BOARD_LINKIT_SMART_7688=y
+-# CONFIG_MIPS_BOOT_CMDLINE_LEGACY is not set
+ # CONFIG_MIPS_BOOT_ENV_LEGACY is not set
+ CONFIG_MIPS_BOOT_FDT=y
+ CONFIG_DEFAULT_DEVICE_TREE="linkit-smart-7688"
+diff --git a/configs/linkit-smart-7688_defconfig b/configs/linkit-smart-7688_defconfig
+index 5b784082ab..b22622401f 100644
+--- a/configs/linkit-smart-7688_defconfig
++++ b/configs/linkit-smart-7688_defconfig
+@@ -5,7 +5,6 @@ CONFIG_BOARD_LINKIT_SMART_7688=y
+ CONFIG_BOOT_ROM=y
+ CONFIG_ONBOARD_DDR2_SIZE_1024MBIT=y
+ CONFIG_ONBOARD_DDR2_CHIP_WIDTH_16BIT=y
+-# CONFIG_MIPS_BOOT_CMDLINE_LEGACY is not set
+ # CONFIG_MIPS_BOOT_ENV_LEGACY is not set
+ CONFIG_MIPS_BOOT_FDT=y
+ CONFIG_DEFAULT_DEVICE_TREE="linkit-smart-7688"

@@ -1,0 +1,36 @@
+From aae79a5f45d72a7f83f84c3977c0622c6838bf72 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Wed, 1 Aug 2018 15:37:15 +0200
+Subject: [PATCH] cmd: mtd: Add info text to mtd erase subcommand
+
+Adding this info helps seeing, what really is being erased - especially
+if no arguments are passed for offset and size. Now this is the
+output:
+
+=> mtd erase spi-nand0
+Erasing 0x00000000 ... 0x07ffffff (1024 eraseblock(s))
+nand: attempt to erase a bad/reserved block @6000000
+nand: attempt to erase a bad/reserved block @7fe0000
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Boris Brezillon <boris.brezillon@bootlin.com>
+Cc: Jagan Teki <jagan@openedev.com>
+---
+ cmd/mtd.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/cmd/mtd.c b/cmd/mtd.c
+index b0ad0616cc..03a48e7e22 100644
+--- a/cmd/mtd.c
++++ b/cmd/mtd.c
+@@ -355,6 +355,9 @@ static int do_mtd(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
+ 			return CMD_RET_FAILURE;
+ 		}
+ 
++		printf("Erasing 0x%08llx ... 0x%08llx (%d eraseblock(s))\n",
++		       off, off + len - 1, mtd_div_by_eb(len, mtd));
++
+ 		erase_op.mtd = mtd;
+ 		erase_op.addr = off;
+ 		erase_op.len = len;

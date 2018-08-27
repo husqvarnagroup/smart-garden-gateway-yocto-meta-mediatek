@@ -1,0 +1,38 @@
+From 1095ca1fa5ca3ddcfdf490d3fbaab576e0e51153 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Thu, 16 Aug 2018 17:23:31 +0200
+Subject: [PATCH] mips: gardena-smart-gateway: defconfig: Enable
+ MIPS_BOOT_CMDLINE_LEGACY
+
+This is needed until a separate DT blob will be used.
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ configs/gardena-smart-gateway-mt7688-ram_defconfig | 1 -
+ configs/gardena-smart-gateway-mt7688_defconfig     | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/configs/gardena-smart-gateway-mt7688-ram_defconfig b/configs/gardena-smart-gateway-mt7688-ram_defconfig
+index 4480278e8d..eff3d2cabb 100644
+--- a/configs/gardena-smart-gateway-mt7688-ram_defconfig
++++ b/configs/gardena-smart-gateway-mt7688-ram_defconfig
+@@ -1,7 +1,6 @@
+ CONFIG_MIPS=y
+ CONFIG_SYS_TEXT_BASE=0x80010000
+ CONFIG_ARCH_MT7620=y
+-# CONFIG_MIPS_BOOT_CMDLINE_LEGACY is not set
+ # CONFIG_MIPS_BOOT_ENV_LEGACY is not set
+ CONFIG_MIPS_BOOT_FDT=y
+ CONFIG_DEFAULT_DEVICE_TREE="gardena-smart-gateway-mt7688"
+diff --git a/configs/gardena-smart-gateway-mt7688_defconfig b/configs/gardena-smart-gateway-mt7688_defconfig
+index 2d2ef5832c..a6c9b984f1 100644
+--- a/configs/gardena-smart-gateway-mt7688_defconfig
++++ b/configs/gardena-smart-gateway-mt7688_defconfig
+@@ -4,7 +4,6 @@ CONFIG_ARCH_MT7620=y
+ CONFIG_BOOT_ROM=y
+ CONFIG_ONBOARD_DDR2_SIZE_1024MBIT=y
+ CONFIG_ONBOARD_DDR2_CHIP_WIDTH_16BIT=y
+-# CONFIG_MIPS_BOOT_CMDLINE_LEGACY is not set
+ # CONFIG_MIPS_BOOT_ENV_LEGACY is not set
+ CONFIG_MIPS_BOOT_FDT=y
+ CONFIG_DEFAULT_DEVICE_TREE="gardena-smart-gateway-mt7688"

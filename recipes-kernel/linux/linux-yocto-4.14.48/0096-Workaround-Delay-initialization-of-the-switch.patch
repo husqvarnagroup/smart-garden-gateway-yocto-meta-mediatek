@@ -1,0 +1,37 @@
+From f6746e4ec0572e812999426e4bb33f76c6930a58 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <code@reto-schneider.ch>
+Date: Thu, 19 Jul 2018 00:27:25 +0000
+Subject: [PATCH] Workaround: Delay initialization of the switch
+
+Reason: This is a script-less workaround for issue discussed here:
+ - https://github.com/openwrt/openwrt/blob/972c126eb6390f3dcc34220d42c24843ee79c375/target/linux/ramips/base-files/lib/preinit/07_set_preinit_iface_ramips
+ - https://dev.archive.openwrt.org/changeset/48772.html
+ - https://dev.archive.openwrt.org/ticket/18768
+
+Warning: This is quite hackish and should be done in a cleaner way.
+         What about actually figuring out if the Ethernet driver has
+         been loaded?
+---
+ drivers/net/ethernet/mediatek/esw_rt3050.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/net/ethernet/mediatek/esw_rt3050.c b/drivers/net/ethernet/mediatek/esw_rt3050.c
+index 816c588dd7f2..77fd647affa3 100644
+--- a/drivers/net/ethernet/mediatek/esw_rt3050.c
++++ b/drivers/net/ethernet/mediatek/esw_rt3050.c
+@@ -1350,6 +1350,12 @@ static int esw_probe(struct platform_device *pdev)
+ 	struct switch_dev *swdev;
+ 	struct rt305x_esw *esw;
+ 	int ret;
++	static bool defered = false;
++
++	if (!defered) {
++		defered = true;
++		return -EPROBE_DEFER;
++	}
+ 
+ 	esw = devm_kzalloc(&pdev->dev, sizeof(*esw), GFP_KERNEL);
+ 	if (!esw)
+-- 
+2.11.0
+

@@ -1,0 +1,110 @@
+From 161e4f45dac12f80ee20b50b031b74df3af64c19 Mon Sep 17 00:00:00 2001
+From: Ulf Samuelsson <ulf@emagii.com>
+Date: Tue, 21 Nov 2017 18:11:23 +0100
+Subject: [PATCH] Allow inclusion of DTB in image
+
+Signed-off-by: Ulf Samuelsson <ulf@emagii.com>
+---
+ arch/mips/Kconfig       | 14 ++++++++++++--
+ arch/mips/Makefile      |  2 +-
+ arch/mips/boot/Makefile | 11 +++++++++++
+ 3 files changed, 24 insertions(+), 3 deletions(-)
+
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index c82457b0e733..27613e43026b 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -2912,7 +2912,8 @@ choice
+ 		  Do not enable appended dtb support.
+ 
+ 	config MIPS_ELF_APPENDED_DTB
+-		bool "vmlinux"
++		bool "vmlinux with embedded dtb"
++		select KERNEL_DTB
+ 		help
+ 		  With this option, the boot code will look for a device tree binary
+ 		  DTB) included in the vmlinux ELF section .appended_dtb. By default
+@@ -2926,7 +2927,7 @@ choice
+ 		  the documented boot protocol using a device tree.
+ 
+ 	config MIPS_RAW_APPENDED_DTB
+-		bool "vmlinux.bin or vmlinuz.bin"
++		bool "vmlinux.bin or vmlinuz.bin with appended dtb"
+ 		help
+ 		  With this option, the boot code will look for a device tree binary
+ 		  DTB) appended to raw vmlinux.bin or vmlinuz.bin.
+@@ -2943,6 +2944,15 @@ choice
+ 		  if you don't intend to always append a DTB.
+ endchoice
+ 
++config	APPENDED_DTB
++	string	"dtb filename, relative arch/mips/boot/dts"
++	depends on MIPS_ELF_APPENDED_DTB
++	help
++	  Example "ralink/mt7620a_eval.dtb"
++
++config KERNEL_DTB
++	bool
++
+ choice
+ 	prompt "Kernel command line type" if !CMDLINE_OVERRIDE
+ 	default MIPS_CMDLINE_FROM_DTB if USE_OF && !ATH79 && !MACH_INGENIC && \
+diff --git a/arch/mips/Makefile b/arch/mips/Makefile
+index a96d97a806c9..fd1aa4854709 100644
+--- a/arch/mips/Makefile
++++ b/arch/mips/Makefile
+@@ -384,7 +384,7 @@ vmlinux.64: vmlinux
+ all:	$(all-y)
+ 
+ # boot
+-$(boot-y): $(vmlinux-32) FORCE
++$(boot-y): $(vmlinux-32) dtbs FORCE
+ 	$(Q)$(MAKE) $(build)=arch/mips/boot VMLINUX=$(vmlinux-32) \
+ 		$(bootvars-y) arch/mips/boot/$@
+ 
+diff --git a/arch/mips/boot/Makefile b/arch/mips/boot/Makefile
+index c22da16d67b8..e57db050f4e1 100644
+--- a/arch/mips/boot/Makefile
++++ b/arch/mips/boot/Makefile
+@@ -28,6 +28,7 @@ suffix-$(CONFIG_KERNEL_BZIP2)	:= bz2
+ suffix-$(CONFIG_KERNEL_GZIP)	:= gz
+ suffix-$(CONFIG_KERNEL_LZMA)	:= lzma
+ suffix-$(CONFIG_KERNEL_LZO)	:= lzo
++suffix-$(CONFIG_KERNEL_DTB)	:= dtb
+ 
+ targets := vmlinux.ecoff
+ quiet_cmd_ecoff = ECOFF	  $@
+@@ -47,6 +48,12 @@ quiet_cmd_srec = OBJCOPY $@
+ $(obj)/vmlinux.srec: $(VMLINUX) FORCE
+ 	$(call if_changed,srec)
+ 
++target += vmlinux.bin.dtb
++quiet_cmd_dtb = OBJCOPY $@
++      cmd_dtb = $(OBJCOPY) --update-section .appended_dtb=arch/mips/boot/dts/${CONFIG_APPENDED_DTB} vmlinux $@
++$(obj)/vmlinux.bin.dtb: vmlinux FORCE
++	$(call if_changed,dtb)
++
+ UIMAGE_LOADADDR  = $(VMLINUX_LOAD_ADDRESS)
+ UIMAGE_ENTRYADDR = $(VMLINUX_ENTRY_ADDRESS)
+ 
+@@ -81,6 +88,7 @@ targets += uImage.bz2
+ targets += uImage.gz
+ targets += uImage.lzma
+ targets += uImage.lzo
++targets += uImage.dtb
+ 
+ $(obj)/uImage.bin: $(obj)/vmlinux.bin FORCE
+ 	$(call if_changed,uimage,none)
+@@ -97,6 +105,9 @@ $(obj)/uImage.lzma: $(obj)/vmlinux.bin.lzma FORCE
+ $(obj)/uImage.lzo: $(obj)/vmlinux.bin.lzo FORCE
+ 	$(call if_changed,uimage,lzo)
+ 
++$(obj)/uImage.dtb: $(obj)/vmlinux.bin.dtb FORCE
++	$(call if_changed,uimage,gzip)
++
+ $(obj)/uImage: $(obj)/uImage.$(suffix-y)
+ 	@ln -sf $(notdir $<) $@
+ 	@echo '  Image $@ is ready'
+-- 
+2.11.0
+

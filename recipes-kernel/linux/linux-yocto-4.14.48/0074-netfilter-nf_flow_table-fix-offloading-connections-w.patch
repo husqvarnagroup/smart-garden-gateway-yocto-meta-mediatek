@@ -1,0 +1,31 @@
+From c2a8e03ff20f7c18877f3552a0981efc009ae081 Mon Sep 17 00:00:00 2001
+From: Felix Fietkau <nbd@nbd.name>
+Date: Fri, 23 Mar 2018 19:12:30 +0100
+Subject: [PATCH] netfilter: nf_flow_table: fix offloading connections with
+ SNAT+DNAT
+
+Pass all NAT types to the flow offload struct, otherwise parts of the
+address/port pair do not get translated properly, causing connection
+stalls
+
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+---
+ net/netfilter/nf_flow_table_core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
+index a9d3099fae25..79997514a394 100644
+--- a/net/netfilter/nf_flow_table_core.c
++++ b/net/netfilter/nf_flow_table_core.c
+@@ -84,7 +84,7 @@ flow_offload_alloc(struct nf_conn *ct, struct nf_flow_route *route)
+ 
+ 	if (ct->status & IPS_SRC_NAT)
+ 		flow->flags |= FLOW_OFFLOAD_SNAT;
+-	else if (ct->status & IPS_DST_NAT)
++	if (ct->status & IPS_DST_NAT)
+ 		flow->flags |= FLOW_OFFLOAD_DNAT;
+ 
+ 	return flow;
+-- 
+2.11.0
+

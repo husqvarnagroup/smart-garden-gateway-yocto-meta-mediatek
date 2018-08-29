@@ -1,0 +1,162 @@
+From c4c05ac8293e41fa485f4cdc59e11c5b5e6373f8 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <reto.schneider@husqvarnagroup.com>
+Date: Tue, 26 Jun 2018 19:41:14 +0200
+Subject: [PATCH] MIPS: Add Gardena smart Gateway MT7688 board
+
+GPIO pins setup:
+  - All involved pinctrl groups must be set to GPIO explicitly
+  - Pinctrl groups set up the GPIO1_MODE and GPIO2_MODE registers
+  - Group names can be found in arch/mips/ralink/mt7620.c mt7628an_pinmux_data[]
+  - U-boot currently sets up LED pins as analog GPIOs - can be adjusted in user space
+
+UART1 setup:
+  - Enable GPIO banks for gardena_smart_gateway
+  - Enable UART1 for gardena_smart_gateway and configure RTS and CTS pins
+
+UART2 setup:
+  - Bits EPHY_GPIO_AIO_EN need to be set to 1 (digital pads)
+---
+ arch/mips/boot/dts/ralink/Makefile                 |   1 +
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 101 +++++++++++++++++++++
+ arch/mips/ralink/Kconfig                           |   5 +
+ 3 files changed, 107 insertions(+)
+ create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+
+diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
+index a80eeeecf613..fc8e3a32583f 100644
+--- a/arch/mips/boot/dts/ralink/Makefile
++++ b/arch/mips/boot/dts/ralink/Makefile
+@@ -4,6 +4,7 @@ dtb-$(CONFIG_DTB_RT305X_EVAL)	+= rt3052_eval.dtb
+ dtb-$(CONFIG_DTB_RT3883_EVAL)	+= rt3883_eval.dtb
+ dtb-$(CONFIG_DTB_MT7620A_EVAL)	+= mt7620a_eval.dtb
+ dtb-$(CONFIG_DTB_OMEGA2P)	+= omega2p.dtb
++dtb-$(CONFIG_DTB_GARDENA_SMART_GATEWAY_MT7688)	+= gardena_smart_gateway_mt7688.dtb
+ dtb-$(CONFIG_DTB_VOCORE2)	+= vocore2.dtb
+ 
+ obj-y				+= $(patsubst %.dtb, %.dtb.o, $(dtb-y))
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+new file mode 100644
+index 000000000000..b6003a0fbe97
+--- /dev/null
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -0,0 +1,101 @@
++/dts-v1/;
++
++/include/ "mt7628a.dtsi"
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++
++/ {
++	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7688a-soc", "ralink,mt7628a-soc";
++	model = "Gardena smart Gateway MT7688";
++
++	memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x8000000>;
++	};
++
++	chosen {
++		bootargs = "console=ttyS0,57600";
++		stdout-path = &uart0;
++	};
++};
++
++&pinctrl {
++	state_default: pinctrl0 {
++		gpio {
++			ralink,group = "gpio", "i2s", "p0led_an", "p1led_an", "p2led_an",
++			               "p3led_an", "p4led_an", "spis", "wled_an", "wdt", "sdmode",
++			               "refclk", "perst", "pwm0", "pwm1";
++			ralink,function = "gpio";
++		};
++
++		uart0 {
++			ralink,group = "uart0";
++			ralink,function = "uart0";
++		};
++
++		uart1 {
++			ralink,group = "uart1";
++			ralink,function = "uart1";
++		};
++
++		uart2 {
++			ralink,group = "uart2";
++			ralink,function = "uart2";
++		};
++	};
++};
++
++&spi0 {
++	status = "okay";
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi_pins>, <&spi_cs1_pins>;
++
++	m25p80@0 {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		spi-max-frequency = <40000000>;
++		m25p,chunked-io = <31>;
++	};
++
++	nand_flash@1 {
++		compatible = "gigadevice,gd5f";
++		linux,mtd-name = "gd5f";
++		reg = <1>;
++		spi-max-frequency = <40000000>;
++	};
++};
++
++&gpio0 {
++	status = "okay";
++};
++
++&gpio1 {
++	status = "okay";
++};
++
++&gpio2 {
++	status = "okay";
++};
++
++&uart0 {
++	status = "okay";
++};
++
++&uart1 {
++	status = "okay";
++
++	rts-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
++	cts-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
++};
++
++&uart2 {
++	status = "okay";
++};
++
++&i2c {
++	status = "okay";
++};
+diff --git a/arch/mips/ralink/Kconfig b/arch/mips/ralink/Kconfig
+index f26736b7080b..5e0089a61eed 100644
+--- a/arch/mips/ralink/Kconfig
++++ b/arch/mips/ralink/Kconfig
+@@ -88,6 +88,11 @@ choice
+ 		depends on SOC_MT7620
+ 		select BUILTIN_DTB
+ 
++	config DTB_GARDENA_SMART_GATEWAY_MT7688
++		bool "Gardena smart Gateway MT7688"
++		depends on SOC_MT7620
++		select BUILTIN_DTB
++
+ 	config DTB_VOCORE2
+ 		bool "VoCore2"
+ 		depends on SOC_MT7620
+-- 
+2.11.0
+

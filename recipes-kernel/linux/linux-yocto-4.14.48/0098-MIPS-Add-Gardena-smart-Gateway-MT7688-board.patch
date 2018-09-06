@@ -1,4 +1,4 @@
-From c4c05ac8293e41fa485f4cdc59e11c5b5e6373f8 Mon Sep 17 00:00:00 2001
+From bb2bb36cd055e9e0e05207a5bd2aa32c6d55b546 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Tue, 26 Jun 2018 19:41:14 +0200
 Subject: [PATCH] MIPS: Add Gardena smart Gateway MT7688 board
@@ -17,9 +17,9 @@ UART2 setup:
   - Bits EPHY_GPIO_AIO_EN need to be set to 1 (digital pads)
 ---
  arch/mips/boot/dts/ralink/Makefile                 |   1 +
- .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 101 +++++++++++++++++++++
- arch/mips/ralink/Kconfig                           |   5 +
- 3 files changed, 107 insertions(+)
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 100 +++++++++++++++++++++
+ arch/mips/ralink/Kconfig                           |   5 ++
+ 3 files changed, 106 insertions(+)
  create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 
 diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
@@ -36,10 +36,10 @@ index a80eeeecf613..fc8e3a32583f 100644
  obj-y				+= $(patsubst %.dtb, %.dtb.o, $(dtb-y))
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 new file mode 100644
-index 000000000000..b6003a0fbe97
+index 000000000000..7f6f2bb07d20
 --- /dev/null
 +++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
-@@ -0,0 +1,101 @@
+@@ -0,0 +1,100 @@
 +/dts-v1/;
 +
 +/include/ "mt7628a.dtsi"
@@ -57,7 +57,6 @@ index 000000000000..b6003a0fbe97
 +	};
 +
 +	chosen {
-+		bootargs = "console=ttyS0,57600";
 +		stdout-path = &uart0;
 +	};
 +};

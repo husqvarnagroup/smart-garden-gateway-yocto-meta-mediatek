@@ -75,6 +75,7 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0001-Adapt-fw_env.config-to-our-layout.patch \
            file://0001-UBI-U-Boot-Set-reserved-PEBs-to-22.patch \
            file://0001-If-missing-use-random-Ethernet-MAC.patch \
+           file://0001-Increase-baud-to-115200.patch \
            "
 
 S = "${WORKDIR}/git"

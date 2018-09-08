@@ -1,0 +1,146 @@
+From ef058a9a20a2af9efeba613bf1e241d9977c8d2a Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Thu, 6 Sep 2018 07:53:05 +0200
+Subject: [PATCH] wdt: Add MT7621 watchdog driver
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ drivers/watchdog/Kconfig      |   7 +++
+ drivers/watchdog/Makefile     |   1 +
+ drivers/watchdog/mt7621_wdt.c | 102 ++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 110 insertions(+)
+ create mode 100644 drivers/watchdog/mt7621_wdt.c
+
+diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+index d545b3e000..e33c28b24d 100644
+--- a/drivers/watchdog/Kconfig
++++ b/drivers/watchdog/Kconfig
+@@ -111,4 +111,11 @@ config XILINX_TB_WATCHDOG
+ 	   Select this to enable Xilinx Axi watchdog timer, which can be found on some
+ 	   Xilinx Microblaze Platforms.
+ 
++config WDT_MT7621
++	bool "MediaTek MT7621 watchdog timer support"
++	depends on WDT && ARCH_MT7620
++	help
++	   Select this to enable Ralink / Mediatek watchdog timer,
++	   which can be found on some MediaTek chips.
++
+ endmenu
+diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
+index 08406caa0f..d8a593d602 100644
+--- a/drivers/watchdog/Makefile
++++ b/drivers/watchdog/Makefile
+@@ -23,3 +23,4 @@ obj-$(CONFIG_BCM2835_WDT)       += bcm2835_wdt.o
+ obj-$(CONFIG_WDT_ORION) += orion_wdt.o
+ obj-$(CONFIG_WDT_CDNS) += cdns_wdt.o
+ obj-$(CONFIG_MPC8xx_WATCHDOG) += mpc8xx_wdt.o
++obj-$(CONFIG_WDT_MT7621) += mt7621_wdt.o
+diff --git a/drivers/watchdog/mt7621_wdt.c b/drivers/watchdog/mt7621_wdt.c
+new file mode 100644
+index 0000000000..38866141e4
+--- /dev/null
++++ b/drivers/watchdog/mt7621_wdt.c
+@@ -0,0 +1,102 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Ralink / Mediatek RT288x/RT3xxx/MT76xx built-in hardware watchdog timer
++ *
++ * Copyright (C) 2018 Stefan Roese <sr@denx.de>
++ *
++ * Based on the Linux driver version which is:
++ *   Copyright (C) 2011 Gabor Juhos <juhosg@openwrt.org>
++ *   Copyright (C) 2013 John Crispin <blogic@openwrt.org>
++ */
++
++#include <common.h>
++#include <dm.h>
++#include <wdt.h>
++#include <linux/io.h>
++
++DECLARE_GLOBAL_DATA_PTR;
++
++struct mt762x_wdt {
++	void __iomem *regs;
++};
++
++#define TIMER_REG_TMRSTAT		0x00
++#define TIMER_REG_TMR1CTL		0x20
++#define TIMER_REG_TMR1LOAD		0x24
++
++#define TMR1CTL_ENABLE			BIT(7)
++#define TMR1CTL_RESTART			BIT(9)
++#define TMR1CTL_PRESCALE_SHIFT		16
++
++static int mt762x_wdt_ping(struct mt762x_wdt *priv)
++{
++	writel(TMR1CTL_RESTART, priv->regs + TIMER_REG_TMRSTAT);
++
++	return 0;
++}
++
++static int mt762x_wdt_start(struct udevice *dev, u64 ms, ulong flags)
++{
++	struct mt762x_wdt *priv = dev_get_priv(dev);
++
++	/* set the prescaler to 1ms == 1000us */
++	writel(1000 << TMR1CTL_PRESCALE_SHIFT, priv->regs + TIMER_REG_TMR1CTL);
++	writel(ms, priv->regs + TIMER_REG_TMR1LOAD);
++
++	setbits_le32(priv->regs + TIMER_REG_TMR1CTL, TMR1CTL_ENABLE);
++
++	return 0;
++}
++
++static int mt762x_wdt_stop(struct udevice *dev)
++{
++	struct mt762x_wdt *priv = dev_get_priv(dev);
++
++	mt762x_wdt_ping(priv);
++
++	clrbits_le32(priv->regs + TIMER_REG_TMR1CTL, TMR1CTL_ENABLE);
++
++	return 0;
++}
++
++static int mt762x_wdt_reset(struct udevice *dev)
++{
++	struct mt762x_wdt *priv = dev_get_priv(dev);
++
++	mt762x_wdt_ping(priv);
++
++	return 0;
++}
++
++static int mt762x_wdt_probe(struct udevice *dev)
++{
++	struct mt762x_wdt *priv = dev_get_priv(dev);
++
++	priv->regs = dev_remap_addr(dev);
++	if (!priv->regs)
++		return -EINVAL;
++
++	mt762x_wdt_stop(dev);
++
++	return 0;
++}
++
++static const struct wdt_ops mt762x_wdt_ops = {
++	.start = mt762x_wdt_start,
++	.reset = mt762x_wdt_reset,
++	.stop = mt762x_wdt_stop,
++};
++
++static const struct udevice_id mt762x_wdt_ids[] = {
++	{ .compatible = "mediatek,mt7621-wdt" },
++	{}
++};
++
++U_BOOT_DRIVER(mt762x_wdt) = {
++	.name = "mt762x_wdt",
++	.id = UCLASS_WDT,
++	.of_match = mt762x_wdt_ids,
++	.probe = mt762x_wdt_probe,
++	.priv_auto_alloc_size = sizeof(struct mt762x_wdt),
++	.ops = &mt762x_wdt_ops,
++};

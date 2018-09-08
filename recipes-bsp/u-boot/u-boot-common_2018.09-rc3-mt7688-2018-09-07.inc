@@ -7,7 +7,7 @@ PE = "1"
 
 # We use the revision in order to avoid having to fetch it from the
 # repo during parse
-SRCREV = "92e738f5556a63f14360a9a628e36eeb66c9a7bf"
+SRCREV = "4cdeda511f8037015b568396e6dcc3d8fb41e8c0"
 
 SRC_URI = "git://git.denx.de/u-boot.git \
            file://0001-mtd-Fallback-to-_read-write_oob-when-_read-write-is-.patch \
@@ -68,12 +68,26 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0056-mips-gardena-smart-gateway-defconfig-Enable-MIPS_BOO.patch \
            file://0057-mips-linkit-smart-7688-Fix-linux-uart-selection-in-c.patch \
            file://0058-mips-gardena-smart-gateway-mt7688.h-Increase-malloc-.patch \
-           file://0001-Enable-lzma-support-for-uImage.lzma.patch \
-           file://0002-Enable-the-DHCP-command.patch \
-           file://0001-Adapt-fw_env.config-to-our-layout.patch \
-           file://0001-UBI-U-Boot-Set-reserved-PEBs-to-22.patch \
-           file://0001-If-missing-use-random-Ethernet-MAC.patch \
-           file://0001-Increase-baud-to-115200.patch \
+           file://0059-linkit.patch \
+           file://0060-gardena.patch \
+           file://0061-WIP-MIPS-MT7620-Enable-DM_GPIO-Support.patch \
+           file://0062-WIP-mips-mt7628a.dtsi-Add-GPIO-DT-entries.patch \
+           file://0063-WIP-configs-gardena-smart-gateway-mt7688-ram_defconf.patch \
+           file://0064-WIP-gpio-Add-MT7621-GPIO-support.patch \
+           file://0065-WIP-gardena-GPIO-config-as-digital-pins.patch \
+           file://0066-WIP-arch-mips-dts-gardena-smart-gateway-mt7688.dts-A.patch \
+           file://0067-WIP-mips-gardena-Add-board_late_init-to-set-LED-defa.patch \
+           file://0068-WIP-mips-gardena-smart-gateway-OTP-stuff.patch \
+           file://0069-mips-Add-in_le32-out_le32-etc-IO-accessor-functions.patch \
+           file://0070-WIP-mips-gardena-Add-bootcounter-support.patch \
+           file://0071-mips-mt7628a.dtsi-Add-watchdog-DT-node.patch \
+           file://0072-wdt-Add-MT7621-watchdog-driver.patch \
+           file://0073-common-Add-arch_misc_init-prototype-to-include-init..patch \
+           file://0074-mips-mt7620-Enable-watchdog-support.patch \
+           file://0075-mips-gardena-smart-gateway-Enable-watchdog-support.patch \
+           file://0076-WIP-TEST-mt7621-GPIO-driver.patch \
+           file://0077-Increase-baud-to-115200.patch \
+           file://0078-Adapt-fw_env.config-to-our-layout.patch \
            "
 
 S = "${WORKDIR}/git"

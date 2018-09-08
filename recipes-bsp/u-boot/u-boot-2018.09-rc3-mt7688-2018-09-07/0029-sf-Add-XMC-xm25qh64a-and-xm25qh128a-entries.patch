@@ -1,0 +1,50 @@
+From 48b9011f67d2ded66efd8de0265248159f1d160d Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Tue, 26 Jun 2018 11:10:40 +0200
+Subject: [PATCH] sf: Add XMC xm25qh64a and xm25qh128a entries
+
+This patch adds support for 2 new XMC (Wuhan Xinxin Semiconductor
+Manufacturing Corp) SPI NOR chips.
+
+This support can be enabled by selecting the SPI_FLASH_XMC Kconfig
+option.
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+Cc: Jagan Teki <jagan@openedev.com>
+---
+ drivers/mtd/spi/Kconfig         | 6 ++++++
+ drivers/mtd/spi/spi_flash_ids.c | 4 ++++
+ 2 files changed, 10 insertions(+)
+
+diff --git a/drivers/mtd/spi/Kconfig b/drivers/mtd/spi/Kconfig
+index 8e6d7144a5..86fc9b7530 100644
+--- a/drivers/mtd/spi/Kconfig
++++ b/drivers/mtd/spi/Kconfig
+@@ -105,6 +105,12 @@ config SPI_FLASH_WINBOND
+ 	help
+ 	  Add support for various Winbond SPI flash chips (W25xxx)
+ 
++config SPI_FLASH_XMC
++	bool "XMC SPI flash support"
++	help
++	  Add support for various XMC (Wuhan Xinxin Semiconductor
++	  Manufacturing Corp.) SPI flash chips (XM25xxx)
++
+ endif
+ 
+ config SPI_FLASH_USE_4K_SECTORS
+diff --git a/drivers/mtd/spi/spi_flash_ids.c b/drivers/mtd/spi/spi_flash_ids.c
+index e662e4b42e..ad0a0c8150 100644
+--- a/drivers/mtd/spi/spi_flash_ids.c
++++ b/drivers/mtd/spi/spi_flash_ids.c
+@@ -189,6 +189,10 @@ const struct spi_flash_info spi_flash_ids[] = {
+ 	{"w25q256fw",	   INFO(0xef6019, 0x0,	64 * 1024,   512, RD_FULL | WR_QPP | SECT_4K) },
+ 	{"w25q256jw",	   INFO(0xef7019, 0x0,	64 * 1024,   512, RD_FULL | WR_QPP | SECT_4K) },
+ #endif
++#ifdef CONFIG_SPI_FLASH_XMC /* Wuhan Xinxin Semiconductor Manufacturing Corp */
++	{ "xm25qh64a",	   INFO(0x207017, 0x0, 64 * 1024,    128, SECT_4K | RD_DUAL | RD_QUAD) },
++	{ "xm25qh128a",	   INFO(0x207018, 0x0, 64 * 1024,    256, SECT_4K | RD_DUAL | RD_QUAD) },
++#endif
+ 	{},	/* Empty entry to terminate the list */
+ 	/*
+ 	 * Note:

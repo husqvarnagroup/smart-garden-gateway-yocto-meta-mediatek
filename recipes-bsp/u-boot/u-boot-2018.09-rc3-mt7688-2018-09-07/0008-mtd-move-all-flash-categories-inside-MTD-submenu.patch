@@ -1,0 +1,31 @@
+From ee81b00671d5284899a076dc84e7525220fdbf91 Mon Sep 17 00:00:00 2001
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Wed, 1 Aug 2018 10:18:29 +0200
+Subject: [PATCH] mtd: move all flash categories inside MTD submenu
+
+There is no reason to have NAND, SPI flashes and UBI sections outside of
+the MTD submenu in Kconfig.
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Reviewed-by: Jagan Teki <jagan@openedev.com>
+---
+ drivers/mtd/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/mtd/Kconfig b/drivers/mtd/Kconfig
+index 41f8883ec2..9341d518f3 100644
+--- a/drivers/mtd/Kconfig
++++ b/drivers/mtd/Kconfig
+@@ -59,10 +59,10 @@ config RENESAS_RPC_HF
+ 	  This enables access to Hyperflash memory through the Renesas
+ 	  RCar Gen3 RPC controller.
+ 
+-endmenu
+-
+ source "drivers/mtd/nand/Kconfig"
+ 
+ source "drivers/mtd/spi/Kconfig"
+ 
+ source "drivers/mtd/ubi/Kconfig"
++
++endmenu

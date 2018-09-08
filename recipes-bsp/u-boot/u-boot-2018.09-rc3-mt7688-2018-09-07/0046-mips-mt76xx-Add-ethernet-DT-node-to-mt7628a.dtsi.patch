@@ -1,0 +1,27 @@
+From 242e23e8670adc2b446314476fe5b3d38b812170 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Fri, 10 Aug 2018 18:28:18 +0200
+Subject: [PATCH] mips: mt76xx: Add ethernet DT node to mt7628a.dtsi
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+Cc: Daniel Schwierzeck <daniel.schwierzeck@gmail.com>
+---
+ arch/mips/dts/mt7628a.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/mips/dts/mt7628a.dtsi b/arch/mips/dts/mt7628a.dtsi
+index c14259b170..b248149325 100644
+--- a/arch/mips/dts/mt7628a.dtsi
++++ b/arch/mips/dts/mt7628a.dtsi
+@@ -120,6 +120,11 @@
+ 		};
+ 	};
+ 
++	eth@10110000 {
++		compatible = "mediatek,mt7622-eth";
++		reg = <0x10110000 0x1000>;
++	};
++
+ 	usb_phy: usb-phy@10120000 {
+ 		compatible = "mediatek,mt7628-usbphy";
+ 		reg = <0x10120000 0x1000>;

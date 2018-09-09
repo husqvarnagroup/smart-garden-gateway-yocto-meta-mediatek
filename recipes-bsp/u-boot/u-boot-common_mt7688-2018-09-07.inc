@@ -9,6 +9,10 @@ PE = "1"
 # repo during parse
 SRCREV = "4cdeda511f8037015b568396e6dcc3d8fb41e8c0"
 
+UBOOT_LOCALVERSION ?= "-${PR}-${PV}"
+
+FILESEXTRAPATHS_prepend ?= "${THISDIR}/u-boot-${PV}:"
+
 SRC_URI = "git://git.denx.de/u-boot.git \
            file://0001-mtd-Fallback-to-_read-write_oob-when-_read-write-is-.patch \
            file://0002-mtd-Uninline-mtd_write_oob-and-move-it-to-mtdcore.c.patch \
@@ -88,6 +92,14 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0076-WIP-TEST-mt7621-GPIO-driver.patch \
            file://0077-Increase-baud-to-115200.patch \
            file://0078-Adapt-fw_env.config-to-our-layout.patch \
+           file://0001-Give-proper-names-to-LEDs.patch \
+           file://0002-White-LEDs-during-startup.patch \
+           file://0003-Rename-SPI-NAND-partition-name.patch \
+           file://0004-Enable-CONFIG_VERSION_VARIABLE.patch \
+           file://0005-Enable-CONFIG_ENV_VARS_UBOOT_CONFIG.patch \
+           file://0006-Enable-CONFIG_CMD_BOOTCOUNT.patch \
+           file://0007-Set-reserved-PEBs-to-22.patch \
+           file://0001-Enable-GPIO-command.patch \
            "
 
 S = "${WORKDIR}/git"

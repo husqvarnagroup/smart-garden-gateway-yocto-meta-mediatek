@@ -3,7 +3,7 @@ SECTION = "bootloaders"
 
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://Licenses/README;md5=30503fd321432fc713238f582193b78e"
-PE = "1"
+PE = "2"
 
 # We use the revision in order to avoid having to fetch it from the
 # repo during parse
@@ -91,7 +91,6 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0075-mips-gardena-smart-gateway-Enable-watchdog-support.patch \
            file://0076-WIP-TEST-mt7621-GPIO-driver.patch \
            file://0077-Increase-baud-to-115200.patch \
-           file://0078-Adapt-fw_env.config-to-our-layout.patch \
            file://0001-Give-proper-names-to-LEDs.patch \
            file://0002-White-LEDs-during-startup.patch \
            file://0003-Rename-SPI-NAND-partition-name.patch \
@@ -100,6 +99,7 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0006-Enable-CONFIG_CMD_BOOTCOUNT.patch \
            file://0007-Set-reserved-PEBs-to-22.patch \
            file://0001-Enable-GPIO-command.patch \
+           file://fw_env.config \
            "
 
 S = "${WORKDIR}/git"

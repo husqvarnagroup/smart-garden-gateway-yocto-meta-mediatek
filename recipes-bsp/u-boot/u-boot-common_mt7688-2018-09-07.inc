@@ -3,7 +3,7 @@ SECTION = "bootloaders"
 
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://Licenses/README;md5=30503fd321432fc713238f582193b78e"
-PE = "2"
+PE = "3"
 
 # We use the revision in order to avoid having to fetch it from the
 # repo during parse
@@ -100,6 +100,7 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0007-Set-reserved-PEBs-to-22.patch \
            file://0001-Enable-GPIO-command.patch \
            file://fw_env.config \
+           file://0009-Bump-baud-rate-to-115200.patch \
            "
 
 S = "${WORKDIR}/git"

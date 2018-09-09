@@ -1,4 +1,4 @@
-From 821f85fc12ded78b76c33dbbf5ab83e5bd9d2e07 Mon Sep 17 00:00:00 2001
+From 4a987833a353f30f394ffe22af5837ab6f534899 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Sun, 9 Sep 2018 02:03:56 +0200
 Subject: [PATCH] Give proper names to LEDs
@@ -8,7 +8,7 @@ Subject: [PATCH] Give proper names to LEDs
  1 file changed, 12 insertions(+), 12 deletions(-)
 
 diff --git a/arch/mips/dts/gardena-smart-gateway-mt7688.dts b/arch/mips/dts/gardena-smart-gateway-mt7688.dts
-index c6388828bd..4a55563a34 100644
+index c6388828bd..a825911aa6 100644
 --- a/arch/mips/dts/gardena-smart-gateway-mt7688.dts
 +++ b/arch/mips/dts/gardena-smart-gateway-mt7688.dts
 @@ -25,34 +25,34 @@
@@ -17,44 +17,44 @@ index c6388828bd..4a55563a34 100644
  
 -		blue_led1 {
 -			label = "smartgw:blue:led1";
-+		blue_power {
-+			label = "smartgw:blue:power";
++		power_blue {
++			label = "smartgw:power:blue";
  			gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
  			default-state = "on";
  		};
  
 -		green_led1 {
 -			label = "smartgw:green:led1";
-+		green_power {
-+			label = "smartgw:green:power";
++		power_green {
++			label = "smartgw:power:green";
  			gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
  		};
  
 -		red_led1 {
 -			label = "smartgw:red:led1";
-+		red_power {
-+			label = "smartgw:red:power";
++		power_red {
++			label = "smartgw:power:red";
  			gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
  		};
  
 -		blue_led2 {
 -			label = "smartgw:blue:led2";
-+		blue_internet {
-+			label = "smartgw:blue:internet";
++		internet_blue {
++			label = "smartgw:internet:blue";
  			gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
  		};
  
 -		green_led2 {
 -			label = "smartgw:green:led2";
-+		green_internet {
-+			label = "smartgw:green:internet";
++		internet_green {
++			label = "smartgw:internet:green";
  			gpios = <&gpio0 27 GPIO_ACTIVE_HIGH>;
  		};
  
 -		red_led2 {
 -			label = "smartgw:red:led2";
-+		red_internet {
-+			label = "smartgw:red:internet";
++		internet_red {
++			label = "smartgw:internet:red";
  			gpios = <&gpio0 28 GPIO_ACTIVE_HIGH>;
  		};
  	};

@@ -101,6 +101,7 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0001-Enable-GPIO-command.patch \
            file://fw_env.config \
            file://0009-Bump-baud-rate-to-115200.patch \
+           file://uEnv.txt \
            "
 
 S = "${WORKDIR}/git"

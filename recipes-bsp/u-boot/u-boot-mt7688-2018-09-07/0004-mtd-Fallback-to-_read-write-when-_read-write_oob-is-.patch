@@ -1,0 +1,87 @@
+From 21463f165ba45df58757bb1a265b57693dbbc89c Mon Sep 17 00:00:00 2001
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Wed, 1 Aug 2018 10:18:25 +0200
+Subject: [PATCH] mtd: Fallback to ->_read/write() when ->_read/write_oob() is
+ missing
+
+Some MTD sublayers/drivers are implementing ->_read/write() and
+not ->_read/write_oob().
+
+While for NAND devices both are usually valid, for NOR devices, using
+the _oob variant has no real meaning. But, as the MTD layer is supposed
+to hide as much as possible the flash complexity to the user, there is
+no reason to error out while it is just a matter of rewritting things
+internally.
+
+Add a fallback on mtd->_read() (resp. mtd->_write()) when the user calls
+mtd_read_oob() (resp. mtd_write_oob()) while mtd->_read_oob() (resp.
+mtd->_write_oob) is not implemented. There is already a fallback on the
+_oob variant if the former is used.
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ drivers/mtd/mtdcore.c | 26 ++++++++++++++++++++------
+ 1 file changed, 20 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/mtd/mtdcore.c b/drivers/mtd/mtdcore.c
+index 9a3efe95df..fb1d68d5e2 100644
+--- a/drivers/mtd/mtdcore.c
++++ b/drivers/mtd/mtdcore.c
+@@ -1047,20 +1047,27 @@ int mtd_read_oob(struct mtd_info *mtd, loff_t from, struct mtd_oob_ops *ops)
+ {
+ 	int ret_code;
+ 	ops->retlen = ops->oobretlen = 0;
+-	if (!mtd->_read_oob)
+-		return -EOPNOTSUPP;
+ 
+ 	ret_code = mtd_check_oob_ops(mtd, from, ops);
+ 	if (ret_code)
+ 		return ret_code;
+ 
++	/* Check the validity of a potential fallback on mtd->_read */
++	if (!mtd->_read_oob && (!mtd->_read || ops->oobbuf))
++		return -EOPNOTSUPP;
++
++	if (mtd->_read_oob)
++		ret_code = mtd->_read_oob(mtd, from, ops);
++	else
++		ret_code = mtd->_read(mtd, from, ops->len, &ops->retlen,
++				      ops->datbuf);
++
+ 	/*
+ 	 * In cases where ops->datbuf != NULL, mtd->_read_oob() has semantics
+ 	 * similar to mtd->_read(), returning a non-negative integer
+ 	 * representing max bitflips. In other cases, mtd->_read_oob() may
+ 	 * return -EUCLEAN. In all cases, perform similar logic to mtd_read().
+ 	 */
+-	ret_code = mtd->_read_oob(mtd, from, ops);
+ 	if (unlikely(ret_code < 0))
+ 		return ret_code;
+ 	if (mtd->ecc_strength == 0)
+@@ -1075,8 +1082,7 @@ int mtd_write_oob(struct mtd_info *mtd, loff_t to,
+ 	int ret;
+ 
+ 	ops->retlen = ops->oobretlen = 0;
+-	if (!mtd->_write_oob)
+-		return -EOPNOTSUPP;
++
+ 	if (!(mtd->flags & MTD_WRITEABLE))
+ 		return -EROFS;
+ 
+@@ -1084,7 +1090,15 @@ int mtd_write_oob(struct mtd_info *mtd, loff_t to,
+ 	if (ret)
+ 		return ret;
+ 
+-	return mtd->_write_oob(mtd, to, ops);
++	/* Check the validity of a potential fallback on mtd->_write */
++	if (!mtd->_write_oob && (!mtd->_write || ops->oobbuf))
++		return -EOPNOTSUPP;
++
++	if (mtd->_write_oob)
++		return mtd->_write_oob(mtd, to, ops);
++	else
++		return mtd->_write(mtd, to, ops->len, &ops->retlen,
++				   ops->datbuf);
+ }
+ EXPORT_SYMBOL_GPL(mtd_write_oob);
+ 

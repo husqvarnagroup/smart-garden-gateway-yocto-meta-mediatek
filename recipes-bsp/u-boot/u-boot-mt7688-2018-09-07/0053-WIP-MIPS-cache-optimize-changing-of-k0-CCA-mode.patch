@@ -1,0 +1,112 @@
+From 20d2a829acd78c0d65f7f38285e56383b80f9994 Mon Sep 17 00:00:00 2001
+From: Daniel Schwierzeck <daniel.schwierzeck@gmail.com>
+Date: Sun, 12 Aug 2018 00:24:06 +0200
+Subject: [PATCH] WIP: MIPS: cache: optimize changing of k0 CCA mode
+
+U-Boot can now be linked to a cached KSEG0 address. Because
+changing the Cache Coherency Algorithm (CCA) for kernel mode
+requires executing from KSEG1, do a jump from KSEG0 to KSEG1
+before changing the CCA mode. Jump back to KSEG0 afterwards.
+
+This should increase booting performance, especially if there is
+a lot of low level init code between initialisation of I-Cache
+and reloaction of U-Boot.
+
+Signed-off-by: Daniel Schwierzeck <daniel.schwierzeck@gmail.com>
+---
+ arch/mips/lib/cache_init.S | 61 +++++++++++++++++++++++++++++++---------------
+ 1 file changed, 41 insertions(+), 20 deletions(-)
+
+diff --git a/arch/mips/lib/cache_init.S b/arch/mips/lib/cache_init.S
+index 50caa274b6..be6e94688d 100644
+--- a/arch/mips/lib/cache_init.S
++++ b/arch/mips/lib/cache_init.S
+@@ -84,6 +84,30 @@
+ 10:
+ 	.set	pop
+ 	.endm
++
++
++	.macro call_change_k0_cca	mode
++	/*
++	 * Change kernel mode cacheability which must be done from KSEG1.
++	 * If the code is executing from KSEG0, jump to KSEG1 first. After
++	 * the change jump (back) to KSEG0 to continue execution fully cached.
++	 */
++	PTR_LA		t0, change_k0_cca
++	li		t1, 0xf
++#if __mips_isa_rev >= 2
++	ins		t0, t1, 29, 1
++#else
++#error FIXME
++	ori		t0, t0, (1 << 29)
++	xori		t0, t0, (1 << 29)
++	or		t0, t0, t1
++#endif
++
++	li		a0, \mode
++	jalr		t0
++	 nop
++	.endm
++
+ /*
+  * mips_cache_reset - low level initialisation of the primary caches
+  *
+@@ -322,16 +346,7 @@ l1_init:
+ 
+ 	/* Enable use of the I-cache by setting Config.K0 */
+ 	sync
+-	mfc0		t0, CP0_CONFIG
+-	li		t1, CONFIG_SYS_MIPS_CACHE_MODE
+-#if __mips_isa_rev >= 2
+-	ins		t0, t1, 0, 3
+-#else
+-	ori		t0, t0, CONF_CM_CMASK
+-	xori		t0, t0, CONF_CM_CMASK
+-	or		t0, t0, t1
+-#endif
+-	mtc0		t0, CP0_CONFIG
++	call_change_k0_cca CONF_CM_CACHABLE_NONCOHERENT
+ 
+ 	/*
+ 	 * then initialize D-cache.
+@@ -391,16 +406,7 @@ l2_unbypass:
+ 	beqz		t0, 2f
+ 
+ 	/* Change Config.K0 to a coherent CCA */
+-	mfc0		t0, CP0_CONFIG
+-	li		t1, CONF_CM_CACHABLE_COW
+-#if __mips_isa_rev >= 2
+-	ins		t0, t1, 0, 3
+-#else
+-	ori		t0, t0, CONF_CM_CMASK
+-	xori		t0, t0, CONF_CM_CMASK
+-	or		t0, t0, t1
+-#endif
+-	mtc0		t0, CP0_CONFIG
++	call_change_k0_cca CONF_CM_CACHABLE_COW
+ 
+ 	/*
+ 	 * Join the coherent domain such that the caches of this core are kept
+@@ -424,6 +430,21 @@ return:
+ 	jr	R_RETURN
+ 	END(mips_cache_reset)
+ 
++LEAF(change_k0_cca)
++	mfc0		t0, CP0_CONFIG
++#if __mips_isa_rev >= 2
++	ins		t0, a0, 0, 3
++#else
++	ori		t0, t0, CONF_CM_CMASK
++	xori		t0, t0, CONF_CM_CMASK
++	or		t0, t0, a0
++#endif
++	mtc0		t0, CP0_CONFIG
++
++	jalr.hb		zero, ra
++	 nop
++	END(change_k0_cca)
++
+ /*
+  * dcache_status - get cache status
+  *

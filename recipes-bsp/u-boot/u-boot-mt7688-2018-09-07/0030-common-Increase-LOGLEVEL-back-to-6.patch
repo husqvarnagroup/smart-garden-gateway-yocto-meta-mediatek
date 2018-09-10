@@ -1,0 +1,30 @@
+From 592ee7183d49d945c6a167225faa1462dbb3f657 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Wed, 1 Aug 2018 14:58:06 +0200
+Subject: [PATCH] common: Increase LOGLEVEL back to 6
+
+Commit 6a3e65dea3e5 ("common: Drop LOGLEVEL to 4") reduced the loglevel
+resulting in pr_warn() messages fro e.g. UBI are not shown anymore. With
+this change back to 6, messages like this appear again:
+
+nand: attempt to erase a bad/reserved block @6000000
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+Cc: Tom Rini <trini@konsulko.com>
+---
+ common/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/common/Kconfig b/common/Kconfig
+index 3030da4fc9..5fb7d9a799 100644
+--- a/common/Kconfig
++++ b/common/Kconfig
+@@ -266,7 +266,7 @@ config IDENT_STRING
+ 
+ config LOGLEVEL
+ 	int "loglevel"
+-	default 4
++	default 6
+ 	range 0 8
+ 	help
+ 	  All Messages with a loglevel smaller than the console loglevel will

@@ -1,0 +1,27 @@
+From c57f75e77865a6db21d21538b4d1f34d62dcc514 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Fri, 17 Aug 2018 12:53:04 +0200
+Subject: [PATCH] mips: gardena-smart-gateway-mt7688.h: Increase malloc size
+
+A bigger malloc size is needed to enable usage with UBI / UBIFS volumes.
+Otherwise mounting of the UBIFS volume may lead to -12 error (ENOMEM).
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+Cc: Daniel Schwierzeck <daniel.schwierzeck@gmail.com>
+---
+ include/configs/gardena-smart-gateway-mt7688.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/configs/gardena-smart-gateway-mt7688.h b/include/configs/gardena-smart-gateway-mt7688.h
+index 5ec9c6a041..05c729950b 100644
+--- a/include/configs/gardena-smart-gateway-mt7688.h
++++ b/include/configs/gardena-smart-gateway-mt7688.h
+@@ -31,7 +31,7 @@
+ 
+ /* Memory usage */
+ #define CONFIG_SYS_MAXARGS		64
+-#define CONFIG_SYS_MALLOC_LEN		(1024 * 1024)
++#define CONFIG_SYS_MALLOC_LEN		(16 * 1024 * 1024)
+ #define CONFIG_SYS_BOOTPARAMS_LEN	(128 * 1024)
+ #define CONFIG_SYS_CBSIZE		512
+ 

@@ -1,0 +1,144 @@
+From 87a71fed1c67581cbe40708e3feeac74074ddd7d Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Fri, 31 Aug 2018 13:58:22 +0200
+Subject: [PATCH] gardena
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ configs/gardena-smart-gateway-mt7688-ram_defconfig | 10 ++++++++--
+ configs/gardena-smart-gateway-mt7688_defconfig     | 10 ++++++++--
+ include/configs/gardena-smart-gateway-mt7688.h     | 15 +++++++++++++--
+ 3 files changed, 29 insertions(+), 6 deletions(-)
+
+diff --git a/configs/gardena-smart-gateway-mt7688-ram_defconfig b/configs/gardena-smart-gateway-mt7688-ram_defconfig
+index eff3d2cabb..91c9841f1f 100644
+--- a/configs/gardena-smart-gateway-mt7688-ram_defconfig
++++ b/configs/gardena-smart-gateway-mt7688-ram_defconfig
+@@ -3,15 +3,17 @@ CONFIG_SYS_TEXT_BASE=0x80010000
+ CONFIG_ARCH_MT7620=y
+ # CONFIG_MIPS_BOOT_ENV_LEGACY is not set
+ CONFIG_MIPS_BOOT_FDT=y
+-CONFIG_DEFAULT_DEVICE_TREE="gardena-smart-gateway-mt7688"
++CONFIG_NR_DRAM_BANKS=1
+ # CONFIG_SYS_MALLOC_CLEAR_ON_INIT is not set
++CONFIG_FIT=y
++CONFIG_FIT_SIGNATURE=y
++CONFIG_IMAGE_FORMAT_LEGACY=y
+ CONFIG_OF_STDOUT_VIA_ALIAS=y
+ CONFIG_SYS_CONSOLE_INFO_QUIET=y
+ CONFIG_BOARD_EARLY_INIT_F=y
+ CONFIG_HUSH_PARSER=y
+ CONFIG_CMD_CPU=y
+ CONFIG_CMD_LICENSE=y
+-# CONFIG_CMD_BOOTD is not set
+ # CONFIG_CMD_ELF is not set
+ # CONFIG_CMD_XIMG is not set
+ CONFIG_CMD_MEMINFO=y
+@@ -20,6 +22,7 @@ CONFIG_CMD_MEMINFO=y
+ CONFIG_CMD_MTD=y
+ CONFIG_CMD_SF=y
+ CONFIG_CMD_SPI=y
++CONFIG_CMD_DHCP=y
+ CONFIG_CMD_MII=y
+ CONFIG_CMD_PING=y
+ CONFIG_CMD_TIME=y
+@@ -27,7 +30,9 @@ CONFIG_MTDIDS_DEFAULT="spi-nand0=spi-nand0"
+ CONFIG_MTDPARTS_DEFAULT="mtdparts=spi-nand0:-(ubi)"
+ CONFIG_CMD_UBI=y
+ CONFIG_OF_EMBED=y
++CONFIG_DEFAULT_DEVICE_TREE="gardena-smart-gateway-mt7688"
+ CONFIG_ENV_IS_IN_SPI_FLASH=y
++CONFIG_NET_RANDOM_ETHADDR=y
+ # CONFIG_DM_DEVICE_REMOVE is not set
+ CONFIG_HAVE_BLOCK_DEVICE=y
+ CONFIG_CLK=y
+@@ -59,3 +64,4 @@ CONFIG_SYS_NS16550=y
+ CONFIG_SPI=y
+ CONFIG_MT7621_SPI=y
+ CONFIG_SYSRESET_SYSCON=y
++CONFIG_LZMA=y
+diff --git a/configs/gardena-smart-gateway-mt7688_defconfig b/configs/gardena-smart-gateway-mt7688_defconfig
+index a6c9b984f1..c6e773e794 100644
+--- a/configs/gardena-smart-gateway-mt7688_defconfig
++++ b/configs/gardena-smart-gateway-mt7688_defconfig
+@@ -6,15 +6,17 @@ CONFIG_ONBOARD_DDR2_SIZE_1024MBIT=y
+ CONFIG_ONBOARD_DDR2_CHIP_WIDTH_16BIT=y
+ # CONFIG_MIPS_BOOT_ENV_LEGACY is not set
+ CONFIG_MIPS_BOOT_FDT=y
+-CONFIG_DEFAULT_DEVICE_TREE="gardena-smart-gateway-mt7688"
++CONFIG_NR_DRAM_BANKS=1
+ # CONFIG_SYS_MALLOC_CLEAR_ON_INIT is not set
++CONFIG_FIT=y
++CONFIG_FIT_SIGNATURE=y
++CONFIG_IMAGE_FORMAT_LEGACY=y
+ CONFIG_OF_STDOUT_VIA_ALIAS=y
+ CONFIG_SYS_CONSOLE_INFO_QUIET=y
+ CONFIG_BOARD_EARLY_INIT_F=y
+ CONFIG_HUSH_PARSER=y
+ CONFIG_CMD_CPU=y
+ CONFIG_CMD_LICENSE=y
+-# CONFIG_CMD_BOOTD is not set
+ # CONFIG_CMD_ELF is not set
+ # CONFIG_CMD_XIMG is not set
+ CONFIG_CMD_MEMINFO=y
+@@ -23,6 +25,7 @@ CONFIG_CMD_MEMINFO=y
+ CONFIG_CMD_MTD=y
+ CONFIG_CMD_SF=y
+ CONFIG_CMD_SPI=y
++CONFIG_CMD_DHCP=y
+ CONFIG_CMD_MII=y
+ CONFIG_CMD_PING=y
+ CONFIG_CMD_TIME=y
+@@ -30,7 +33,9 @@ CONFIG_MTDIDS_DEFAULT="spi-nand0=spi-nand0"
+ CONFIG_MTDPARTS_DEFAULT="mtdparts=spi-nand0:-(ubi)"
+ CONFIG_CMD_UBI=y
+ CONFIG_OF_EMBED=y
++CONFIG_DEFAULT_DEVICE_TREE="gardena-smart-gateway-mt7688"
+ CONFIG_ENV_IS_IN_SPI_FLASH=y
++CONFIG_NET_RANDOM_ETHADDR=y
+ # CONFIG_DM_DEVICE_REMOVE is not set
+ CONFIG_HAVE_BLOCK_DEVICE=y
+ CONFIG_CLK=y
+@@ -62,3 +67,4 @@ CONFIG_SYS_NS16550=y
+ CONFIG_SPI=y
+ CONFIG_MT7621_SPI=y
+ CONFIG_SYSRESET_SYSCON=y
++CONFIG_LZMA=y
+diff --git a/include/configs/gardena-smart-gateway-mt7688.h b/include/configs/gardena-smart-gateway-mt7688.h
+index 05c729950b..2dfeeebb7f 100644
+--- a/include/configs/gardena-smart-gateway-mt7688.h
++++ b/include/configs/gardena-smart-gateway-mt7688.h
+@@ -10,7 +10,6 @@
+ #define CONFIG_SYS_MIPS_TIMER_FREQ	200000000
+ 
+ /* RAM */
+-#define CONFIG_NR_DRAM_BANKS		1
+ #define CONFIG_SYS_SDRAM_BASE		0x80000000
+ 
+ #define CONFIG_SYS_LOAD_ADDR		CONFIG_SYS_SDRAM_BASE + 0x100000
+@@ -39,7 +38,7 @@
+ #define CONFIG_SYS_MONITOR_BASE		CONFIG_SYS_TEXT_BASE
+ 
+ /* Environment settings */
+-#define CONFIG_ENV_OFFSET		0x80000
++#define CONFIG_ENV_OFFSET		0xa0000
+ #define CONFIG_ENV_SIZE			(64 << 10)
+ #define CONFIG_ENV_SECT_SIZE		(64 << 10)
+ #define CONFIG_SYS_REDUNDAND_ENVIRONMENT
+@@ -53,4 +52,16 @@
+  */
+ #define CONFIG_BOARD_SIZE_LIMIT		CONFIG_ENV_OFFSET
+ 
++#define CONFIG_EXTRA_ENV_SETTINGS				\
++	"bootcmd=ping ${serverip};run net_nfs\0"		\
++	"loadaddr=0x81000000\0"					\
++	"tftpdir=gardena\0"					\
++	"tftpram=tftp 80010000 ${tftpdir}/u-boot.bin;go 80010000\0" \
++	"net_nfs=tftp 80a00000 /tftpboot/gardena/uImage;setenv rootpath /tftpboot/gardena/work/rootfs/yocto-2018-08-09;setenv bootargs console=ttyS0,57600 root=/dev/nfs rw nfsroot=${serverip}:${rootpath},tcp,nfsvers=3 ip=${ipaddr}:${serverip}::${netmask}:${hostname}:eth0:off;bootm 80a00000\0"		\
++	"net_ubifs=tftp 80a00000 /tftpboot/gardena/uImage;setenv bootargs root=ubi0:overlay rootfstype=ubifs ubi.mtd=5 init=/sbin/init;bootm 80a00000\0" \
++	"load_uboot=tftp ${loadaddr} ${tftpdir}/u-boot.bin\0"	\
++	"update_uboot=sf probe;"				\
++		"sf update ${loadaddr} 0 ${filesize};saveenv\0"	\
++	"upd_uboot=run load_uboot update_uboot\0"
++
+ #endif /* __CONFIG_GARDENA_SMART_GATEWAY_H */

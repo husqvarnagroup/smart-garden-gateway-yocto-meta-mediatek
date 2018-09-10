@@ -1,0 +1,28 @@
+From c6c156ff3fabe84396139eb00f7cb423b2a4aed9 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <code@reto-schneider.ch>
+Date: Sun, 9 Sep 2018 04:12:20 +0200
+Subject: [PATCH] Enable CONFIG_ENV_VARS_UBOOT_CONFIG
+
+---
+ configs/gardena-smart-gateway-mt7688-ram_defconfig | 1 +
+ configs/gardena-smart-gateway-mt7688_defconfig     | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/configs/gardena-smart-gateway-mt7688-ram_defconfig b/configs/gardena-smart-gateway-mt7688-ram_defconfig
+index bec735f325..bbd2f20bfa 100644
+--- a/configs/gardena-smart-gateway-mt7688-ram_defconfig
++++ b/configs/gardena-smart-gateway-mt7688-ram_defconfig
+@@ -72,3 +72,4 @@ CONFIG_WDT=y
+ CONFIG_WDT_MT7621=y
+ CONFIG_LZMA=y
+ CONFIG_VERSION_VARIABLE=y
++CONFIG_ENV_VARS_UBOOT_CONFIG=y
+diff --git a/configs/gardena-smart-gateway-mt7688_defconfig b/configs/gardena-smart-gateway-mt7688_defconfig
+index 32fbf23238..da4e1f0507 100644
+--- a/configs/gardena-smart-gateway-mt7688_defconfig
++++ b/configs/gardena-smart-gateway-mt7688_defconfig
+@@ -74,3 +74,4 @@ CONFIG_WDT=y
+ CONFIG_WDT_MT7621=y
+ CONFIG_LZMA=y
+ CONFIG_VERSION_VARIABLE=y
++CONFIG_ENV_VARS_UBOOT_CONFIG=y

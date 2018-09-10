@@ -1,0 +1,38 @@
+From a48a4213b23d16c732c79a49a57aabc84a287e15 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Mon, 3 Sep 2018 20:04:09 +0200
+Subject: [PATCH] WIP: gardena: GPIO config as digital pins
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ board/gardena/smart-gateway-mt7688/board.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+diff --git a/board/gardena/smart-gateway-mt7688/board.c b/board/gardena/smart-gateway-mt7688/board.c
+index 5ff546f505..838dfc205b 100644
+--- a/board/gardena/smart-gateway-mt7688/board.c
++++ b/board/gardena/smart-gateway-mt7688/board.c
+@@ -4,14 +4,17 @@
+  */
+ 
+ #include <common.h>
+-#include <asm/io.h>
++#include <linux/io.h>
++
++#define MT76XX_AGPIO_CFG	0x1000003c
+ 
+ int board_early_init_f(void)
+ {
+-	/*
+-	 * Nothing to be done here for this board (no UART setup etc)
+-	 * right now. We might need some pin muxing, so lets keep this
+-	 * function for now.
+-	 */
++	void __iomem *gpio_mode;
++
++	/* Configure digital vs analog GPIOs */
++	gpio_mode = ioremap_nocache(MT76XX_AGPIO_CFG, 0x100);
++	iowrite32(0x00fe01ff, gpio_mode);
++
+ 	return 0;
+ }

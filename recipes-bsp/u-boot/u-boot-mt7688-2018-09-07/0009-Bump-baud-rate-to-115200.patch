@@ -1,0 +1,22 @@
+From 23a77d9170da333c91e223fce5a96f17bb1adb61 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <code@reto-schneider.ch>
+Date: Mon, 10 Sep 2018 01:34:53 +0200
+Subject: [PATCH] Bump baud rate to 115200
+
+---
+ arch/mips/dts/gardena-smart-gateway-mt7688.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/mips/dts/gardena-smart-gateway-mt7688.dts b/arch/mips/dts/gardena-smart-gateway-mt7688.dts
+index 5ff3e039ee..36d57c9443 100644
+--- a/arch/mips/dts/gardena-smart-gateway-mt7688.dts
++++ b/arch/mips/dts/gardena-smart-gateway-mt7688.dts
+@@ -63,7 +63,7 @@
+ 	};
+ 
+ 	chosen {
+-		bootargs = "console=ttyS0,57600";
++		bootargs = "console=ttyS0,115200";
+ 		stdout-path = &uart0;
+ 	};
+ };

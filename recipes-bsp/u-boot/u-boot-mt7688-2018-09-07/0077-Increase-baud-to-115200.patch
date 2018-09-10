@@ -1,0 +1,36 @@
+From 71448aac502f3daa5cbab58a894629eb9231de40 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <code@reto-schneider.ch>
+Date: Fri, 7 Sep 2018 01:17:43 +0200
+Subject: [PATCH] Increase baud to 115200
+
+---
+ configs/gardena-smart-gateway-mt7688-ram_defconfig | 2 +-
+ configs/gardena-smart-gateway-mt7688_defconfig     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configs/gardena-smart-gateway-mt7688-ram_defconfig b/configs/gardena-smart-gateway-mt7688-ram_defconfig
+index 8e70de9580..762f776ddb 100644
+--- a/configs/gardena-smart-gateway-mt7688-ram_defconfig
++++ b/configs/gardena-smart-gateway-mt7688-ram_defconfig
+@@ -61,7 +61,7 @@ CONFIG_PHY=y
+ CONFIG_POWER_DOMAIN=y
+ CONFIG_RAM=y
+ CONFIG_DM_RESET=y
+-CONFIG_BAUDRATE=57600
++CONFIG_BAUDRATE=115200
+ # CONFIG_SPL_SERIAL_PRESENT is not set
+ CONFIG_SYS_NS16550=y
+ CONFIG_SPI=y
+diff --git a/configs/gardena-smart-gateway-mt7688_defconfig b/configs/gardena-smart-gateway-mt7688_defconfig
+index 3dc6247ab4..c59e7812b5 100644
+--- a/configs/gardena-smart-gateway-mt7688_defconfig
++++ b/configs/gardena-smart-gateway-mt7688_defconfig
+@@ -63,7 +63,7 @@ CONFIG_PHY=y
+ CONFIG_POWER_DOMAIN=y
+ CONFIG_RAM=y
+ CONFIG_DM_RESET=y
+-CONFIG_BAUDRATE=57600
++CONFIG_BAUDRATE=115200
+ # CONFIG_SPL_SERIAL_PRESENT is not set
+ CONFIG_SYS_NS16550=y
+ CONFIG_SPI=y

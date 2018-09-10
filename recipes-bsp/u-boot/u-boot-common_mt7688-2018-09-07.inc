@@ -92,7 +92,6 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0076-WIP-TEST-mt7621-GPIO-driver.patch \
            file://0077-Increase-baud-to-115200.patch \
            file://0001-Give-proper-names-to-LEDs.patch \
-           file://0002-White-LEDs-during-startup.patch \
            file://0003-Rename-SPI-NAND-partition-name.patch \
            file://0004-Enable-CONFIG_VERSION_VARIABLE.patch \
            file://0005-Enable-CONFIG_ENV_VARS_UBOOT_CONFIG.patch \
@@ -100,8 +99,8 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://0007-Set-reserved-PEBs-to-22.patch \
            file://0001-Enable-GPIO-command.patch \
            file://fw_env.config \
-           file://0009-Bump-baud-rate-to-115200.patch \
            file://uEnv.txt \
+           file://0003-Enable-internet-LED-1-from-left-during-startup.patch \
            "
 
 S = "${WORKDIR}/git"

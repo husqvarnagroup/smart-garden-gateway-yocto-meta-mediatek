@@ -1,33 +1,40 @@
-From b46d8d2d122c7a6210a56c9291591cf2d90c831e Mon Sep 17 00:00:00 2001
+From 2f3216eddd7d5a95a4b36e8b836f37b55ca87f4d Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Sun, 9 Sep 2018 02:10:27 +0200
-Subject: [PATCH] White LEDs during startup
+Subject: [PATCH] Enable internet LED (#1 from left) during startup
 
 ---
- arch/mips/dts/gardena-smart-gateway-mt7688.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/mips/dts/gardena-smart-gateway-mt7688.dts | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/arch/mips/dts/gardena-smart-gateway-mt7688.dts b/arch/mips/dts/gardena-smart-gateway-mt7688.dts
-index a825911aa6..5ff3e039ee 100644
+index 56ebe94ad8..f62c2a441b 100644
 --- a/arch/mips/dts/gardena-smart-gateway-mt7688.dts
 +++ b/arch/mips/dts/gardena-smart-gateway-mt7688.dts
-@@ -34,26 +34,31 @@
+@@ -28,32 +28,37 @@
+ 		power_blue {
+ 			label = "smartgw:power:blue";
+ 			gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
+-			default-state = "on";
++			default-state = "off";
+ 		};
+ 
  		power_green {
  			label = "smartgw:power:green";
  			gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
++			default-state = "off";
  		};
  
  		power_red {
  			label = "smartgw:power:red";
  			gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
++			default-state = "off";
  		};
  
  		internet_blue {
  			label = "smartgw:internet:blue";
  			gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
++			default-state = "off";
  		};
  
  		internet_green {
@@ -39,7 +46,7 @@ index a825911aa6..5ff3e039ee 100644
  		internet_red {
  			label = "smartgw:internet:red";
  			gpios = <&gpio0 28 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
++			default-state = "off";
  		};
  	};
  

@@ -101,6 +101,7 @@ SRC_URI = "git://git.denx.de/u-boot.git \
            file://fw_env.config \
            file://uEnv.txt \
            file://0003-Enable-internet-LED-1-from-left-during-startup.patch \
+           file://0002-Remove-DENX-dev-env-default.patch \
            "
 
 S = "${WORKDIR}/git"

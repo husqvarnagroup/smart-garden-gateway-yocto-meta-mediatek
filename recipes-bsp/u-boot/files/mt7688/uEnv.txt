@@ -7,7 +7,7 @@ hw_revision=1.0
 
 # Custom commands required for development
 do_dev_u_boot_upgrade=dhcp u-boot.bin-rom && mtd erase nor0 0 a0000 && mtd write nor0 ${fileaddr} 0 ${filesize} && reset
-do_dev_import_default_env=dhcp uEnv.txt && env import -t ${loadaddr} ${filesize}
+do_dev_import_default_env=dhcp uEnv.txt && env import -t ${fileaddr} ${filesize}
 
 # Custom commands required for production and regular startup
 do_toggle_bootslot=if test ${bootslot} -eq 0; then setenv bootslot 1; else setenv bootslot 0;fi;

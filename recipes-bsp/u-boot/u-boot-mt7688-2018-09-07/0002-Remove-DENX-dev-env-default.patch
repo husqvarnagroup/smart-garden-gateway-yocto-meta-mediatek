@@ -1,0 +1,51 @@
+From 5ee9a0b9d520b62b941612000d1e29fead970be4 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <reto.schneider@husqvarnagroup.com>
+Date: Mon, 10 Sep 2018 16:08:56 +0200
+Subject: [PATCH] Remove DENX dev env default
+
+---
+ include/configs/gardena-smart-gateway-mt7688.h | 12 ------------
+ include/configs/linkit-smart-7688.h            | 11 -----------
+ 2 files changed, 23 deletions(-)
+
+diff --git a/include/configs/gardena-smart-gateway-mt7688.h b/include/configs/gardena-smart-gateway-mt7688.h
+index 2dfeeebb7f..b10857a757 100644
+--- a/include/configs/gardena-smart-gateway-mt7688.h
++++ b/include/configs/gardena-smart-gateway-mt7688.h
+@@ -52,16 +52,4 @@
+  */
+ #define CONFIG_BOARD_SIZE_LIMIT		CONFIG_ENV_OFFSET
+ 
+-#define CONFIG_EXTRA_ENV_SETTINGS				\
+-	"bootcmd=ping ${serverip};run net_nfs\0"		\
+-	"loadaddr=0x81000000\0"					\
+-	"tftpdir=gardena\0"					\
+-	"tftpram=tftp 80010000 ${tftpdir}/u-boot.bin;go 80010000\0" \
+-	"net_nfs=tftp 80a00000 /tftpboot/gardena/uImage;setenv rootpath /tftpboot/gardena/work/rootfs/yocto-2018-08-09;setenv bootargs console=ttyS0,57600 root=/dev/nfs rw nfsroot=${serverip}:${rootpath},tcp,nfsvers=3 ip=${ipaddr}:${serverip}::${netmask}:${hostname}:eth0:off;bootm 80a00000\0"		\
+-	"net_ubifs=tftp 80a00000 /tftpboot/gardena/uImage;setenv bootargs root=ubi0:overlay rootfstype=ubifs ubi.mtd=5 init=/sbin/init;bootm 80a00000\0" \
+-	"load_uboot=tftp ${loadaddr} ${tftpdir}/u-boot.bin\0"	\
+-	"update_uboot=sf probe;"				\
+-		"sf update ${loadaddr} 0 ${filesize};saveenv\0"	\
+-	"upd_uboot=run load_uboot update_uboot\0"
+-
+ #endif /* __CONFIG_GARDENA_SMART_GATEWAY_H */
+diff --git a/include/configs/linkit-smart-7688.h b/include/configs/linkit-smart-7688.h
+index 6bb90bdd1e..3bae92d0ee 100644
+--- a/include/configs/linkit-smart-7688.h
++++ b/include/configs/linkit-smart-7688.h
+@@ -48,15 +48,4 @@
+  */
+ #define CONFIG_BOARD_SIZE_LIMIT		CONFIG_ENV_OFFSET
+ 
+-#define CONFIG_EXTRA_ENV_SETTINGS				\
+-	"bootcmd=ping ${serverip};run net_nfs\0"		\
+-	"loadaddr=0x81000000\0"					\
+-	"tftpdir=linkit-smart-7688\0"				\
+-	"tftpram=tftp 80010000 ${tftpdir}/u-boot.bin;go 80010000\0" \
+-	"net_nfs=tftp 80a00000 /tftpboot/gardena/uImage;setenv rootpath /tftpboot/gardena/work/rootfs/yocto-2018-08-09;setenv bootargs console=ttyS2,57600 root=/dev/nfs rw nfsroot=${serverip}:${rootpath},tcp,nfsvers=3 ip=${ipaddr}:${serverip}::${netmask}:${hostname}:eth0:off;bootm 80a00000\0"		\
+-	"load_uboot=tftp ${loadaddr} ${tftpdir}/u-boot.bin\0"	\
+-	"update_uboot=sf probe;"				\
+-		"sf update ${loadaddr} 0 ${filesize};saveenv\0"	\
+-	"upd_uboot=run load_uboot update_uboot\0"
+-
+ #endif /* __CONFIG_LINKIT_SMART_7688_H */

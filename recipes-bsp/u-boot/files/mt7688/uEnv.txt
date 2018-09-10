@@ -2,8 +2,8 @@
 ## Never-changing variables, might go into the U-Boot default environment
 bootslot=0
 
-## Hardware Revsision dependent
-hw_revision=1.0
+## Board Revision dependent
+board_revision=1.0
 
 # Custom commands required for development
 do_dev_u_boot_upgrade=dhcp u-boot.bin-rom && mtd erase nor0 0 a0000 && mtd write nor0 ${fileaddr} 0 ${filesize} && reset

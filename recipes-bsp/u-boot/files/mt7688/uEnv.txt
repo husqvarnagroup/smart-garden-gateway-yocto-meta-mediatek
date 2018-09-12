@@ -1,6 +1,7 @@
 # Default variables
 ## Never-changing variables, might go into the U-Boot default environment
 bootslot=0
+board_name=smart-gateway-mt7688
 
 ## Board Revision dependent
 board_revision=1.0

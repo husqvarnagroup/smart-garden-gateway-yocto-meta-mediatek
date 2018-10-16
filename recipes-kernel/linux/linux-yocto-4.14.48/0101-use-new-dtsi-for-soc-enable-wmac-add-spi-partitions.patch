@@ -1,0 +1,165 @@
+From 956647b12aa7c008488eaa28888c974f35296d0c Mon Sep 17 00:00:00 2001
+From: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
+Date: Tue, 16 Oct 2018 11:39:36 +0000
+Subject: [PATCH 2/2] use new dtsi for soc, enable wmac, add spi partitions
+
+Signed-off-by: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
+---
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 85 ++++++++++++++--------
+ 1 file changed, 55 insertions(+), 30 deletions(-)
+
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+index 7f6f2bb07d20..9c173d744f2e 100644
+--- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -1,12 +1,12 @@
+ /dts-v1/;
+ 
+-/include/ "mt7628a.dtsi"
++/include/ "mt7628an.dtsi"
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/input/input.h>
+ 
+ / {
+-	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7688a-soc", "ralink,mt7628a-soc";
++	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7628an-soc";
+ 	model = "Gardena smart Gateway MT7688";
+ 
+ 	memory@0 {
+@@ -15,32 +15,34 @@
+ 	};
+ 
+ 	chosen {
+-		stdout-path = &uart0;
++		bootargs = "console=ttyS0,115200";
++	};
++
++	aliases {
++		serial0 = &uartlite;
+ 	};
+ };
+ 
+ &pinctrl {
+ 	state_default: pinctrl0 {
+ 		gpio {
+-			ralink,group = "gpio", "i2s", "p0led_an", "p1led_an", "p2led_an",
+-			               "p3led_an", "p4led_an", "spis", "wled_an", "wdt", "sdmode",
+-			               "refclk", "perst", "pwm0", "pwm1";
++			ralink,group = "gpio";
+ 			ralink,function = "gpio";
+ 		};
+ 
+-		uart0 {
+-			ralink,group = "uart0";
+-			ralink,function = "uart0";
++		refclk {
++			ralink,group = "refclk";
++			ralink,function = "gpio";
+ 		};
+ 
+-		uart1 {
+-			ralink,group = "uart1";
+-			ralink,function = "uart1";
++		spis {
++			ralink,group = "spis";
++			ralink,function = "gpio";
+ 		};
+ 
+-		uart2 {
+-			ralink,group = "uart2";
+-			ralink,function = "uart2";
++		wdt {
++			ralink,group = "wdt";
++			ralink,function = "gpio";
+ 		};
+ 	};
+ };
+@@ -52,12 +54,38 @@
+ 	pinctrl-0 = <&spi_pins>, <&spi_cs1_pins>;
+ 
+ 	m25p80@0 {
+-		#address-cells = <1>;
+-		#size-cells = <1>;
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+ 		spi-max-frequency = <40000000>;
+ 		m25p,chunked-io = <31>;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			partition@0 {
++				label = "u-boot";
++				reg = <0x0 0xa0000>;
++				read-only;
++			};
++
++			partition@a0000 {
++				label = "u-boot-env";
++				reg = <0xa0000 0x10000>;
++			};
++
++			partition@b0000 {
++				label = "u-boot-recovery";
++				reg = <0xb0000 0x10000>;
++			};
++
++			factory: partition@c0000 {
++				label = "factory";
++				reg = <0xc0000 0x10000>;
++				read-only;
++			};
++		};
+ 	};
+ 
+ 	nand_flash@1 {
+@@ -68,33 +96,30 @@
+ 	};
+ };
+ 
+-&gpio0 {
++&uart1 {
+ 	status = "okay";
+-};
+ 
+-&gpio1 {
+-	status = "okay";
++	rts-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
++	cts-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
+ };
+ 
+-&gpio2 {
++&uart2 {
+ 	status = "okay";
+ };
+ 
+-&uart0 {
++&i2c {
+ 	status = "okay";
+ };
+ 
+-&uart1 {
+-	status = "okay";
+-
+-	rts-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
+-	cts-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
++&ethernet {
++	mtd-mac-address = <&factory 0x28>;
+ };
+ 
+-&uart2 {
++&sdhci {
+ 	status = "okay";
++	mediatek,cd-high;
+ };
+ 
+-&i2c {
++&wmac {
+ 	status = "okay";
+ };
+-- 
+2.11.0
+

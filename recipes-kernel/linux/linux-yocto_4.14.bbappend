@@ -25,6 +25,7 @@ SRC_URI_append_mt7688 = " \
         file://enable_devmem.cfg \
         file://enable_squashfs.cfg \
         file://enable_mtd_tests.cfg \
+        file://enable_wmac.cfg \
         file://0001-Allow-inclusion-of-DTB-in-image.patch \
         file://0002-MIPS-pci-mt7620-enabled-PCIe-on-MT7688.patch \
         file://0003-owrt-hack-fix-mt7688-cache-issue.patch \
@@ -124,6 +125,8 @@ SRC_URI_append_mt7688 = " \
         file://0097-Add-support-for-GD5F1GQ4UB-NAND.patch \
         file://0098-MIPS-Add-Gardena-smart-Gateway-MT7688-board.patch \
         file://0099-mtd-spi-nor-allow-NOR-driver-to-write-fewer-bytes-th.patch \
+        file://0100-add-mt7628an.dtsi-ported-from-openwrt.patch \
+        file://0101-use-new-dtsi-for-soc-enable-wmac-add-spi-partitions.patch \
         "
 
 # KERNEL_FEATURES_append_mt7688 = ""

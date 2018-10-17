@@ -17,6 +17,7 @@ KERNEL_DEVICETREE_mt7688 = " \
 SRC_URI_append_mt7688 = " \
         file://defconfig \
         file://enable_console.cfg \
+        file://set_default_loglevel.cfg \
         file://enable_systemd_dependencies.cfg \
         file://enable_mediatek_gpio_support.cfg \
         file://enable_mediatek_spi_support.cfg \

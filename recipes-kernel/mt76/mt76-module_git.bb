@@ -1,6 +1,9 @@
 SUMMARY = "mt76 Wireless Driver"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://mt7603_main.c;endline=15;md5=c09518d7c19245488c97df089f53ad0b"
+# part of GPL license from used source code
+# firmware has own license
+LIC_FILES_CHKSUM = "file://mt7603_main.c;endline=15;md5=c09518d7c19245488c97df089f53ad0b \
+                    file://firmware/LICENSE;md5=1bff2e28f0929e483370a43d4d8b6f8e"
 
 inherit module
 

@@ -92,18 +92,18 @@ index 7f6f2bb07d20..9c173d744f2e 100644
 +			#size-cells = <1>;
 +
 +			partition@0 {
-+				label = "u-boot";
++				label = "uboot";
 +				reg = <0x0 0xa0000>;
 +				read-only;
 +			};
 +
 +			partition@a0000 {
-+				label = "u-boot-env";
++				label = "uboot_env0";
 +				reg = <0xa0000 0x10000>;
 +			};
 +
 +			partition@b0000 {
-+				label = "u-boot-recovery";
++				label = "uboot_env1";
 +				reg = <0xb0000 0x10000>;
 +			};
 +

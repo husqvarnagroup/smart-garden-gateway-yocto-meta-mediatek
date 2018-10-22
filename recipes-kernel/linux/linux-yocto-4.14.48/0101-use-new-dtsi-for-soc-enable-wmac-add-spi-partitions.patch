@@ -152,7 +152,7 @@ index 7f6f2bb07d20..9c173d744f2e 100644
  
 -&uart2 {
 +&sdhci {
- 	status = "okay";
+ 	status = "disabled";
 +	mediatek,cd-high;
  };
  

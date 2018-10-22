@@ -23,7 +23,6 @@ KERNEL_MODULE_AUTOLOAD += "kernel-module-mt7603e"
 
 RPROVIDES_${PN} += "kernel-module-mt7603e"
 PACKAGES =+ "linux-firmware-mt7628"
-#RDEPENDS_${PN} += "linux-firmware-mt76"
 
 do_install_append () {
 	install -d  ${D}${base_libdir}/firmware/

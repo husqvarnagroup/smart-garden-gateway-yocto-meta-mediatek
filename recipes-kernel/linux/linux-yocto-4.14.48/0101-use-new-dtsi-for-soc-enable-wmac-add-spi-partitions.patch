@@ -149,7 +149,7 @@ index 7f6f2bb07d20..608785e89082 100644
 +};
 +
 +&wmac {
-+	status = "okey";
++	status = "okay";
 +};
 -- 
 2.11.0

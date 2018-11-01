@@ -1,15 +1,17 @@
-From e65b6769207a83e41e558c157662ebaf7e0bf7f2 Mon Sep 17 00:00:00 2001
+From f0c5cc79abc6ffec5806305b8371f75e68907d42 Mon Sep 17 00:00:00 2001
 From: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
 Date: Tue, 23 Oct 2018 16:32:40 +0200
-Subject: [PATCH 1/2] use new dtsi for soc, enable wmac, add spi partitions
+Subject: [PATCH] use new dtsi for soc, enable wmac, add spi partitions, set
+ cpu device_type
 
 Signed-off-by: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
 ---
  .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 86 +++++++++++++---------
- 1 file changed, 53 insertions(+), 33 deletions(-)
+ arch/mips/boot/dts/ralink/mt7628an.dtsi            |  1 +
+ 2 files changed, 54 insertions(+), 33 deletions(-)
 
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
-index 7f6f2bb07d20..608785e89082 100644
+index 7f6f2bb07d20..7c8bf6412911 100644
 --- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 +++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 @@ -1,12 +1,12 @@
@@ -151,6 +153,18 @@ index 7f6f2bb07d20..608785e89082 100644
 +&wmac {
 +	status = "okay";
 +};
+diff --git a/arch/mips/boot/dts/ralink/mt7628an.dtsi b/arch/mips/boot/dts/ralink/mt7628an.dtsi
+index b8a8bb910334..235bad6cf560 100644
+--- a/arch/mips/boot/dts/ralink/mt7628an.dtsi
++++ b/arch/mips/boot/dts/ralink/mt7628an.dtsi
+@@ -9,6 +9,7 @@
+ 
+ 		cpu@0 {
+ 			compatible = "mips,mips24KEc";
++			device_type = "cpu";
+ 			reg = <0>;
+ 		};
+ 	};
 -- 
 2.11.0
 

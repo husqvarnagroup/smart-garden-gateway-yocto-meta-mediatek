@@ -128,7 +128,10 @@ SRC_URI_append_mt7688 = " \
         file://0099-mtd-spi-nor-allow-NOR-driver-to-write-fewer-bytes-th.patch \
         file://0100-add-mt7628an.dtsi-ported-from-openwrt.patch \
         file://0101-use-new-dtsi-for-soc-enable-wmac-add-spi-partitions.patch \
+        file://0102-tty-serial-8250-use-mctrl_gpio-helpers.patch \
+        file://0103-SG-10035-enable-hw-flow-control-on-uart2-Bluetooth.patch \
         file://0102-NET-add-mtd-mac-address-support-to-of_get_mac_addres.patch \
+        file://0104-Set-pin-sharing-group-i2s-to-GPIO.patch \
         "
 
 # KERNEL_FEATURES_append_mt7688 = ""

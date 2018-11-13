@@ -1,0 +1,269 @@
+From 86da75f056f71609d00b61972a8fadd4005e116c Mon Sep 17 00:00:00 2001
+From: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
+Date: Tue, 23 Oct 2018 16:34:58 +0200
+Subject: [PATCH 2/2] tty/serial/8250: use mctrl_gpio helpers
+
+cherry-pick 4ef03d328769eddbfeca1f1c958fdb181a69c341
+
+Signed-off-by: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
+---
+ drivers/tty/serial/8250/8250.h         | 35 +++++++++++++++++++++++++++++++++-
+ drivers/tty/serial/8250/8250_core.c    |  9 +++++++++
+ drivers/tty/serial/8250/8250_of.c      | 12 ++++++++++++
+ drivers/tty/serial/8250/8250_omap.c    | 31 +++++++++++++++++-------------
+ drivers/tty/serial/8250/8250_port.c    |  7 ++++++-
+ drivers/tty/serial/8250/Kconfig        |  1 +
+ drivers/tty/serial/serial_mctrl_gpio.c |  2 ++
+ include/linux/serial_8250.h            |  1 +
+ 8 files changed, 83 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/tty/serial/8250/8250.h b/drivers/tty/serial/8250/8250.h
+index b2bdc35f7495..c47ef69fcbfb 100644
+--- a/drivers/tty/serial/8250/8250.h
++++ b/drivers/tty/serial/8250/8250.h
+@@ -15,6 +15,8 @@
+ #include <linux/serial_reg.h>
+ #include <linux/dmaengine.h>
+ 
++#include "../serial_mctrl_gpio.h"
++
+ struct uart_8250_dma {
+ 	int (*tx_dma)(struct uart_8250_port *p);
+ 	int (*rx_dma)(struct uart_8250_port *p);
+@@ -145,12 +147,43 @@ void serial8250_em485_destroy(struct uart_8250_port *p);
+ 
+ static inline void serial8250_out_MCR(struct uart_8250_port *up, int value)
+ {
++	int mctrl_gpio = 0;
++
+ 	serial_out(up, UART_MCR, value);
++
++	if (value & UART_MCR_RTS)
++		mctrl_gpio |= TIOCM_RTS;
++	if (value & UART_MCR_DTR)
++		mctrl_gpio |= TIOCM_DTR;
++
++	mctrl_gpio_set(up->gpios, mctrl_gpio);
+ }
+ 
+ static inline int serial8250_in_MCR(struct uart_8250_port *up)
+ {
+-	return serial_in(up, UART_MCR);
++	int mctrl, mctrl_gpio = 0;
++
++	mctrl = serial_in(up, UART_MCR);
++
++	/* save current MCR values */
++	if (mctrl & UART_MCR_RTS)
++		mctrl_gpio |= TIOCM_RTS;
++	if (mctrl & UART_MCR_DTR)
++		mctrl_gpio |= TIOCM_DTR;
++
++	mctrl_gpio = mctrl_gpio_get_outputs(up->gpios, &mctrl_gpio);
++
++	if (mctrl_gpio & TIOCM_RTS)
++		mctrl |= UART_MCR_RTS;
++	else
++		mctrl &= ~UART_MCR_RTS;
++
++	if (mctrl_gpio & TIOCM_DTR)
++		mctrl |= UART_MCR_DTR;
++	else
++		mctrl &= ~UART_MCR_DTR;
++
++	return mctrl;
+ }
+ 
+ #if defined(__alpha__) && !defined(CONFIG_PCI)
+diff --git a/drivers/tty/serial/8250/8250_core.c b/drivers/tty/serial/8250/8250_core.c
+index d29b512a7d9f..b2a417734159 100644
+--- a/drivers/tty/serial/8250/8250_core.c
++++ b/drivers/tty/serial/8250/8250_core.c
+@@ -978,6 +978,8 @@ int serial8250_register_8250_port(struct uart_8250_port *up)
+ 
+ 	uart = serial8250_find_match_or_unused(&up->port);
+ 	if (uart && uart->port.type != PORT_8250_CIR) {
++		struct mctrl_gpios *gpios;
++
+ 		if (uart->port.dev)
+ 			uart_remove_one_port(&serial8250_reg, &uart->port);
+ 
+@@ -1012,6 +1014,13 @@ int serial8250_register_8250_port(struct uart_8250_port *up)
+ 		if (up->port.flags & UPF_FIXED_TYPE)
+ 			uart->port.type = up->port.type;
+ 
++		gpios = mctrl_gpio_init(&uart->port, 0);
++		if (IS_ERR(gpios)) {
++			if (PTR_ERR(gpios) != -ENOSYS)
++				return PTR_ERR(gpios);
++		} else
++			uart->gpios = gpios;
++
+ 		serial8250_set_defaults(uart);
+ 
+ 		/* Possibly override default I/O functions.  */
+diff --git a/drivers/tty/serial/8250/8250_of.c b/drivers/tty/serial/8250/8250_of.c
+index 3613a6aabfb3..1e237771f9c7 100644
+--- a/drivers/tty/serial/8250/8250_of.c
++++ b/drivers/tty/serial/8250/8250_of.c
+@@ -18,6 +18,7 @@
+ #include <linux/of_address.h>
+ #include <linux/of_irq.h>
+ #include <linux/of_platform.h>
++#include <linux/of_gpio.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/clk.h>
+ #include <linux/reset.h>
+@@ -64,6 +65,7 @@ static int of_platform_serial_setup(struct platform_device *ofdev,
+ 	struct device_node *np = ofdev->dev.of_node;
+ 	u32 clk, spd, prop;
+ 	int ret;
++	unsigned int rts_gpio, cts_gpio;
+ 
+ 	memset(port, 0, sizeof *port);
+ 
+@@ -158,6 +160,16 @@ static int of_platform_serial_setup(struct platform_device *ofdev,
+ 	if (of_property_read_bool(np, "no-loopback-test"))
+ 		port->flags |= UPF_SKIP_TEST;
+ 
++    if (of_find_property(np, "rts-gpios", NULL)) {
++        rts_gpio = of_get_named_gpio(np, "rts-gpios", 0);
++        printk("found rts-gpios: %d\n", rts_gpio);
++    }
++
++    if (of_find_property(np, "cts-gpios", NULL)) {
++        cts_gpio = of_get_named_gpio(np, "cts-gpios", 0);
++        printk("found cts_gpio: %d\n", cts_gpio);
++    }
++
+ 	port->dev = &ofdev->dev;
+ 
+ 	switch (type) {
+diff --git a/drivers/tty/serial/8250/8250_omap.c b/drivers/tty/serial/8250/8250_omap.c
+index 833771bca0a5..93fe5b9d7b8a 100644
+--- a/drivers/tty/serial/8250/8250_omap.c
++++ b/drivers/tty/serial/8250/8250_omap.c
+@@ -134,18 +134,21 @@ static void omap8250_set_mctrl(struct uart_port *port, unsigned int mctrl)
+ 
+ 	serial8250_do_set_mctrl(port, mctrl);
+ 
+-	/*
+-	 * Turn off autoRTS if RTS is lowered and restore autoRTS setting
+-	 * if RTS is raised
+-	 */
+-	lcr = serial_in(up, UART_LCR);
+-	serial_out(up, UART_LCR, UART_LCR_CONF_MODE_B);
+-	if ((mctrl & TIOCM_RTS) && (port->status & UPSTAT_AUTORTS))
+-		priv->efr |= UART_EFR_RTS;
+-	else
+-		priv->efr &= ~UART_EFR_RTS;
+-	serial_out(up, UART_EFR, priv->efr);
+-	serial_out(up, UART_LCR, lcr);
++	if (IS_ERR_OR_NULL(mctrl_gpio_to_gpiod(up->gpios,
++						UART_GPIO_RTS))) {
++		/*
++		 * Turn off autoRTS if RTS is lowered and restore autoRTS
++		 * setting if RTS is raised
++		 */
++		lcr = serial_in(up, UART_LCR);
++		serial_out(up, UART_LCR, UART_LCR_CONF_MODE_B);
++		if ((mctrl & TIOCM_RTS) && (port->status & UPSTAT_AUTORTS))
++			priv->efr |= UART_EFR_RTS;
++		else
++			priv->efr &= ~UART_EFR_RTS;
++		serial_out(up, UART_EFR, priv->efr);
++		serial_out(up, UART_LCR, lcr);
++	}
+ }
+ 
+ /*
+@@ -446,7 +449,9 @@ static void omap_8250_set_termios(struct uart_port *port,
+ 	priv->efr = 0;
+ 	up->port.status &= ~(UPSTAT_AUTOCTS | UPSTAT_AUTORTS | UPSTAT_AUTOXOFF);
+ 
+-	if (termios->c_cflag & CRTSCTS && up->port.flags & UPF_HARD_FLOW) {
++	if (termios->c_cflag & CRTSCTS && up->port.flags & UPF_HARD_FLOW
++		&& IS_ERR_OR_NULL(mctrl_gpio_to_gpiod(up->gpios,
++							UART_GPIO_RTS))) {
+ 		/* Enable AUTOCTS (autoRTS is enabled when RTS is raised) */
+ 		up->port.status |= UPSTAT_AUTOCTS | UPSTAT_AUTORTS;
+ 		priv->efr |= UART_EFR_CTS;
+diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
+index be456ea27ab2..bdc706791dc9 100644
+--- a/drivers/tty/serial/8250/8250_port.c
++++ b/drivers/tty/serial/8250/8250_port.c
+@@ -1668,6 +1668,8 @@ static void serial8250_disable_ms(struct uart_port *port)
+ 	if (up->bugs & UART_BUG_NOMSR)
+ 		return;
+ 
++	mctrl_gpio_disable_ms(up->gpios);
++
+ 	up->ier &= ~UART_IER_MSI;
+ 	serial_port_out(port, UART_IER, up->ier);
+ }
+@@ -1680,6 +1682,8 @@ static void serial8250_enable_ms(struct uart_port *port)
+ 	if (up->bugs & UART_BUG_NOMSR)
+ 		return;
+ 
++	mctrl_gpio_enable_ms(up->gpios);
++
+ 	up->ier |= UART_IER_MSI;
+ 
+ 	serial8250_rpm_get(up);
+@@ -1964,7 +1968,8 @@ unsigned int serial8250_do_get_mctrl(struct uart_port *port)
+ 		ret |= TIOCM_DSR;
+ 	if (status & UART_MSR_CTS)
+ 		ret |= TIOCM_CTS;
+-	return ret;
++
++	return mctrl_gpio_get(up->gpios, &ret);
+ }
+ EXPORT_SYMBOL_GPL(serial8250_do_get_mctrl);
+ 
+diff --git a/drivers/tty/serial/8250/Kconfig b/drivers/tty/serial/8250/Kconfig
+index a5c0ef1e7695..c148182c61ef 100644
+--- a/drivers/tty/serial/8250/Kconfig
++++ b/drivers/tty/serial/8250/Kconfig
+@@ -6,6 +6,7 @@
+ config SERIAL_8250
+ 	tristate "8250/16550 and compatible serial support"
+ 	select SERIAL_CORE
++	select SERIAL_MCTRL_GPIO if GPIOLIB
+ 	---help---
+ 	  This selects whether you want to include the driver for the standard
+ 	  serial ports.  The standard answer is Y.  People who might say N
+diff --git a/drivers/tty/serial/serial_mctrl_gpio.c b/drivers/tty/serial/serial_mctrl_gpio.c
+index d2da6aa7f27d..8db201ac6bf4 100644
+--- a/drivers/tty/serial/serial_mctrl_gpio.c
++++ b/drivers/tty/serial/serial_mctrl_gpio.c
+@@ -118,6 +118,7 @@ struct mctrl_gpios *mctrl_gpio_init_noauto(struct device *dev, unsigned int idx)
+ 	struct mctrl_gpios *gpios;
+ 	enum mctrl_gpio_idx i;
+ 
++	printk("mctrl_gpio_init_noauto called with index: %d \n", idx);
+ 	gpios = devm_kzalloc(dev, sizeof(*gpios), GFP_KERNEL);
+ 	if (!gpios)
+ 		return ERR_PTR(-ENOMEM);
+@@ -185,6 +186,7 @@ struct mctrl_gpios *mctrl_gpio_init(struct uart_port *port, unsigned int idx)
+ 	struct mctrl_gpios *gpios;
+ 	enum mctrl_gpio_idx i;
+ 
++	printk("mctrl_gpio_init called with index: %d\n", idx);
+ 	gpios = mctrl_gpio_init_noauto(port->dev, idx);
+ 	if (IS_ERR(gpios))
+ 		return gpios;
+diff --git a/include/linux/serial_8250.h b/include/linux/serial_8250.h
+index a27ef5f56431..bfb0453e141b 100644
+--- a/include/linux/serial_8250.h
++++ b/include/linux/serial_8250.h
+@@ -114,6 +114,7 @@ struct uart_8250_port {
+ 						 *   if no_console_suspend
+ 						 */
+ 	unsigned char		probe;
++	struct mctrl_gpios	*gpios;
+ #define UART_PROBE_RSA	(1 << 0)
+ 
+ 	/*
+-- 
+2.11.0
+

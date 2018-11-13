@@ -1,0 +1,27 @@
+From 184a720d22ecf246a6b46f1d31bff0e4679f177b Mon Sep 17 00:00:00 2001
+From: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
+Date: Mon, 29 Oct 2018 17:44:26 +0100
+Subject: [PATCH] SG-10035 enable hw flow control on uart2 (Bluetooth)
+
+Signed-off-by: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
+---
+ arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+index 608785e89082..6d20c56b1aec 100644
+--- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -105,6 +105,9 @@
+ 
+ &uart2 {
+ 	status = "okay";
++
++	rts-gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
++	cts-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+ };
+ 
+ &i2c {
+-- 
+2.11.0
+

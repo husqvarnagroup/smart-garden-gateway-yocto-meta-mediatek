@@ -13,7 +13,7 @@ SRCREV = "011b4c0d56f1da79083557543b70eec2cbc8b40d"
 UBOOT_LOCALVERSION ?= "-yocto"
 
 SRC_URI = " \
-    git://stash.dss.husqvarnagroup.com/scm/sg/smart-garden-u-boot.git;protocol=https;branch=v2018.11-mt7688-2018-11-16-gardena \
+    git://github.com/husqvarnagroup/smart-garden-u-boot.git;protocol=https;branch=v2018.11-mt7688-2018-11-16-gardena \
     file://fw_env.config \
 "
 

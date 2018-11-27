@@ -4,11 +4,11 @@ SECTION = "bootloaders"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://Licenses/README;md5=30503fd321432fc713238f582193b78e"
 PE = "2"
-INC_PR  = "r2"
+INC_PR  = "r3"
 
 # We use the revision in order to avoid having to fetch it from the
 # repo during parse
-SRCREV = "011b4c0d56f1da79083557543b70eec2cbc8b40d"
+SRCREV = "ed91923abf461467a4f193b75285f4bc73949e90"
 
 UBOOT_LOCALVERSION ?= "-yocto"
 

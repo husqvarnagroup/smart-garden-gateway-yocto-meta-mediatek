@@ -1,23 +1,28 @@
 SUMMARY = "mt76 Wireless Driver"
-LICENSE = "GPLv2"
+LICENSE = "ISC & Proprietary"
 # part of GPL license from used source code
 # firmware has own license
-LIC_FILES_CHKSUM = "file://mt7603_main.c;endline=15;md5=c09518d7c19245488c97df089f53ad0b \
+LIC_FILES_CHKSUM = "file://mt7603/main.c;endline=16;md5=623d46335153100b0f7c1ffbe55d6c18 \
                     file://firmware/LICENSE;md5=1bff2e28f0929e483370a43d4d8b6f8e"
 
 inherit module
 
-BRANCH = "openwrt-18.06"
+BRANCH = "master"
 
-SRC_URI = "git://github.com/openwrt/mt76.git;protocol=https;branch=${BRANCH} \
-            file://0001-add-missing-actions-to-Makefile.patch"
-
-SRCREV = "53e1110a354576210b60012cccd5d77af219c60d"
+SRC_URI = "\
+    git://github.com/openwrt/mt76.git;protocol=https;branch=${BRANCH} \
+    file://0001-add-missing-actions-to-Makefile.patch \
+    file://mt76-backport.patch \
+"
+SRCREV = "5a5b396e6edee22e7aaf7743c961473714f205b9"
 PV = "1.0+git${SRCPV}"
+PR = "r2"
 
 S = "${WORKDIR}/git"
 
 DEPENDS += "bc-native"
+
+EXTRA_OEMAKE += "CONFIG_MT7603E=m"
 
 KERNEL_MODULE_AUTOLOAD += "kernel-module-mt7603e"
 

@@ -16,11 +16,13 @@ SRC_URI = "\
 "
 SRCREV = "5a5b396e6edee22e7aaf7743c961473714f205b9"
 PV = "1.0+git${SRCPV}"
-PR = "r1"
+PR = "r2"
 
 S = "${WORKDIR}/git"
 
 DEPENDS += "bc-native"
+
+EXTRA_OEMAKE += "CONFIG_MT7603E=m"
 
 KERNEL_MODULE_AUTOLOAD += "kernel-module-mt7603e"
 

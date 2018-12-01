@@ -19,6 +19,7 @@ KERNEL_DEVICETREE_mt7688 = " \
 SRC_URI_append_mt7688 = " \
         file://defconfig \
         file://enable_console.cfg \
+        file://enable_debugfs.cfg \
         file://enable_devmem.cfg \
         file://enable_mediatek_gpio_support.cfg \
         file://enable_mediatek_i2c.cfg \

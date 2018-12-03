@@ -19,16 +19,17 @@ KERNEL_DEVICETREE_mt7688 = " \
 SRC_URI_append_mt7688 = " \
         file://defconfig \
         file://enable_console.cfg \
-        file://set_default_loglevel.cfg \
-        file://enable_systemd_dependencies.cfg \
-        file://enable_mediatek_gpio_support.cfg \
-        file://enable_mediatek_spi_support.cfg \
-        file://enable_mediatek_i2c.cfg \
-        file://enable_ppp.cfg \
+        file://enable_debugfs.cfg \
         file://enable_devmem.cfg \
-        file://enable_squashfs.cfg \
+        file://enable_mediatek_gpio_support.cfg \
+        file://enable_mediatek_i2c.cfg \
+        file://enable_mediatek_spi_support.cfg \
         file://enable_mtd_tests.cfg \
+        file://enable_ppp.cfg \
+        file://enable_squashfs.cfg \
+        file://enable_systemd_dependencies.cfg \
         file://enable_wmac.cfg \
+        file://set_default_loglevel.cfg \
         file://0001-Allow-inclusion-of-DTB-in-image.patch \
         file://0002-MIPS-pci-mt7620-enabled-PCIe-on-MT7688.patch \
         file://0003-owrt-hack-fix-mt7688-cache-issue.patch \

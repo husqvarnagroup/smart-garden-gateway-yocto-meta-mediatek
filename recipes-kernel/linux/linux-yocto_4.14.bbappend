@@ -28,6 +28,7 @@ SRC_URI_append_mt7688 = " \
         file://enable_ppp.cfg \
         file://enable_squashfs.cfg \
         file://enable_systemd_dependencies.cfg \
+        file://enable_tun.cfg \
         file://enable_wmac.cfg \
         file://set_default_loglevel.cfg \
         file://0001-Allow-inclusion-of-DTB-in-image.patch \

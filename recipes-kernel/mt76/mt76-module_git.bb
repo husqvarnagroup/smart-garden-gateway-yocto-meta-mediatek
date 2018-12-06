@@ -14,7 +14,8 @@ SRC_URI = "\
     file://0001-add-missing-actions-to-Makefile.patch \
     file://mt76-backport.patch \
 "
-SRCREV = "5a5b396e6edee22e7aaf7743c961473714f205b9"
+
+SRCREV = "6203d46fcc4577065209ea0ed9334d89df4f63f7"
 PV = "1.0+git${SRCPV}"
 PR = "r2"
 

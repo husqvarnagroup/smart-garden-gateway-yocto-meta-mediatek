@@ -14,6 +14,8 @@ KERNEL_DEVICETREE_mt7688 = " \
         ralink/gardena_smart_gateway_mt7688.dtb \
         "
 
+LINUX_VERSION_EXTENSION = "-yocto-${LINUX_KERNEL_TYPE}-${PR}"
+
 SRC_URI_append_mt7688 = " \
         file://defconfig \
         file://enable_console.cfg \

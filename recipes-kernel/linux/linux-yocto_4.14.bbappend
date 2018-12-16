@@ -8,8 +8,6 @@ COMPATIBLE_MACHINE = "mt7688"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:${THISDIR}/${PN}-${PV}/${MACHINE}:"
 
-# KBRANCH_mt7688 ?= "standard/base"
-
 KCONFIG_MODE = "--allnoconfig"
 
 KERNEL_DEVICETREE_mt7688 = " \
@@ -136,5 +134,3 @@ SRC_URI_append_mt7688 = " \
         file://0102-NET-add-mtd-mac-address-support-to-of_get_mac_addres.patch \
         file://0104-Set-pin-sharing-group-i2s-to-GPIO.patch \
         "
-
-# KERNEL_FEATURES_append_mt7688 = ""

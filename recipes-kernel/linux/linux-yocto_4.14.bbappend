@@ -125,6 +125,7 @@ SRC_URI_append_mt7688 = " \
         file://0092-spi-add-mt7621-support.patch \
         file://0094-i2c-MIPS-add-mt7621-I2C-driver.patch \
         file://0095-MIPS-dts-ralink-Add-more-hardware-to-MT7628a.patch \
+        file://0096-ethernet-mediatek-rt3050-fix-carrier.patch \
         file://0097-Add-support-for-GD5F1GQ4UB-NAND.patch \
         file://0098-MIPS-Add-Gardena-smart-Gateway-MT7688-board.patch \
         file://0099-mtd-spi-nor-allow-NOR-driver-to-write-fewer-bytes-th.patch \

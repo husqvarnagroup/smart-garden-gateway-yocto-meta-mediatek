@@ -1,0 +1,32 @@
+From f693cc6e0462b25c651b1fbeaae9983c84e9a519 Mon Sep 17 00:00:00 2001
+From: Felix Fietkau <nbd@nbd.name>
+Date: Thu, 14 Jun 2018 11:20:09 +0200
+Subject: [PATCH] netfilter: nf_flow_table: fix up ct state of flows after
+ timeout
+
+If a connection simply times out instead of being torn down, it is left
+active with a long timeout. Fix this by calling flow_offload_fixup_ct_state
+here as well.
+
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+---
+ net/netfilter/nf_flow_table_core.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
+index b9bb4911f804..664ae2ef4f62 100644
+--- a/net/netfilter/nf_flow_table_core.c
++++ b/net/netfilter/nf_flow_table_core.c
+@@ -233,6 +233,9 @@ static void flow_offload_del(struct nf_flowtable *flow_table,
+ 	e = container_of(flow, struct flow_offload_entry, flow);
+ 	clear_bit(IPS_OFFLOAD_BIT, &e->ct->status);
+ 
++	if (!(flow->flags & FLOW_OFFLOAD_TEARDOWN))
++		flow_offload_fixup_ct_state(e->ct);
++
+ 	flow_offload_free(flow);
+ }
+ 
+-- 
+2.11.0
+

@@ -1,0 +1,48 @@
+From 0cb232f01753a75380b7818b99de5d9c01c55963 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Tue, 18 Dec 2018 14:23:33 +0100
+Subject: [PATCH] MIPS: ralink: dts: gardena_smart_gateway_mt7688: Add ethernet
+ LED's
+
+This patch adds the ethernet LED's and also enables the other LED's,
+which have been disabled to not conflict with userspace LED handling
+via GPIO sysfs in some scripts.
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+index 963f79fc6a08..3ce7a549e8c4 100644
+--- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -14,7 +14,6 @@
+ 		reg = <0x0 0x8000000>;
+ 	};
+ 
+-#if 0 // test-only: not enabled to not conflict with current scripts
+ 	leds {
+ 		compatible = "gpio-leds";
+ 
+@@ -71,8 +70,19 @@
+ 			gpios = <&gpio0 28 GPIO_ACTIVE_HIGH>;
+ 			default-state = "off";
+ 		};
++
++		ethernet_link {
++			label = "smartgw:eth:link";
++			gpios = <&gpio0 3 GPIO_ACTIVE_LOW>;
++			default-state = "off";
++		};
++
++		ethernet_activity {
++			label = "smartgw:eth:act";
++			gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
++			default-state = "off";
++		};
+ 	};
+-#endif
+ 
+ 	aliases {
+ 		serial0 = &uartlite;

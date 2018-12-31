@@ -116,7 +116,7 @@ index 000000000000..b3013bb3306f
 +
 +	nand_flash@1 {
 +		compatible = "spi-nand";
-+		linux,mtd-name = "gd5f";
++		linux,mtd-name = "spi0.1";
 +		reg = <1>;
 +		spi-max-frequency = <40000000>;
 +	};

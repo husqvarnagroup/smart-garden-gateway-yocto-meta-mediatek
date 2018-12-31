@@ -8,33 +8,19 @@ COMPATIBLE_MACHINE = "mt7688"
 
 LINUX_VERSION_EXTENSION = "-yoctodev-${LINUX_KERNEL_TYPE}-${PR}"
 
+# Hardware specific settings
 SRC_URI_append_mt7688 = "\
     file://defconfig \
-    file://enable_pci.cfg \
-    file://enable_console.cfg \
     file://enable_ethernet.cfg \
     file://enable_mediatek_gpio_support.cfg \
     file://enable_mediatek_i2c.cfg \
     file://enable_mediatek_spi_support.cfg \
     file://enable_modules.cfg \
     file://enable_pci.cfg \
+    file://enable_pci.cfg \
     file://enable_rfkill.cfg \
+    file://enable_serial.cfg \
     file://enable_wmac.cfg \
-    file://enable_compaction.cfg \
-    file://enable_debugfs.cfg \
-    file://enable_devmem.cfg \
-    file://enable_ipv6.cfg \
-    file://enable_modules.cfg \
-    file://enable_mtd_tests.cfg \
-    file://enable_nfsroot.cfg \
-    file://enable_ppp.cfg \
-    file://enable_squashfs.cfg \
-    file://enable_systemd_dependencies.cfg \
-    file://enable_tun.cfg \
-    file://enable_watchdog.cfg \
-    file://enable_notify.cfg \
-    file://enable_ubi.cfg \
-    file://set_default_loglevel.cfg \
     file://0001-pinctrl-ralink-add-pinctrl-driver.patch \
     file://0002-spi-add-mt7621-support.patch \
     file://0003-i2c-add-mt7621-driver-new-enhanced-driver.patch \
@@ -66,4 +52,29 @@ SRC_URI_append_mt7688 = "\
     file://0029-MIPS-ralink-Add-missing-include-for-do_div.patch \
     file://0030-MIPS-ralink-Enable-SYS_SUPPORTS_ZBOOT.patch \
     file://0031-Add-GARDENA-smart-Gateway-mt7688-DTS-option.patch \
+"
+
+# Distribution specific settings
+SRC_URI_append_mt7688 += "\
+    file://enable_compaction.cfg \
+    file://enable_debugfs.cfg \
+    file://enable_devmem.cfg \
+    file://enable_executable_format_elf.cfg \
+    file://enable_executable_format_script.cfg \
+    file://enable_ipv6.cfg \
+    file://enable_modules.cfg \
+    file://enable_mtd_tests.cfg \
+    file://enable_nfsroot.cfg \
+    file://enable_notify.cfg \
+    file://enable_ppp.cfg \
+    file://enable_procfs.cfg \
+    file://enable_squashfs.cfg \
+    file://enable_systemd_dependencies.cfg \
+    file://enable_tmpfs.cfg \
+    file://enable_tun.cfg \
+    file://enable_ubi.cfg \
+    file://enable_watchdog.cfg \
+    file://enable_wifi_crda.cfg \
+    file://set_cfq_scheduler.cfg \
+    file://set_default_loglevel.cfg \
 "

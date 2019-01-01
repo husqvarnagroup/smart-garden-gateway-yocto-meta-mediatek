@@ -56,7 +56,6 @@ SRC_URI_append_mt7688 = "\
 
 # Distribution specific settings
 SRC_URI_append_mt7688 += "\
-    file://disable_kernel_samples.cfg \
     file://enable_compaction.cfg \
     file://enable_console.cfg \
     file://enable_debugfs.cfg \
@@ -84,4 +83,5 @@ SRC_URI_append_mt7688 += "\
     file://enable_wifi_crda.cfg \
     file://set_cfq_scheduler.cfg \
     file://set_default_loglevel.cfg \
+    file://disable_kernel_samples.cfg \
 "

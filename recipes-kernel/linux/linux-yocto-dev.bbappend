@@ -57,6 +57,7 @@ SRC_URI_append_mt7688 = "\
 # Distribution specific settings
 SRC_URI_append_mt7688 += "\
     file://enable_compaction.cfg \
+    file://enable_console.cfg \
     file://enable_debugfs.cfg \
     file://enable_devmem.cfg \
     file://enable_executable_format_elf.cfg \

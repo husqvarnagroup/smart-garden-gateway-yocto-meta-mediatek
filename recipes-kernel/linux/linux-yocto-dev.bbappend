@@ -56,6 +56,7 @@ SRC_URI_append_mt7688 = "\
 
 # Distribution specific settings
 SRC_URI_append_mt7688 += "\
+    file://disable_kernel_samples.cfg \
     file://enable_compaction.cfg \
     file://enable_console.cfg \
     file://enable_debugfs.cfg \

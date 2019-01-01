@@ -21,6 +21,7 @@ SRC_URI_append_mt7688 = "\
     file://enable_rfkill.cfg \
     file://enable_serial.cfg \
     file://enable_wmac.cfg \
+    file://set_default_hostname.cfg \
     file://0001-pinctrl-ralink-add-pinctrl-driver.patch \
     file://0002-spi-add-mt7621-support.patch \
     file://0003-i2c-add-mt7621-driver-new-enhanced-driver.patch \

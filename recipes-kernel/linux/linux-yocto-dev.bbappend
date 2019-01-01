@@ -69,7 +69,7 @@ SRC_URI_append_mt7688 += "\
     file://enable_ppp.cfg \
     file://enable_procfs.cfg \
     file://enable_squashfs.cfg \
-    file://enable_systemd_dependencies.cfg \
+    file://enable_systemd_requirements.cfg \
     file://enable_tmpfs.cfg \
     file://enable_tun.cfg \
     file://enable_ubi.cfg \

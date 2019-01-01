@@ -15,9 +15,9 @@ SRC_URI = "\
     file://mt76-backport.patch \
 "
 
-SRCREV = "6203d46fcc4577065209ea0ed9334d89df4f63f7"
-PV = "1.0+git${SRCPV}"
-PR = "r2"
+SRCREV = "48fb0116f0a967dbd11fe6deba7ade45c6a9b892"
+PV = "2018-12-31+git${SRCPV}"
+PR = "r0"
 
 S = "${WORKDIR}/git"
 

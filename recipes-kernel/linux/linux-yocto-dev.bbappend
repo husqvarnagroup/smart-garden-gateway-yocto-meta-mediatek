@@ -55,6 +55,7 @@ SRC_URI_append_mt7688 = "\
 "
 
 # Distribution specific settings
+# TODO: Move to distribution layer
 SRC_URI_append_mt7688 += "\
     file://enable_compaction.cfg \
     file://enable_console.cfg \
@@ -84,4 +85,9 @@ SRC_URI_append_mt7688 += "\
     file://set_cfq_scheduler.cfg \
     file://set_default_loglevel.cfg \
     file://disable_kernel_samples.cfg \
+"
+
+# Misc stuff (maybe not even strictly required)
+SRC_URI_append_mt7688 += "\
+    file://enable_misc_stuff.cfg \
 "

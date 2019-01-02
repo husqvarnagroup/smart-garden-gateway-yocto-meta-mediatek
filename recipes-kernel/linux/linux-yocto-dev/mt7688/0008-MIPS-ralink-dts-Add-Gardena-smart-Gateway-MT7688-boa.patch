@@ -1,0 +1,142 @@
+From 9ffcfe93d4c9c12ea3409f17de52417e6553399f Mon Sep 17 00:00:00 2001
+From: Reto Schneider <reto.schneider@husqvarnagroup.com>
+Date: Tue, 26 Jun 2018 19:41:14 +0200
+Subject: [PATCH] MIPS: ralink: dts: Add Gardena smart Gateway MT7688 board
+
+GPIO pins setup:
+  - All involved pinctrl groups must be set to GPIO explicitly
+  - Pinctrl groups set up the GPIO1_MODE and GPIO2_MODE registers
+  - Group names can be found in arch/mips/ralink/mt7620.c mt7628an_pinmux_data[]
+  - U-boot currently sets up LED pins as analog GPIOs - can be adjusted in user space
+
+UART1 setup:
+  - Enable GPIO banks for gardena_smart_gateway
+  - Enable UART1 for gardena_smart_gateway and configure RTS and CTS pins
+
+UART2 setup:
+  - Bits EPHY_GPIO_AIO_EN need to be set to 1 (digital pads)
+---
+ arch/mips/boot/dts/ralink/Makefile                 |   1 +
+ .../dts/ralink/gardena_smart_gateway_mt7688.dts    | 101 +++++++++++++++++++++
+ 2 files changed, 102 insertions(+)
+ create mode 100644 arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+
+diff --git a/arch/mips/boot/dts/ralink/Makefile b/arch/mips/boot/dts/ralink/Makefile
+index 6c26dfa0a903..cb361fc3127d 100644
+--- a/arch/mips/boot/dts/ralink/Makefile
++++ b/arch/mips/boot/dts/ralink/Makefile
+@@ -4,6 +4,7 @@ dtb-$(CONFIG_DTB_RT305X_EVAL)	+= rt3052_eval.dtb
+ dtb-$(CONFIG_DTB_RT3883_EVAL)	+= rt3883_eval.dtb
+ dtb-$(CONFIG_DTB_MT7620A_EVAL)	+= mt7620a_eval.dtb
+ dtb-$(CONFIG_DTB_OMEGA2P)	+= omega2p.dtb
++dtb-$(CONFIG_DTB_GARDENA_SMART_GATEWAY_MT7688)	+= gardena_smart_gateway_mt7688.dtb
+ dtb-$(CONFIG_DTB_VOCORE2)	+= vocore2.dtb
+ 
+ obj-$(CONFIG_BUILTIN_DTB)	+= $(addsuffix .o, $(dtb-y))
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+new file mode 100644
+index 000000000000..b3013bb3306f
+--- /dev/null
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -0,0 +1,101 @@
++/dts-v1/;
++
++/include/ "mt7628an.dtsi"
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++
++/ {
++	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7628an-soc";
++	model = "Gardena smart Gateway MT7688";
++
++	memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x8000000>;
++	};
++
++	aliases {
++		serial0 = &uartlite;
++		ethernet0 = &ethernet;
++	};
++};
++
++&pinctrl {
++	state_default: pinctrl0 {
++		gpio {
++			ralink,group = "gpio", "i2s",
++				"p1led_an", "p2led_an", "p3led_an", "p4led_an",
++				"spis", "wled_an", "wdt", "sdmode", "refclk",
++				"perst", "pwm0", "pwm1";
++			ralink,function = "gpio";
++		};
++	};
++};
++
++&spi0 {
++	status = "okay";
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi_pins>, <&spi_cs1_pins>;
++
++	m25p80@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		spi-max-frequency = <40000000>;
++		m25p,chunked-io = <31>;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			partition@0 {
++				label = "uboot";
++				reg = <0x0 0xa0000>;
++				read-only;
++			};
++
++			partition@a0000 {
++				label = "uboot_env0";
++				reg = <0xa0000 0x10000>;
++			};
++
++			partition@b0000 {
++				label = "uboot_env1";
++				reg = <0xb0000 0x10000>;
++			};
++
++			factory: partition@c0000 {
++				label = "factory";
++				reg = <0xc0000 0x10000>;
++				read-only;
++			};
++		};
++	};
++
++	nand_flash@1 {
++		compatible = "spi-nand";
++		linux,mtd-name = "spi0.1";
++		reg = <1>;
++		spi-max-frequency = <40000000>;
++	};
++};
++
++&uart1 {
++	status = "okay";
++
++	rts-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
++	cts-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
++};
++
++&uart2 {
++	status = "okay";
++};
++
++&i2c {
++	status = "okay";
++};
++
++&wmac {
++	status = "okay";
++};

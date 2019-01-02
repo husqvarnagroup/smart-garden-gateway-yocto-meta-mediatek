@@ -1,8 +1,11 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".3"
+PR_append = ".4"
 
 LINUX_VERSION = "4.19"
+
+SRCREV_machine = "122d4689678825ca23257d7a17f8da55aca8d444"
+SRCREV_meta = "d078f0d32c499f5cec81ff38f26adcc347e8b218"
 
 COMPATIBLE_MACHINE = "mt7688"
 

@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".4"
+PR_append = ".5"
 
 LINUX_VERSION = "4.19"
 

@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".2"
+PR_append = ".3"
 
 LINUX_VERSION = "4.19"
 
@@ -67,6 +67,7 @@ SRC_URI_append_mt7688 += "\
     file://enable_executable_format_elf.cfg \
     file://enable_executable_format_script.cfg \
     file://enable_ipv6.cfg \
+    file://enable_leds.cfg \
     file://enable_modules.cfg \
     file://enable_mtd_tests.cfg \
     file://enable_nfsroot.cfg \

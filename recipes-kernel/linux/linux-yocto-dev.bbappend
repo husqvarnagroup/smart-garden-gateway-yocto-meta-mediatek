@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".1"
+PR_append = ".2"
 
 LINUX_VERSION = "4.19"
 
@@ -53,6 +53,7 @@ SRC_URI_append_mt7688 = "\
     file://0029-MIPS-ralink-Add-missing-include-for-do_div.patch \
     file://0030-MIPS-ralink-Enable-SYS_SUPPORTS_ZBOOT.patch \
     file://0031-Add-GARDENA-smart-Gateway-mt7688-DTS-option.patch \
+    file://0032-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Keep-st.patch \
     file://0001-WIP-HACK-tty-serial-8250-Call-serial8250_enable_ms-f.patch \
 "
 

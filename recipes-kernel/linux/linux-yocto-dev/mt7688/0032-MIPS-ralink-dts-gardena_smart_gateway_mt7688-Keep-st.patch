@@ -1,0 +1,26 @@
+From 53921e18c29b89e444fe62675f1b3ca2afee8412 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <code@reto-schneider.ch>
+Date: Wed, 2 Jan 2019 02:16:56 +0000
+Subject: [PATCH] MIPS: ralink: dts: gardena_smart_gateway_mt7688: Keep state
+ of green Power LED
+
+---
+ arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+index 89ee57d78fa8..fd99bf85da58 100644
+--- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -26,7 +26,7 @@
+ 		power_green {
+ 			label = "smartgw:power:green";
+ 			gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
+-			default-state = "off";
++			default-state = "keep";
+ 		};
+ 
+ 		power_red {
+-- 
+2.11.0
+

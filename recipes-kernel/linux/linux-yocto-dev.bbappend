@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".5"
+PR_append = ".6"
 
 LINUX_VERSION = "4.19"
 
@@ -10,6 +10,9 @@ SRCREV_meta = "d078f0d32c499f5cec81ff38f26adcc347e8b218"
 COMPATIBLE_MACHINE = "mt7688"
 
 LINUX_VERSION_EXTENSION = "-yoctodev-${LINUX_KERNEL_TYPE}-${PR}"
+
+# This changed in Thud compared to Sumo
+LIC_FILES_CHKSUM = "file://COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
 
 # Hardware specific settings
 SRC_URI_append_mt7688 = "\

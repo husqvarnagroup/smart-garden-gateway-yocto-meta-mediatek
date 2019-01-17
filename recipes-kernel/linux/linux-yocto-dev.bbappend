@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".7"
+PR_append = ".8"
 
 LINUX_VERSION = "4.19"
 
@@ -19,9 +19,6 @@ SRC_URI_append_mt7688 = "\
     file://enable_mediatek_i2c.cfg \
     file://enable_mediatek_spi_support.cfg \
     file://enable_modules.cfg \
-    file://enable_pci.cfg \
-    file://enable_pci.cfg \
-    file://enable_rfkill.cfg \
     file://enable_serial.cfg \
     file://enable_wmac.cfg \
     file://set_default_hostname.cfg \
@@ -69,7 +66,6 @@ SRC_URI_append_mt7688 += "\
     file://enable_devmem.cfg \
     file://enable_executable_format_elf.cfg \
     file://enable_executable_format_script.cfg \
-    file://enable_ipv6.cfg \
     file://enable_leds.cfg \
     file://enable_modules.cfg \
     file://enable_mtd_tests.cfg \
@@ -77,7 +73,8 @@ SRC_URI_append_mt7688 += "\
     file://enable_notify.cfg \
     file://enable_panic_on_oops.cfg \
     file://enable_ppp.cfg \
-    file://enable_procfs.cfg \
+    file://enable_rfkill.cfg \
+    file://enable_shmem.cfg \
     file://enable_squashfs.cfg \
     file://enable_sysrq.cfg \
     file://enable_systemd_cpuquota.cfg \
@@ -85,7 +82,6 @@ SRC_URI_append_mt7688 += "\
     file://enable_systemd_requirements.cfg \
     file://enable_systemd_strongly_recommended.cfg \
     file://enable_systemd_undocumented.cfg \
-    file://enable_tmpfs.cfg \
     file://enable_tun.cfg \
     file://enable_ubi.cfg \
     file://enable_watchdog.cfg \

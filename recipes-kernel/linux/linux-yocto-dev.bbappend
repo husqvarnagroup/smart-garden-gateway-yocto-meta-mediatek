@@ -19,7 +19,6 @@ SRC_URI_append_mt7688 = "\
     file://enable_mediatek_i2c.cfg \
     file://enable_mediatek_spi_support.cfg \
     file://enable_modules.cfg \
-    file://enable_rfkill.cfg \
     file://enable_serial.cfg \
     file://enable_wmac.cfg \
     file://set_default_hostname.cfg \
@@ -74,6 +73,7 @@ SRC_URI_append_mt7688 += "\
     file://enable_notify.cfg \
     file://enable_panic_on_oops.cfg \
     file://enable_ppp.cfg \
+    file://enable_rfkill.cfg \
     file://enable_shmem.cfg \
     file://enable_squashfs.cfg \
     file://enable_sysrq.cfg \

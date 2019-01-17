@@ -19,8 +19,6 @@ SRC_URI_append_mt7688 = "\
     file://enable_mediatek_i2c.cfg \
     file://enable_mediatek_spi_support.cfg \
     file://enable_modules.cfg \
-    file://enable_pci.cfg \
-    file://enable_pci.cfg \
     file://enable_rfkill.cfg \
     file://enable_serial.cfg \
     file://enable_wmac.cfg \

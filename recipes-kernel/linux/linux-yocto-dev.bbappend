@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".9"
+PR_append = ".10"
 
 LINUX_VERSION = "4.19"
 
@@ -30,7 +30,6 @@ SRC_URI_append_mt7688 = "\
     file://0006-MIPS-ralink-dts-mt7628an.dtsi-Add-cpu-device_type.patch \
     file://0007-MIPS-ralink-dts-mt7628an.dtsi-Add-GPIO-compatible-pr.patch \
     file://0008-MIPS-ralink-dts-Add-Gardena-smart-Gateway-MT7688-boa.patch \
-    file://0009-MIPS-defconfig-Add-gardena-smart-gateway_defconfig.patch \
     file://0010-OOT-MIPS-gardena-smart-gateway-Add-its-file-to-gener.patch \
     file://0011-OOT-MIPS-gardena-smart-gateway-Add-script-to-help-bu.patch \
     file://0012-watchdog-mt7621-Include-of.h-to-fix-compile-breakage.patch \

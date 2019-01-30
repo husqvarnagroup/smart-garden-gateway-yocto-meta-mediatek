@@ -67,6 +67,7 @@ SRC_URI_append_mt7688 += "\
     file://enable_devmem.cfg \
     file://enable_executable_format_elf.cfg \
     file://enable_executable_format_script.cfg \
+    file://enable_keyboard_button.cfg \
     file://enable_leds.cfg \
     file://enable_modules.cfg \
     file://enable_mtd_tests.cfg \

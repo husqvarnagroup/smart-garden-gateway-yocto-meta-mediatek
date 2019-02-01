@@ -1,7 +1,7 @@
 From 7c226d783c62df022368cb00decd97fc7ba620b2 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <code@reto-schneider.ch>
 Date: Mon, 26 Nov 2018 02:39:19 +0000
-Subject: [PATCH] Add watchdogless Gardena defconfigs
+Subject: [PATCH] Add watchdogless GARDENA defconfigs
 
 ---
  ...dena-smart-gateway-mt7688-no-watchdog_defconfig | 78 ++++++++++++++++++++++

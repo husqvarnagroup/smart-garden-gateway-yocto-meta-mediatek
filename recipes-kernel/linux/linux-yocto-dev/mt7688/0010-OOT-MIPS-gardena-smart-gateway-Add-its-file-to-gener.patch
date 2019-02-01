@@ -23,7 +23,7 @@ index 000000000000..4e6248113a0e
 +/dts-v1/;
 +
 +/ {
-+	description = "Gardena smart-gateway MT7688 image with single Linux kernel and FDT blob";
++	description = "GARDENA smart Gateway MT7688 image with single Linux kernel and FDT blob";
 +	#address-cells = <1>;
 +
 +	images {

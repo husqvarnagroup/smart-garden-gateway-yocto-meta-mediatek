@@ -4,8 +4,8 @@ Date: Sat, 22 Dec 2018 11:26:46 +0100
 Subject: [PATCH] WIP/HACK: tty/serial/8250: Call serial8250_enable_ms() from
  serial8250_config_port()
 
-This hack can be used to verify the HW handshake on the Gardena smart
-gateway. First testing has shown than linux-serial-test now runs fine
+This hack can be used to verify the HW handshake on the GARDENA smart
+Gateway. First testing has shown than linux-serial-test now runs fine
 with 115200 baud:
 
 mt7688:~# ./flow-test-115200.sh

@@ -1,7 +1,7 @@
 From bb2bb36cd055e9e0e05207a5bd2aa32c6d55b546 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Tue, 26 Jun 2018 19:41:14 +0200
-Subject: [PATCH] MIPS: Add Gardena smart Gateway MT7688 board
+Subject: [PATCH] MIPS: Add GARDENA smart Gateway MT7688 board
 
 GPIO pins setup:
   - All involved pinctrl groups must be set to GPIO explicitly
@@ -48,8 +48,8 @@ index 000000000000..7f6f2bb07d20
 +#include <dt-bindings/input/input.h>
 +
 +/ {
-+	compatible = "Gardena,smartGatewayMT7688", "ralink,mt7688a-soc", "ralink,mt7628a-soc";
-+	model = "Gardena smart Gateway MT7688";
++	compatible = "GARDENA,smartGatewayMT7688", "ralink,mt7688a-soc", "ralink,mt7628a-soc";
++	model = "GARDENA smart Gateway MT7688";
 +
 +	memory@0 {
 +		device_type = "memory";
@@ -149,7 +149,7 @@ index f26736b7080b..5e0089a61eed 100644
  		select BUILTIN_DTB
  
 +	config DTB_GARDENA_SMART_GATEWAY_MT7688
-+		bool "Gardena smart Gateway MT7688"
++		bool "GARDENA smart Gateway MT7688"
 +		depends on SOC_MT7620
 +		select BUILTIN_DTB
 +

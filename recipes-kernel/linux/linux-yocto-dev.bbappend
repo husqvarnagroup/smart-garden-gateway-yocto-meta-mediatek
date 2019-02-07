@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".11"
+PR_append = ".12"
 
 LINUX_VERSION = "4.19"
 
@@ -54,6 +54,7 @@ SRC_URI_append_mt7688 = "\
     file://0031-Add-GARDENA-smart-Gateway-mt7688-DTS-option.patch \
     file://0032-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Keep-st.patch \
     file://0033-WIP-HACK-tty-serial-8250-Call-serial8250_enable_ms-f.patch \
+    file://0033-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Add-res.patch \
     file://0034-mtd-spinand-Handle-the-case-where-PROGRAM-LOAD-does-.patch \
     file://0035-mtd-spinand-Copy-GigaDevice-support-from-latest-v5.0.patch \
 "
@@ -67,6 +68,7 @@ SRC_URI_append_mt7688 += "\
     file://enable_devmem.cfg \
     file://enable_executable_format_elf.cfg \
     file://enable_executable_format_script.cfg \
+    file://enable_keyboard_button.cfg \
     file://enable_leds.cfg \
     file://enable_modules.cfg \
     file://enable_mtd_tests.cfg \

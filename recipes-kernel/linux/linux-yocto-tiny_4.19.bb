@@ -1,15 +1,43 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+KBRANCH ?= "v4.19/standard/tiny/base"
+KBRANCH_qemuarm  ?= "v4.19/standard/tiny/arm-versatile-926ejs"
 
-PR_append = ".12"
+LINUX_KERNEL_TYPE = "tiny"
+KCONFIG_MODE = "--allnoconfig"
 
-LINUX_VERSION = "4.19"
+require recipes-kernel/linux/linux-yocto.inc
 
-SRCREV_machine = "122d4689678825ca23257d7a17f8da55aca8d444"
-SRCREV_meta = "d078f0d32c499f5cec81ff38f26adcc347e8b218"
+LINUX_VERSION ?= "4.19.19"
+LIC_FILES_CHKSUM = "file://COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
+
+DEPENDS += "${@bb.utils.contains('ARCH', 'x86', 'elfutils-native', '', d)}"
+DEPENDS += "openssl-native util-linux-native"
+
+KMETA = "kernel-meta"
+KCONF_BSP_AUDIT_LEVEL = "2"
+
+SRCREV_machine_qemuarm ?= "64017daf053fdb31049248e45f42e0abd55117d3"
+SRCREV_machine ?= "ad24af0809e17882e33fb4bd77426e691f47b46d"
+SRCREV_meta ?= "4c0da29403e242f3d429196cf4a03200211e6ff4"
+
+PV = "${LINUX_VERSION}+git${SRCPV}"
+
+SRC_URI = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};name=machine \
+           git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-4.19;destsuffix=${KMETA}"
+
+COMPATIBLE_MACHINE = "qemux86|qemux86-64|qemuarm"
+
+# Functionality flags
+KERNEL_FEATURES = ""
+
+KERNEL_DEVICETREE_qemuarm = "versatile-pb.dtb"
 
 COMPATIBLE_MACHINE = "mt7688"
 
-LINUX_VERSION_EXTENSION = "-yoctodev-${LINUX_KERNEL_TYPE}-${PR}"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
+PR = "r0"
+
+LINUX_VERSION_EXTENSION = "-${LINUX_KERNEL_TYPE}-${PR}"
 
 # Hardware specific settings
 SRC_URI_append_mt7688 = "\

@@ -1,0 +1,22 @@
+From aea35fc3349d2244b5a89244c846861bf222700d Mon Sep 17 00:00:00 2001
+From: Reto Schneider <code@reto-schneider.ch>
+Date: Sun, 30 Dec 2018 15:57:46 +0100
+Subject: [PATCH] Remove reference to b53
+
+---
+ drivers/net/phy/Kconfig | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
+index 76a1f9752569..5a45023299c2 100644
+--- a/drivers/net/phy/Kconfig
++++ b/drivers/net/phy/Kconfig
+@@ -237,8 +237,6 @@ config AR8216_PHY_LEDS
+ 	bool "Atheros AR8216 switch LED support"
+ 	depends on (AR8216_PHY && LEDS_CLASS)
+ 
+-source "drivers/net/phy/b53/Kconfig"
+-
+ config IP17XX_PHY
+ 	tristate "Driver for IC+ IP17xx switches"
+ 	select SWCONFIG

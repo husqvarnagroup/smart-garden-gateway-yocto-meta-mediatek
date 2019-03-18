@@ -1,4 +1,4 @@
-From 409f709d9cfa6a686fd84f66bbe7286608848b37 Mon Sep 17 00:00:00 2001
+From ea1623d541b7820ee7c077fbeaba2af0827ddb51 Mon Sep 17 00:00:00 2001
 From: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
 Date: Tue, 16 Oct 2018 17:29:04 +0200
 Subject: [PATCH] add missing actions to Makefile
@@ -9,11 +9,11 @@ Signed-off-by: Andrej Gessel <andrej.gessel@husqvarnagroup.com>
  1 file changed, 8 insertions(+)
 
 diff --git a/Makefile b/Makefile
-index 18fdf0c..e35c70e 100644
+index 490a38e..a6e368f 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -1,5 +1,13 @@
- EXTRA_CFLAGS += -Werror
+ EXTRA_CFLAGS += -Werror -DCONFIG_MT76_LEDS
  
 +all:
 +	$(MAKE) -C $(KERNEL_SRC) M=$(PWD)
@@ -26,6 +26,3 @@ index 18fdf0c..e35c70e 100644
  obj-m := mt76.o
  obj-$(CONFIG_MT7603E) += mt7603/
  obj-$(CONFIG_MT76x02_LIB) += mt76x02-lib.o
--- 
-2.11.0
-

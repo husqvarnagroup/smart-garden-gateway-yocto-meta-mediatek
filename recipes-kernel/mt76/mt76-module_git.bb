@@ -12,12 +12,11 @@ BRANCH = "master"
 SRC_URI = "\
     git://github.com/openwrt/mt76.git;protocol=https;branch=${BRANCH} \
     file://0001-add-missing-actions-to-Makefile.patch \
-    file://mt76-backport.patch \
 "
 
 SRCREV = "48fb0116f0a967dbd11fe6deba7ade45c6a9b892"
 PV = "2018-12-30+git${SRCPV}"
-PR = "r0"
+PR = "r1"
 
 S = "${WORKDIR}/git"
 

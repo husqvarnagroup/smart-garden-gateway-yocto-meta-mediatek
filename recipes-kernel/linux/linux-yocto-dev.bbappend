@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".12"
+PR_append = ".13"
 
 LINUX_VERSION = "4.19"
 
@@ -92,9 +92,15 @@ SRC_URI_append_mt7688 += "\
     file://set_cfq_scheduler.cfg \
     file://set_default_loglevel.cfg \
     file://disable_kernel_samples.cfg \
+    file://enable_netfilter.cfg \
 "
 
 # Misc stuff (maybe not even strictly required)
 SRC_URI_append_mt7688 += "\
     file://enable_misc_stuff.cfg \
 "
+
+# the netfilter feature enables a generic set of configs for iptables;
+# however this is more than we need and configures them as modules,
+# rather than in-kernel
+KERNEL_EXTRA_FEATURES_remove = "features/netfilter/netfilter.scc"

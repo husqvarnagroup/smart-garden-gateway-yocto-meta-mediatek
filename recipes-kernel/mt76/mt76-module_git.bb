@@ -14,8 +14,8 @@ SRC_URI = "\
     file://0001-add-missing-actions-to-Makefile.patch \
 "
 
-SRCREV = "abcb544579191d30177ff0cd1b2671ade0fb9098"
-PV = "2019-03-18+git${SRCPV}"
+SRCREV = "792e6cee0731305962b9c70e938cd269350c950b"
+PV = "2019-05-21+git${SRCPV}"
 PR = "r0"
 
 S = "${WORKDIR}/git"

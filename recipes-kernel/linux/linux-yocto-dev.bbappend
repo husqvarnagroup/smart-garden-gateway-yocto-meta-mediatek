@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".13"
+PR_append = ".14"
 
 LINUX_VERSION = "4.19"
 
@@ -83,6 +83,7 @@ SRC_URI_append_mt7688 += "\
     file://enable_systemd_cpuquota.cfg \
     file://enable_systemd_cpushare.cfg \
     file://enable_systemd_requirements.cfg \
+    file://enable_systemd_resource_control.cfg \
     file://enable_systemd_strongly_recommended.cfg \
     file://enable_systemd_undocumented.cfg \
     file://enable_tun.cfg \

@@ -1,0 +1,30 @@
+From 73626457a01927fbc5b7aeb63d73212c89c5c032 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <reto.schneider@husqvarnagroup.com>
+Date: Thu, 20 Jun 2019 18:19:48 +0200
+Subject: WIP/HACK: tty/serial/8250: Reduce tx buffer size
+
+---
+ drivers/tty/serial/8250/8250_port.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
+index 1364ad23c6fc..33f9d197ccf1 100644
+--- a/drivers/tty/serial/8250/8250_port.c
++++ b/drivers/tty/serial/8250/8250_port.c
+@@ -89,7 +89,12 @@ static const struct serial8250_config uart_config[] = {
+ 	[PORT_16550A] = {
+ 		.name		= "16550A",
+ 		.fifo_size	= 16,
+-		.tx_loadsz	= 16,
++		/*
++		* The radio module asserts CTS when its RX buffer has 10 bytes left.
++		* A TX buffer size of 8 instead of 16 bytes keeps us from overflowing the
++		* RX buffer.
++		*/
++		.tx_loadsz	= 8,
+ 		.fcr		= UART_FCR_ENABLE_FIFO | UART_FCR_R_TRIG_10,
+ 		.rxtrig_bytes	= {1, 4, 8, 14},
+ 		.flags		= UART_CAP_FIFO,
+-- 
+2.11.0
+

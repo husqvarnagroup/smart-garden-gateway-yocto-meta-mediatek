@@ -1,0 +1,30 @@
+From fd8b83818624f414bcb120d8924e6855a833d527 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <Reto.Schneider@husqvarnagroup.com>
+Date: Sat, 22 Jun 2019 22:17:41 +0000
+Subject: [PATCH] MIPS: ralink: dts: gardena_smart_gateway_mt7688: Limit UART1
+ TX size
+
+The radio module asserts CTS when its RX buffer has 10 bytes left.
+Putting just 8 instead of 16 bytes into the UART1 TX buffer on the Linux side
+ensures to not overflow the RX buffer on the radio module side.
+---
+ arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+index 0eb7249ceea6..fd3c014dfeec 100644
+--- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -164,6 +164,9 @@
+ &uart1 {
+ 	status = "okay";
+ 
++	fifo-size = <8>;
++	tx-threshold = <8>;
++
+ 	rts-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
+ 	cts-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
+ };
+-- 
+2.11.0
+

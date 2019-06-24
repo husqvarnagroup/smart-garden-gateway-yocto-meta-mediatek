@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".15"
+PR_append = ".16"
 
 LINUX_VERSION = "4.19"
 
@@ -57,7 +57,7 @@ SRC_URI_append_mt7688 = "\
     file://0033-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Add-res.patch \
     file://0034-mtd-spinand-Handle-the-case-where-PROGRAM-LOAD-does-.patch \
     file://0035-mtd-spinand-Copy-GigaDevice-support-from-latest-v5.0.patch \
-    file://0036-WIP-HACK-tty-serial-8250-Reduce-tx-buffer-size.patch \
+    file://0036-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Limit-U.patch \
 "
 
 # Distribution specific settings

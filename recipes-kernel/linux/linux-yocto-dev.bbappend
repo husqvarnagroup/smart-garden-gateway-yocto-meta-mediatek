@@ -1,15 +1,15 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS_prepend_mt7688 := "${THISDIR}/${PN}:"
 
-PR_append = ".17"
+PR_append_mt7688 = ".17"
 
-LINUX_VERSION = "4.19"
+LINUX_VERSION_mt7688 = "4.19"
 
-SRCREV_machine = "122d4689678825ca23257d7a17f8da55aca8d444"
-SRCREV_meta = "d078f0d32c499f5cec81ff38f26adcc347e8b218"
+SRCREV_machine_mt7688 = "122d4689678825ca23257d7a17f8da55aca8d444"
+SRCREV_meta_mt7688 = "d078f0d32c499f5cec81ff38f26adcc347e8b218"
 
-COMPATIBLE_MACHINE = "mt7688"
+COMPATIBLE_MACHINE_mt7688 = "mt7688"
 
-LINUX_VERSION_EXTENSION = "-yoctodev-${LINUX_KERNEL_TYPE}-${PR}"
+LINUX_VERSION_EXTENSION_mt7688 = "-yoctodev-${LINUX_KERNEL_TYPE}-${PR}"
 
 # Hardware specific settings
 SRC_URI_append_mt7688 = "\

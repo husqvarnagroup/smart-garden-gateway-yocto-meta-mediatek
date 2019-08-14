@@ -7,6 +7,8 @@ LIC_FILES_CHKSUM = "file://mt7603/main.c;endline=1;md5=851c42acd2839f38e15c8cf23
 
 inherit module
 
+COMPATIBLE_MACHINE = "mt7688"
+
 BRANCH = "openwrt-18.06"
 
 SRC_URI = "\

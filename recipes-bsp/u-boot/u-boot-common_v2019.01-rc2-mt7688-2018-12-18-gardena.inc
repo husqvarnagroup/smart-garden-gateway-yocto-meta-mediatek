@@ -19,3 +19,5 @@ SRC_URI = " \
 "
 
 S = "${WORKDIR}/git"
+
+COMPATIBLE_MACHINE = "mt7688"

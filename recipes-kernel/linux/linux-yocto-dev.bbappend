@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PR_append = ".16"
+PR_append = ".17"
 
 LINUX_VERSION = "4.19"
 
@@ -69,11 +69,12 @@ SRC_URI_append_mt7688 += "\
     file://enable_devmem.cfg \
     file://enable_executable_format_elf.cfg \
     file://enable_executable_format_script.cfg \
+    file://enable_file_locking.cfg \
     file://enable_keyboard_button.cfg \
     file://enable_leds.cfg \
     file://enable_modules.cfg \
+    file://enable_multiuser.cfg \
     file://enable_mtd_tests.cfg \
-    file://enable_nfsroot.cfg \
     file://enable_notify.cfg \
     file://enable_panic_on_oops.cfg \
     file://enable_ppp.cfg \

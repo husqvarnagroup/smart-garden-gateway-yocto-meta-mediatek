@@ -10,9 +10,9 @@ INC_PR = "r0"
 inherit deploy
 
 UBOOT_SUFFIX ??= "bin"
-UBOOT_BINARY ?= "u-boot-prebuilt.${UBOOT_SUFFIX}"
-UBOOT_IMAGE ?= "u-boot-prebuilt-${MACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
-UBOOT_SYMLINK ?= "u-boot-prebuilt-${MACHINE}.${UBOOT_SUFFIX}"
+UBOOT_BINARY ?= "u-boot.${UBOOT_SUFFIX}"
+UBOOT_IMAGE ?= "u-boot-${MACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
+UBOOT_SYMLINK ?= "u-boot-${MACHINE}.${UBOOT_SUFFIX}"
 
 # Additional environment variables or a script can be installed alongside
 # u-boot to be used automatically on boot. Machine configurations needing one

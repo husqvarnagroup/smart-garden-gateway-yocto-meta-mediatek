@@ -5,7 +5,7 @@ LICENSE = "GPLv2+"
 
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425610833a22dbe6"
 
-INC_PR = "r0"
+INC_PR = "r2"
 
 inherit deploy
 
@@ -30,13 +30,6 @@ SRC_URI = " \
     file://${UBOOT_BINARY} \
     file://fw_env.config \
 "
-
-do_install () {
-    if [ -e ${WORKDIR}/fw_env.config ] ; then
-        install -d ${D}${sysconfdir}
-        install -m 644 ${WORKDIR}/fw_env.config ${D}${sysconfdir}/fw_env.config
-    fi
-}
 
 FILES_${PN} = "${sysconfdir}"
 

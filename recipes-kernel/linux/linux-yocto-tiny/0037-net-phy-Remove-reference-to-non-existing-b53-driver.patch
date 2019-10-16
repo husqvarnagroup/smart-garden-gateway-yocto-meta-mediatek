@@ -1,0 +1,25 @@
+From 932267e295fcaaae44367cc246b1148785f3708c Mon Sep 17 00:00:00 2001
+From: Reto Schneider <reto.schneider@husqvarnagroup.com>
+Date: Wed, 16 Oct 2019 20:25:05 +0000
+Subject: [PATCH] net: phy: Remove reference to non-existing b53 driver
+
+---
+ drivers/net/phy/Kconfig | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
+index 060c3be1686e..de90db09163d 100644
+--- a/drivers/net/phy/Kconfig
++++ b/drivers/net/phy/Kconfig
+@@ -237,8 +237,6 @@ config AR8216_PHY_LEDS
+ 	bool "Atheros AR8216 switch LED support"
+ 	depends on (AR8216_PHY && LEDS_CLASS)
+ 
+-source "drivers/net/phy/b53/Kconfig"
+-
+ config IP17XX_PHY
+ 	tristate "Driver for IC+ IP17xx switches"
+ 	select SWCONFIG
+-- 
+2.20.1
+

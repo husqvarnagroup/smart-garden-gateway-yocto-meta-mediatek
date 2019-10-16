@@ -1,0 +1,32 @@
+From a6917ef2ef0ce45c74daeaa8e49406d5c458b117 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Fri, 30 Nov 2018 12:49:37 +0100
+Subject: [PATCH] watchdog: mt7621: Include of.h to fix compile breakage
+
+Without including "linux/of.h" I get this compile error:
+
+  CC      drivers/watchdog/mt7621_wdt.o
+drivers/watchdog/mt7621_wdt.c:174:34: error: array type has incomplete element type 'struct of_device_id'
+ static const struct of_device_id mt7621_wdt_match[] = {
+                                  ^~~~~~~~~~~~~~~~
+drivers/watchdog/mt7621_wdt.c:175:4: error: field name not in record or union initializer
+
+Let's include the correct header to fix this.
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ drivers/watchdog/mt7621_wdt.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/watchdog/mt7621_wdt.c b/drivers/watchdog/mt7621_wdt.c
+index 81208cd3f4ec..37f788cca10e 100644
+--- a/drivers/watchdog/mt7621_wdt.c
++++ b/drivers/watchdog/mt7621_wdt.c
+@@ -16,6 +16,7 @@
+ #include <linux/kernel.h>
+ #include <linux/watchdog.h>
+ #include <linux/moduleparam.h>
++#include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/mod_devicetable.h>
+ 

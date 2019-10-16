@@ -1,0 +1,191 @@
+From 21a2b05231ba611661bea84a4e3005dda2c85b5c Mon Sep 17 00:00:00 2001
+From: Reto Schneider <code@reto-schneider.ch>
+Date: Thu, 12 Jul 2018 00:55:45 +0000
+Subject: [PATCH] MIPS: ralink: dts: mt7628a.dtsi: Add more hardware to MT7628a
+
+Prepare for UART1 usage:
+ - Remove USB and child systems. RTS and CTS share same pins as the USB system.
+
+GPIO support:
+ - Add GPIO to MT7628a device tree
+---
+ arch/mips/boot/dts/ralink/mt7628a.dtsi | 137 ++++++++++++++++++++++---
+ 1 file changed, 123 insertions(+), 14 deletions(-)
+
+diff --git a/arch/mips/boot/dts/ralink/mt7628a.dtsi b/arch/mips/boot/dts/ralink/mt7628a.dtsi
+index 9ff7e8faaecc..294648c0049b 100644
+--- a/arch/mips/boot/dts/ralink/mt7628a.dtsi
++++ b/arch/mips/boot/dts/ralink/mt7628a.dtsi
+@@ -1,7 +1,7 @@
+ / {
+ 	#address-cells = <1>;
+ 	#size-cells = <1>;
+-	compatible = "ralink,mt7628a-soc";
++	compatible = "ralink,mt7628a-soc", "ralink,mt7688-soc";
+ 
+ 	cpus {
+ 		#address-cells = <1>;
+@@ -39,6 +39,17 @@
+ 			reg = <0x0 0x100>;
+ 		};
+ 
++		watchdog: watchdog@100 {
++			compatible = "ralink,mt7628a-wdt", "mediatek,mt7621-wdt";
++			reg = <0x100 0x30>;
++
++			resets = <&resetc 8>;
++			reset-names = "wdt";
++
++			interrupt-parent = <&intc>;
++			interrupts = <24>;
++		};
++
+ 		intc: interrupt-controller@200 {
+ 			compatible = "ralink,rt2880-intc";
+ 			reg = <0x200 0x100>;
+@@ -62,6 +73,38 @@
+ 			reg = <0x300 0x100>;
+ 		};
+ 
++		i2c: i2c@900 {
++			compatible = "mediatek,mt7621-i2c";
++			reg = <0x900 0x100>;
++
++			resets = <&resetc 16>;
++			reset-names = "i2c";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			status = "disabled";
++
++			pinctrl-names = "default";
++			pinctrl-0 = <&i2c_pins>;
++		};
++
++		spi0: spi@b00 {
++			compatible = "ralink,mt7621-spi";
++			reg = <0xb00 0x100>;
++
++			resets = <&resetc 18>;
++			reset-names = "spi";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			pinctrl-names = "default";
++			pinctrl-0 = <&spi_pins>;
++
++			status = "disabled";
++		};
++
+ 		uart0: uartlite@c00 {
+ 			compatible = "ns16550a";
+ 			reg = <0xc00 0x100>;
+@@ -100,27 +143,93 @@
+ 
+ 			reg-shift = <2>;
+ 		};
++
++		gpio@600 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			compatible = "mtk,mt7628-gpio", "mtk,mt7621-gpio";
++			reg = <0x600 0x100>;
++
++			interrupt-parent = <&intc>;
++			interrupts = <6>;
++
++			gpio0: bank@0 {
++				reg = <0>;
++				compatible = "mtk,mt7621-gpio-bank";
++				gpio-controller;
++				#gpio-cells = <2>;
++			};
++
++			gpio1: bank@1 {
++				reg = <1>;
++				compatible = "mtk,mt7621-gpio-bank";
++				gpio-controller;
++				#gpio-cells = <2>;
++			};
++
++			gpio2: bank@2 {
++				reg = <2>;
++				compatible = "mtk,mt7621-gpio-bank";
++				gpio-controller;
++				#gpio-cells = <2>;
++			};
++		};
+ 	};
+ 
+-	usb_phy: usb-phy@10120000 {
+-		compatible = "mediatek,mt7628-usbphy";
+-		reg = <0x10120000 0x1000>;
++	pinctrl: pinctrl {
++		compatible = "ralink,rt2880-pinmux";
++		pinctrl-names = "default";
++		pinctrl-0 = <&state_default>;
+ 
+-		#phy-cells = <0>;
++		state_default: pinctrl0 {
++		};
++
++		spi_pins: spi {
++			spi {
++				ralink,group = "spi";
++				ralink,function = "spi";
++			};
++		};
++
++		spi_cs1_pins: spi_cs1 {
++			spi_cs1 {
++				ralink,group = "spi cs1";
++				ralink,function = "spi cs1";
++			};
++		};
+ 
+-		ralink,sysctl = <&sysc>;
+-		resets = <&resetc 22 &resetc 25>;
+-		reset-names = "host", "device";
++		i2c_pins: i2c {
++			i2c {
++				ralink,group = "i2c";
++				ralink,function = "i2c";
++			};
++		};
++	};
++
++	ethernet: ethernet@10100000 {
++		compatible = "ralink,rt5350-eth";
++		reg = <0x10100000 0x10000>;
++
++		interrupt-parent = <&cpuintc>;
++		interrupts = <5>;
++
++		resets = <&resetc 21 &resetc 23>;
++		reset-names = "fe", "esw";
++
++		mediatek,switch = <&esw>;
+ 	};
+ 
+-	ehci@101c0000 {
+-		compatible = "generic-ehci";
+-		reg = <0x101c0000 0x1000>;
++	esw: esw@10110000 {
++		compatible = "mediatek,mt7628-esw", "ralink,rt3050-esw";
++		reg = <0x10110000 0x8000>;
+ 
+-		phys = <&usb_phy>;
+-		phy-names = "usb";
++		resets = <&resetc 23>;
++		reset-names = "esw";
+ 
+ 		interrupt-parent = <&intc>;
+-		interrupts = <18>;
++		interrupts = <17>;
+ 	};
++
++
+ };

@@ -19,7 +19,7 @@ SRCREV_meta ?= "a7cb57afb9fb9787079c28a1028d797632105e56"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};name=machine \
                   git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-4.19;destsuffix=${KMETA} \

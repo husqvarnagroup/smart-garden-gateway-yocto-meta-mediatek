@@ -1,0 +1,43 @@
+From fef55b912f08d1a241abdc253f6ba7d1f13d8586 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <reto.schneider@husqvarnagroup.com>
+Date: Sat, 5 Jun 2021 12:38:42 +0200
+Subject: [PATCH] dt-bindings: net: mediatek: Support custom ifname
+
+The (optional) label property allows to specify customized interfaces
+names.
+
+The motivation behind this change is to allow embedded devices to keep
+their first switch port be named "eth0", even when switching to the DSA
+architecture. In order to do so, it must be possible to name the MAC
+interface differently from eth0.
+
+Signed-off-by: Reto Schneider <reto.schneider@husqvarnagroup.com>
+---
+ Documentation/devicetree/bindings/net/mediatek-net.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/net/mediatek-net.txt b/Documentation/devicetree/bindings/net/mediatek-net.txt
+index 72d03e07cf7c..93e35f239a0a 100644
+--- a/Documentation/devicetree/bindings/net/mediatek-net.txt
++++ b/Documentation/devicetree/bindings/net/mediatek-net.txt
+@@ -51,6 +51,9 @@ Required properties:
+ 	is equal to 0 and the MAC uses fixed-link to connect
+ 	with internal switch such as MT7530.
+ 
++Optional properties:
++- label: Name of interface, defaults to ethX if missing
++
+ Example:
+ 
+ eth: ethernet@1b100000 {
+@@ -76,6 +79,7 @@ eth: ethernet@1b100000 {
+ 		compatible = "mediatek,eth-mac";
+ 		reg = <0>;
+ 		phy-handle = <&phy0>;
++		label = "mac1";
+ 	};
+ 
+ 	gmac2: mac@1 {
+-- 
+2.30.2
+

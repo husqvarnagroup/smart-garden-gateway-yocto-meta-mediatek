@@ -1,0 +1,40 @@
+From ab0d8b234ec3d0170bfc16afa2df069fdd6ce307 Mon Sep 17 00:00:00 2001
+From: Reto Schneider <reto.schneider@husqvarnagroup.com>
+Date: Sat, 5 Jun 2021 12:46:24 +0200
+Subject: [PATCH] net: ethernet: mtk_eth_soc: Support custom ifname
+
+Name the MAC interface name according to the label property. If the
+property is missing, the default name (ethX) gets used.
+
+Signed-off-by: Reto Schneider <reto.schneider@husqvarnagroup.com>
+---
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index c488528518e1..81d88c34b970 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -2821,6 +2821,8 @@ static int mtk_add_mac(struct mtk_eth *eth, struct device_node *np)
+ 	struct phylink *phylink;
+ 	struct mtk_mac *mac;
+ 	int id, err;
++	const char *name;
++
+ 
+ 	if (!_id) {
+ 		dev_err(eth->dev, "missing mac id\n");
+@@ -2889,6 +2891,10 @@ static int mtk_add_mac(struct mtk_eth *eth, struct device_node *np)
+ 
+ 	mac->phylink = phylink;
+ 
++	name = of_get_property(np, "label", NULL);
++	if (name)
++		strncpy(eth->netdev[id]->name, name, IFNAMSIZ);
++
+ 	SET_NETDEV_DEV(eth->netdev[id], eth->dev);
+ 	eth->netdev[id]->watchdog_timeo = 5 * HZ;
+ 	eth->netdev[id]->netdev_ops = &mtk_netdev_ops;
+-- 
+2.30.2
+

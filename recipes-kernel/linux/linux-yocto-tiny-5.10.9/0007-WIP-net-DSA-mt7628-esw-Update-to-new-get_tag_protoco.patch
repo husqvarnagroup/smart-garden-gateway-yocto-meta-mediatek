@@ -1,0 +1,30 @@
+From 8b1e7dfbf6ef91d807fbcf7a00de4a5c2cca09ec Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Tue, 4 Aug 2020 17:20:31 +0200
+Subject: [PATCH] WIP: net: DSA: mt7628-esw: Update to new get_tag_protocol()
+ API in v5.8
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ drivers/net/dsa/mt7628-esw.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/dsa/mt7628-esw.c b/drivers/net/dsa/mt7628-esw.c
+index c15942624f23..838ca1471621 100644
+--- a/drivers/net/dsa/mt7628-esw.c
++++ b/drivers/net/dsa/mt7628-esw.c
+@@ -461,8 +461,9 @@ static int mt7628_esw_phy_write(struct dsa_switch *ds, int port, int regnum,
+ 	return mii_mgr_write(priv, port, regnum, val);
+ }
+ 
+-static enum dsa_tag_protocol mt7628_esw_get_tag_protocol(struct dsa_switch *ds,
+-							 int port)
++static enum dsa_tag_protocol
++mt7628_esw_get_tag_protocol(struct dsa_switch *ds, int port,
++			    enum dsa_tag_protocol mp)
+ {
+ 	if (port != MT7628_ESW_CPU_PORT) {
+ 		dev_warn(ds->dev, "port not matched with tagging CPU port\n");
+-- 
+2.29.2
+

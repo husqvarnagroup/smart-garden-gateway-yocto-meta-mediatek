@@ -5,7 +5,7 @@ KCONFIG_MODE = "--allnoconfig"
 
 require recipes-kernel/linux/linux-yocto.inc
 
-LINUX_VERSION ?= "5.10.9"
+LINUX_VERSION ?= "5.10.17"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}:${THISDIR}/${BPN}-${LINUX_VERSION}:"
 
@@ -17,7 +17,7 @@ DEPENDS += "openssl-native util-linux-native"
 KMETA = "kernel-meta"
 KCONF_BSP_AUDIT_LEVEL = "2"
 
-SRCREV_machine ?= "e2d133180bbc28a48316e67a003796885580b087"
+SRCREV_machine ?= "0119f230267c87ad2cc77b9190035280f40b2cf4"
 SRCREV_meta ?= "30c21625f9989859ade341ebe738664f3efbf122"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"

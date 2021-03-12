@@ -19,7 +19,7 @@ SRCREV_meta ?= "ad6f8b357720ca8167a090713b7746230cf4b314"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-PR = "${INC_PR}.3"
+PR = "${INC_PR}.4"
 
 SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};name=machine \
                   git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-4.19;destsuffix=${KMETA} \
@@ -62,6 +62,7 @@ SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};n
                   file://0037-net-phy-Remove-reference-to-non-existing-b53-driver.patch \
                   file://0038-MIPS-ralink-Add-missing-include.patch \
                   file://0039-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Limit-U.patch \
+                  file://0040-gcc-10-default-fno-common.patch \
                   "
 
 COMPATIBLE_MACHINE = "mt7688"

@@ -1,7 +1,7 @@
-From dca0123a950fdc38bff5a7e79c2d3815d70adfec Mon Sep 17 00:00:00 2001
+From 3c0d92b8fc96459c68c03464b4abf5050d57ece2 Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Fri, 5 Jul 2019 09:30:50 +0200
-Subject: [PATCH] WIP: net: DSA: MT7628/88 switch driver
+Subject: [PATCH 5/9] WIP: net: DSA: MT7628/88 switch driver
 
 Signed-off-by: Stefan Roese <sr@denx.de>
 ---

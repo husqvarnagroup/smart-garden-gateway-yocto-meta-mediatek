@@ -1,7 +1,7 @@
-From 6c9abfa5d886bd44130dc292436c982f3d7dbf87 Mon Sep 17 00:00:00 2001
+From 6ffd496993d5f4188a7d6c92aa049770fbcd485c Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Thu, 23 May 2019 13:28:46 +0200
-Subject: [PATCH] WIP: dtsi: mt7628a.dtsi: Add ethernet and ESW nodes
+Subject: [PATCH 3/9] WIP: dtsi: mt7628a.dtsi: Add ethernet and ESW nodes
 
 Signed-off-by: Stefan Roese <sr@denx.de>
 ---

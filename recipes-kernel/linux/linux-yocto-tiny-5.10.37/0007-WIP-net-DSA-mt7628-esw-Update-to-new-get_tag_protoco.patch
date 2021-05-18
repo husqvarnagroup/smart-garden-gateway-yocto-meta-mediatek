@@ -1,8 +1,8 @@
-From 8b1e7dfbf6ef91d807fbcf7a00de4a5c2cca09ec Mon Sep 17 00:00:00 2001
+From b47c6f311a4faf769252488ff5daeb6fbae1f507 Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Tue, 4 Aug 2020 17:20:31 +0200
-Subject: [PATCH] WIP: net: DSA: mt7628-esw: Update to new get_tag_protocol()
- API in v5.8
+Subject: [PATCH 7/9] WIP: net: DSA: mt7628-esw: Update to new
+ get_tag_protocol() API in v5.8
 
 Signed-off-by: Stefan Roese <sr@denx.de>
 ---

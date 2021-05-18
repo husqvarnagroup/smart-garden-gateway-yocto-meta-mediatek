@@ -1,7 +1,7 @@
-From 8083fdf285a7f4aac594d7edbbe1c41cd17c1c9c Mon Sep 17 00:00:00 2001
+From 45a0e076d4575f2063d0b1bcc9beb7521cd264af Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Fri, 20 Dec 2019 13:18:38 +0100
-Subject: [PATCH] WIP: net: DSA: mt7628-esw: Report link also on CPU port
+Subject: [PATCH 6/9] WIP: net: DSA: mt7628-esw: Report link also on CPU port
  (eth0)
 
 In the IOT mode (this is the only mode tested right now), lets also

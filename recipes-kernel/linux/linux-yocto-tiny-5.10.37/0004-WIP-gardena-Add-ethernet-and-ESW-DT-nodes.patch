@@ -1,7 +1,7 @@
-From cf16c40d527546e6950b9073fb8ec9ec0318cecb Mon Sep 17 00:00:00 2001
+From 9e011d5c4b7f83491aa9ead46db3035f5ffee39e Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Thu, 23 May 2019 13:39:16 +0200
-Subject: [PATCH] WIP: gardena: Add ethernet and ESW DT nodes
+Subject: [PATCH 4/9] WIP: gardena: Add ethernet and ESW DT nodes
 
 Signed-off-by: Stefan Roese <sr@denx.de>
 ---

@@ -1,8 +1,8 @@
-From 4eabf8711fe527adc3c93753b1320584e4161996 Mon Sep 17 00:00:00 2001
+From 5e727728424dbfa2b6f0a296ba1b81bea58c8e83 Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Sat, 22 Dec 2018 11:26:46 +0100
-Subject: [PATCH] WIP/HACK: tty/serial/8250: Call serial8250_enable_ms() from
- serial8250_config_port()
+Subject: [PATCH 2/9] WIP/HACK: tty/serial/8250: Call serial8250_enable_ms()
+ from serial8250_config_port()
 
 This hack can be used to verify the HW handshake on the Gardena smart
 gateway. First testing has shown than linux-serial-test now runs fine

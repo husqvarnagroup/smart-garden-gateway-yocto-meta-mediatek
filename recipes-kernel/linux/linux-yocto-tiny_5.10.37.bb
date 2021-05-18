@@ -5,7 +5,7 @@ KCONFIG_MODE = "--allnoconfig"
 
 require recipes-kernel/linux/linux-yocto.inc
 
-LINUX_VERSION ?= "5.10.17"
+LINUX_VERSION ?= "5.10.37"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}:${THISDIR}/${BPN}-${LINUX_VERSION}:"
 
@@ -17,8 +17,8 @@ DEPENDS += "openssl-native util-linux-native"
 KMETA = "kernel-meta"
 KCONF_BSP_AUDIT_LEVEL = "2"
 
-SRCREV_machine ?= "0119f230267c87ad2cc77b9190035280f40b2cf4"
-SRCREV_meta ?= "30c21625f9989859ade341ebe738664f3efbf122"
+SRCREV_machine ?= "3e27efe3e870d43df01e9a9fdb06bf4221e82b51"
+SRCREV_meta ?= "cd049697e9b2d3e9118110d476075ff8f87202cc"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
@@ -33,6 +33,8 @@ SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};n
                   file://0005-WIP-net-DSA-MT7628-88-switch-driver.patch \
                   file://0006-WIP-net-DSA-mt7628-esw-Report-link-also-on-CPU-port-.patch \
                   file://0007-WIP-net-DSA-mt7628-esw-Update-to-new-get_tag_protoco.patch \
+                  file://0008-WIP-net-DSA-mt7628-esw-Improve-comments-variable-nam.patch \
+                  file://0009-net-DSA-mt7628-esw-Don-t-return-with-ENODEV-in-port_.patch \
 "
 
 COMPATIBLE_MACHINE = "mt7688"

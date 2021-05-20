@@ -22,7 +22,7 @@ SRCREV_meta ?= "cd049697e9b2d3e9118110d476075ff8f87202cc"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};name=machine \
                   git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-5.10;destsuffix=${KMETA} \
@@ -31,9 +31,10 @@ SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};n
                   file://0003-WIP-dtsi-mt7628a.dtsi-Add-ethernet-and-ESW-nodes.patch \
                   file://0004-WIP-gardena-Add-ethernet-and-ESW-DT-nodes.patch \
                   file://0005-WIP-net-DSA-MT7628-88-switch-driver.patch \
-                  file://0007-WIP-net-DSA-mt7628-esw-Update-to-new-get_tag_protoco.patch \
-                  file://0008-WIP-net-DSA-mt7628-esw-Improve-comments-variable-nam.patch \
-                  file://0009-net-DSA-mt7628-esw-Don-t-return-with-ENODEV-in-port_.patch \
+                  file://0006-WIP-net-DSA-mt7628-esw-Update-to-new-get_tag_protoco.patch \
+                  file://0007-WIP-net-DSA-mt7628-esw-Improve-comments-variable-nam.patch \
+                  file://0008-WIP-net-DSA-mt7628-esw-Use-dsa_is_user_port-helpers-.patch \
+                  file://0009-net-ethernet-mtk_eth_soc-Fix-packet-statistics-suppo.patch \
 "
 
 COMPATIBLE_MACHINE = "mt7688"

@@ -1,7 +1,7 @@
-From b47c6f311a4faf769252488ff5daeb6fbae1f507 Mon Sep 17 00:00:00 2001
+From 8744795a57c0e7c4211f045e1fea7fbe180b7089 Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Tue, 4 Aug 2020 17:20:31 +0200
-Subject: [PATCH 7/9] WIP: net: DSA: mt7628-esw: Update to new
+Subject: [PATCH 6/9] WIP: net: DSA: mt7628-esw: Update to new
  get_tag_protocol() API in v5.8
 
 Signed-off-by: Stefan Roese <sr@denx.de>
@@ -10,7 +10,7 @@ Signed-off-by: Stefan Roese <sr@denx.de>
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/dsa/mt7628-esw.c b/drivers/net/dsa/mt7628-esw.c
-index c15942624f23..838ca1471621 100644
+index 9e25b1e671ce..adffc87d496c 100644
 --- a/drivers/net/dsa/mt7628-esw.c
 +++ b/drivers/net/dsa/mt7628-esw.c
 @@ -461,8 +461,9 @@ static int mt7628_esw_phy_write(struct dsa_switch *ds, int port, int regnum,

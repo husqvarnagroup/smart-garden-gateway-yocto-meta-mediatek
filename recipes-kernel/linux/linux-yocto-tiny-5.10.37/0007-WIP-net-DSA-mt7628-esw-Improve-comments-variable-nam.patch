@@ -1,7 +1,7 @@
-From da7c936586bcbd531076e9bba1462957b9aea018 Mon Sep 17 00:00:00 2001
+From 5d7561002afe0eb3191c97081f492c140fb4dd17 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Wed, 31 Mar 2021 14:02:59 +0200
-Subject: [PATCH 8/9] WIP: net: DSA: mt7628-esw: Improve comments, variable
+Subject: [PATCH 7/9] WIP: net: DSA: mt7628-esw: Improve comments, variable
  naming
 
 Signed-off-by: Reto Schneider <reto.schneider@husqvarnagroup.com>
@@ -10,7 +10,7 @@ Signed-off-by: Reto Schneider <reto.schneider@husqvarnagroup.com>
  1 file changed, 58 insertions(+), 31 deletions(-)
 
 diff --git a/drivers/net/dsa/mt7628-esw.c b/drivers/net/dsa/mt7628-esw.c
-index 838ca1471621..ba0e368074ff 100644
+index adffc87d496c..cbd4a046ea74 100644
 --- a/drivers/net/dsa/mt7628-esw.c
 +++ b/drivers/net/dsa/mt7628-esw.c
 @@ -61,28 +61,32 @@
@@ -194,7 +194,7 @@ index 838ca1471621..ba0e368074ff 100644
  	writel(~MT7628_ESW_PORT_ST_CHG, base + MT7628_ESW_IMR);
  
  	return 0;
-@@ -768,7 +795,7 @@ static const struct of_device_id mt7628_esw_of_match[] = {
+@@ -757,7 +784,7 @@ static const struct of_device_id mt7628_esw_of_match[] = {
  };
  MODULE_DEVICE_TABLE(of, mt7628_of_match);
  
@@ -203,7 +203,7 @@ index 838ca1471621..ba0e368074ff 100644
  	.probe  = mt7628_esw_probe,
  	.remove = mt7628_esw_remove,
  	.driver = {
-@@ -777,7 +804,7 @@ static struct platform_driver mt7628_mdio_driver = {
+@@ -766,7 +793,7 @@ static struct platform_driver mt7628_mdio_driver = {
  	},
  };
  

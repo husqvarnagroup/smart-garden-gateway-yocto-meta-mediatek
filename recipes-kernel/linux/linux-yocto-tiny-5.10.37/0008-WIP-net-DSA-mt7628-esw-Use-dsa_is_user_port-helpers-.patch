@@ -1,0 +1,45 @@
+From 9561449ab44644e12c0c2795bf8d230681e6d7c9 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Thu, 20 May 2021 07:23:13 +0200
+Subject: [PATCH 8/9] WIP: net: DSA: mt7628-esw: Use dsa_is_user_port() helpers
+ in port_enable/disable
+
+Also don't return with -ENODEV in port_enable() for user port (e.g. 0),
+as this leads to a non-existing network interface (e.g. "lan"). But this
+interface is neccessary to track the link status of the external
+ethernet port (cable connected or not).
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ drivers/net/dsa/mt7628-esw.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/dsa/mt7628-esw.c b/drivers/net/dsa/mt7628-esw.c
+index cbd4a046ea74..078e2fa98d52 100644
+--- a/drivers/net/dsa/mt7628-esw.c
++++ b/drivers/net/dsa/mt7628-esw.c
+@@ -673,9 +673,8 @@ static int mt7628_esw_port_enable(struct dsa_switch *ds, int port,
+ 	struct mt7628_esw_priv *priv = ds->priv;
+ 
+ //	printk("%s (%d): port=%d\n", __func__, __LINE__, port); // test-only
+-	/* Skip port 0 enabling */
+-	if (port == 0)
+-		return -ENODEV;
++	if (!dsa_is_user_port(ds, port))
++		return 0;
+ 
+ 	priv->ports[port].enable = true;
+ 
+@@ -691,6 +690,9 @@ static void mt7628_esw_port_disable(struct dsa_switch *ds, int port)
+ 	struct mt7628_esw_priv *priv = ds->priv;
+ 
+ //	printk("%s (%d): port=%d\n", __func__, __LINE__, port); // test-only
++	if (!dsa_is_user_port(ds, port))
++		return;
++
+ 	priv->ports[port].enable = false;
+ 
+ 	/* Apply the new configuration */
+-- 
+2.29.2
+

@@ -22,7 +22,7 @@ SRCREV_meta ?= "0c8702b8b92948a9d32fb05e4cbef3a45a7da633"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};name=machine \
                   git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-5.10;destsuffix=${KMETA} \
@@ -40,6 +40,8 @@ SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};n
                   file://0012-net-ethernet-mtk_eth_soc-Support-custom-ifname.patch \
                   file://0013-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Keep-et.patch \
                   file://0014-gpio-mt7621-Assign-base-field-in-gpio_chip.patch \
+                  file://0015-mtd-spi-nor-Add-support-for-XM25QH64C.patch \
+                  file://0016-mtd-spinand-gigadevice-Support-GD5F1GQ5UExxG.patch \
 "
 
 COMPATIBLE_MACHINE = "mt7688"

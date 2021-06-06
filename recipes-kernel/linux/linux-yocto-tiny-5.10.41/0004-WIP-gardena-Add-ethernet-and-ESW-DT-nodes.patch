@@ -1,0 +1,74 @@
+From bcdea279601aaefb4c7f7eb45072392fc35d1be4 Mon Sep 17 00:00:00 2001
+From: Stefan Roese <sr@denx.de>
+Date: Thu, 23 May 2019 13:39:16 +0200
+Subject: [PATCH] WIP: gardena: Add ethernet and ESW DT nodes
+
+Signed-off-by: Stefan Roese <sr@denx.de>
+---
+ .../ralink/gardena_smart_gateway_mt7688.dts   | 43 +++++++++++++++++++
+ 1 file changed, 43 insertions(+)
+
+diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+index 6069b33cf09f..47fc02f3ccf7 100644
+--- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
++++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
+@@ -116,6 +116,7 @@ ethernet_activity {
+ 
+ 	aliases {
+ 		serial0 = &uart0;
++		ethernet0 = &mac0;
+ 	};
+ };
+ 
+@@ -171,6 +172,48 @@ nand_flash@1 {
+ 	};
+ };
+ 
++&ethernet {
++	status = "okay";
++
++	mac0: mac@0 {
++		compatible = "mediatek,eth-mac";
++		reg = <0>;
++		phy-mode = "mii";
++
++		fixed-link {
++			speed = <100>;
++			full-duplex;
++			pause;
++		};
++	};
++};
++
++&esw {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++			label = "lan";
++		};
++
++		port@6 {
++			reg = <6>;
++			label = "cpu";
++			ethernet = <&mac0>;
++			phy-mode = "mii";
++
++			fixed-link {
++				speed = <100>;
++				full-duplex;
++			};
++		};
++	};
++};
++
+ &uart1 {
+ 	status = "okay";
+ 
+-- 
+2.30.2
+

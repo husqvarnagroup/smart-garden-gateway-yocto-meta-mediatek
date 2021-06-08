@@ -12,11 +12,13 @@ SRC_URI = "\
 
 SRCREV = "b6673b0057703fa59ed6d561bddba212b5710c53"
 PV = "2020-12-04+git${SRCPV}"
-PR = "r0"
+PR = "r1"
 
 inherit allarch
 
 S = "${WORKDIR}/git"
+
+CLEANBROKEN = "1"
 
 do_compile() {
   :

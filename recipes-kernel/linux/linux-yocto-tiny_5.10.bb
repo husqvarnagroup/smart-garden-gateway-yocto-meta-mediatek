@@ -5,7 +5,7 @@ KCONFIG_MODE = "--allnoconfig"
 
 require recipes-kernel/linux/linux-yocto.inc
 
-LINUX_VERSION ?= "5.10.41"
+LINUX_VERSION ?= "5.10.42"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}:${THISDIR}/${BPN}-${LINUX_VERSION}:"
 
@@ -17,12 +17,12 @@ DEPENDS += "openssl-native util-linux-native"
 KMETA = "kernel-meta"
 KCONF_BSP_AUDIT_LEVEL = "2"
 
-SRCREV_machine ?= "bb3f40e801fed14f9233749f7eaa27b105979059"
-SRCREV_meta ?= "0c8702b8b92948a9d32fb05e4cbef3a45a7da633"
+SRCREV_machine ?= "f09a5c524d12166be99bf465e3c0431d3aec80f2"
+SRCREV_meta ?= "422f8a09a856800f027bbae98dbab24cf3ae0f25"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.0"
 
 SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};name=machine \
                   git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-5.10;destsuffix=${KMETA} \
@@ -34,14 +34,13 @@ SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};n
                   file://0006-WIP-net-DSA-mt7628-esw-Update-to-new-get_tag_protoco.patch \
                   file://0007-WIP-net-DSA-mt7628-esw-Improve-comments-variable-nam.patch \
                   file://0008-WIP-net-DSA-mt7628-esw-Use-dsa_is_user_port-helpers-.patch \
-                  file://0009-net-ethernet-mtk_eth_soc-Fix-packet-statistics-suppo.patch \
-                  file://0010-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Add-boo.patch \
-                  file://0011-dt-bindings-net-mediatek-Support-custom-ifname.patch \
-                  file://0012-net-ethernet-mtk_eth_soc-Support-custom-ifname.patch \
-                  file://0013-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Keep-et.patch \
-                  file://0014-gpio-mt7621-Assign-base-field-in-gpio_chip.patch \
-                  file://0015-mtd-spi-nor-Add-support-for-XM25QH64C.patch \
-                  file://0016-mtd-spinand-gigadevice-Support-GD5F1GQ5UExxG.patch \
+                  file://0009-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Add-boo.patch \
+                  file://0010-dt-bindings-net-mediatek-Support-custom-ifname.patch \
+                  file://0011-net-ethernet-mtk_eth_soc-Support-custom-ifname.patch \
+                  file://0012-MIPS-ralink-dts-gardena_smart_gateway_mt7688-Keep-et.patch \
+                  file://0013-gpio-mt7621-Assign-base-field-in-gpio_chip.patch \
+                  file://0014-mtd-spi-nor-Add-support-for-XM25QH64C.patch \
+                  file://0015-mtd-spinand-gigadevice-Support-GD5F1GQ5UExxG.patch \
 "
 
 COMPATIBLE_MACHINE = "mt7688"

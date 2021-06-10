@@ -1,4 +1,4 @@
-From 466f9424ba95b6156a0ec6099fa4e7e23873e335 Mon Sep 17 00:00:00 2001
+From 2cdbce2dd4876712c0c2e3b3a37b079653d87ca4 Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Tue, 18 Dec 2018 09:26:32 +0100
 Subject: [PATCH] MIPS: ralink: dts: gardena_smart_gateway_mt7688: Add

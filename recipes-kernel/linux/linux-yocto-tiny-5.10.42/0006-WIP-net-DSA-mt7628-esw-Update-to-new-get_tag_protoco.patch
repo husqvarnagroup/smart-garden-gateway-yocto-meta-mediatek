@@ -1,4 +1,4 @@
-From 07a694425fbd93c39217ded75135a2f30dee760c Mon Sep 17 00:00:00 2001
+From e901f5838bb7f0d9522fd0dd870ca3c62c446517 Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Tue, 4 Aug 2020 17:20:31 +0200
 Subject: [PATCH] WIP: net: DSA: mt7628-esw: Update to new get_tag_protocol()

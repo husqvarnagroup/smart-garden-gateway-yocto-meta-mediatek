@@ -1,4 +1,4 @@
-From 98cd99e682a5038b17f4d818b07b95e49f06d918 Mon Sep 17 00:00:00 2001
+From b03ce288c6b971cf30d41c98783de12501814123 Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Thu, 20 May 2021 07:23:13 +0200
 Subject: [PATCH] WIP: net: DSA: mt7628-esw: Use dsa_is_user_port() helpers in

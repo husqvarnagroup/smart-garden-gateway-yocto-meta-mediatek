@@ -1,4 +1,4 @@
-From b1278b5143dea4171ef265c2ca28b304a75952d7 Mon Sep 17 00:00:00 2001
+From 93987c237a8ef5453fe5f3cceecffbe72a1f9bbc Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Sun, 6 Jun 2021 01:15:24 +0200
 Subject: [PATCH] mtd: spi-nor: Add support for XM25QH64C

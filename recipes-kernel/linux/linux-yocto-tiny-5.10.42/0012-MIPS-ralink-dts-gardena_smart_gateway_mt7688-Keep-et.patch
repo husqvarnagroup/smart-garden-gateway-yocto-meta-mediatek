@@ -1,4 +1,4 @@
-From e6ddafdc0bfd629ee36792b90f0d12442830d85f Mon Sep 17 00:00:00 2001
+From 9f63d4c46735a16e767a9516e16f9564b268833f Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Sat, 5 Jun 2021 12:56:36 +0200
 Subject: [PATCH] MIPS: ralink: dts: gardena_smart_gateway_mt7688: Keep eth0

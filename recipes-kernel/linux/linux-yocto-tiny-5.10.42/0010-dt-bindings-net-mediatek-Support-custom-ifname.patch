@@ -1,4 +1,4 @@
-From fef55b912f08d1a241abdc253f6ba7d1f13d8586 Mon Sep 17 00:00:00 2001
+From 37b81a2fdb68840603cb297e696407875104fdad Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Sat, 5 Jun 2021 12:38:42 +0200
 Subject: [PATCH] dt-bindings: net: mediatek: Support custom ifname

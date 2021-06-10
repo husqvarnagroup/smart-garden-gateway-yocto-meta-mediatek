@@ -1,4 +1,4 @@
-From b24915c04f8de47289e853005b0c81925c7fae9d Mon Sep 17 00:00:00 2001
+From 9a9d7f0e59a3f0b925c2f89c735d184d7ef85f28 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Wed, 31 Mar 2021 14:02:59 +0200
 Subject: [PATCH] WIP: net: DSA: mt7628-esw: Improve comments, variable naming

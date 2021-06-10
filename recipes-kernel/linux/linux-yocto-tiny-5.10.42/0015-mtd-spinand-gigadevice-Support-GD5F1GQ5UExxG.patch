@@ -1,4 +1,4 @@
-From fd7ca56e1b1f88749899f187e40365a3a2283c20 Mon Sep 17 00:00:00 2001
+From b23bd3b746e9138141abebd4bd58f7bf6b1c5da3 Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Thu, 11 Feb 2021 12:36:19 +0100
 Subject: [PATCH] mtd: spinand: gigadevice: Support GD5F1GQ5UExxG

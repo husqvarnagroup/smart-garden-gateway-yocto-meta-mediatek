@@ -22,7 +22,7 @@ SRCREV_meta ?= "422f8a09a856800f027bbae98dbab24cf3ae0f25"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};name=machine \
                   git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-5.10;destsuffix=${KMETA} \
@@ -41,14 +41,10 @@ SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};n
                   file://0013-gpio-mt7621-Assign-base-field-in-gpio_chip.patch \
                   file://0014-mtd-spi-nor-Add-support-for-XM25QH64C.patch \
                   file://0015-mtd-spinand-gigadevice-Support-GD5F1GQ5UExxG.patch \
+                  file://defconfig \
 "
 
 COMPATIBLE_MACHINE = "mt7688"
 
 # Functionality flags
 KERNEL_FEATURES = ""
-
-# Hardware specific settings
-SRC_URI_append_mt7688 = "\
-    file://defconfig \
-"

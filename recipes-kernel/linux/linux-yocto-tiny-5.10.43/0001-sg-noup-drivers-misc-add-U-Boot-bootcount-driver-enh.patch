@@ -1,8 +1,8 @@
-From 3e228778cedec2e41164eb5ebd47b5fad83a7b19 Mon Sep 17 00:00:00 2001
+From e52b2ebfad299a922cbdfb8092bd6cd459f71832 Mon Sep 17 00:00:00 2001
 From: Heiko Schocher <hs@denx.de>
 Date: Mon, 25 Feb 2013 12:39:21 +0100
-Subject: [PATCH] drivers, misc: add U-Boot bootcount driver (enhanced version
- with single-word support)
+Subject: [PATCH] [sg noup] drivers, misc: add U-Boot bootcount driver
+ (enhanced version with single-word support)
 
 This driver implements the Linux kernel half of the boot count feature -
 the boot counter can only be reset after it is clear that the

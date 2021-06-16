@@ -1,7 +1,11 @@
-From 9135b49908f12b6273b8a3e1eafb6108e1e6350b Mon Sep 17 00:00:00 2001
+From d05c91e9ae905df78b5035feb76d3f220de7439c Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Thu, 23 May 2019 13:28:46 +0200
-Subject: [PATCH] WIP: dtsi: mt7628a.dtsi: Add ethernet and ESW nodes
+Subject: [PATCH] [sg nohup] MIPS: ralink: mt7628a.dtsi: Add ethernet and ESW
+ nodes
+
+We can not upstream this because there is no DSA switch driver yet in
+mainline.
 
 Signed-off-by: Stefan Roese <sr@denx.de>
 ---

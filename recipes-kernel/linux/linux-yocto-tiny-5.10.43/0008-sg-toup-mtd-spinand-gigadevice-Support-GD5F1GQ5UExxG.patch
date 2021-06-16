@@ -1,7 +1,7 @@
-From b23bd3b746e9138141abebd4bd58f7bf6b1c5da3 Mon Sep 17 00:00:00 2001
+From 118dcd94ce3561823661e4ac501180441531ca5e Mon Sep 17 00:00:00 2001
 From: Reto Schneider <reto.schneider@husqvarnagroup.com>
 Date: Thu, 11 Feb 2021 12:36:19 +0100
-Subject: [PATCH] mtd: spinand: gigadevice: Support GD5F1GQ5UExxG
+Subject: [PATCH] [sg toup] mtd: spinand: gigadevice: Support GD5F1GQ5UExxG
 
 The relevant changes to the already existing GD5F1GQ4UExxG support has
 been determined by consulting the GigaDevice product change notice

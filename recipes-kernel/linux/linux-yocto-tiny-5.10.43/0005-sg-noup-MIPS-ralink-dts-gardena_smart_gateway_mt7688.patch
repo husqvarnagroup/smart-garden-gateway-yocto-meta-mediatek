@@ -1,8 +1,8 @@
-From 2cdbce2dd4876712c0c2e3b3a37b079653d87ca4 Mon Sep 17 00:00:00 2001
+From 03ea85d6e6b88e0a829dfcd60fee4c3c87d8467b Mon Sep 17 00:00:00 2001
 From: Stefan Roese <sr@denx.de>
 Date: Tue, 18 Dec 2018 09:26:32 +0100
-Subject: [PATCH] MIPS: ralink: dts: gardena_smart_gateway_mt7688: Add
- bootcounter DT node
+Subject: [PATCH] [sg noup] MIPS: ralink: dts: gardena_smart_gateway_mt7688:
+ Add bootcounter DT node
 
 Add the U-Boot bootcounter DT node, so that the driver can register on
 it.
@@ -14,10 +14,10 @@ Signed-off-by: Stefan Roese <sr@denx.de>
  2 files changed, 8 insertions(+), 1 deletion(-)
 
 diff --git a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
-index 47fc02f3ccf7..978690bcc15e 100644
+index 8569d89e4e5a..9e1587f1e991 100644
 --- a/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
 +++ b/arch/mips/boot/dts/ralink/gardena_smart_gateway_mt7688.dts
-@@ -246,3 +246,10 @@ &wmac {
+@@ -212,3 +212,10 @@ &wmac {
  	status = "okay";
  	mediatek,mtd-eeprom = <&factory 0x0000>;
  };
@@ -29,7 +29,7 @@ index 47fc02f3ccf7..978690bcc15e 100644
 +	};
 +};
 diff --git a/arch/mips/boot/dts/ralink/mt7628a.dtsi b/arch/mips/boot/dts/ralink/mt7628a.dtsi
-index affba1859fb7..c91289ff9324 100644
+index 2b9efb1f9adf..e5a1ba8a6a0a 100644
 --- a/arch/mips/boot/dts/ralink/mt7628a.dtsi
 +++ b/arch/mips/boot/dts/ralink/mt7628a.dtsi
 @@ -28,7 +28,7 @@ cpuintc: interrupt-controller {

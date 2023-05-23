@@ -7,7 +7,7 @@ require recipes-kernel/linux/linux-yocto.inc
 
 LINUX_VERSION ?= "5.10.99"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}:${THISDIR}/${BPN}-${LINUX_VERSION}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}:${THISDIR}/${BPN}-${LINUX_VERSION}:"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
@@ -24,7 +24,7 @@ PV = "${LINUX_VERSION}+git${SRCPV}"
 
 PR = "${INC_PR}.0"
 
-SRC_URI_mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};name=machine \
+SRC_URI:mt7688 = "git://git.yoctoproject.org/linux-yocto.git;branch=${KBRANCH};name=machine \
                   git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-5.10;destsuffix=${KMETA} \
                   file://0001-sg-noup-drivers-misc-add-U-Boot-bootcount-driver-enh.patch \
                   file://0002-sg-temphack-tty-serial-8250-Call-serial8250_enable_m.patch \

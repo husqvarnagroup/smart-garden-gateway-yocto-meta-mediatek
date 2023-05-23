@@ -30,4 +30,4 @@ do_install () {
 	  install -m 0644 ${S}/firmware/mt7628_e2.bin ${D}${base_libdir}/firmware/
 }
 
-FILES_${PN} = "${base_libdir}/firmware/mt7628*"
+FILES:${PN} = "${base_libdir}/firmware/mt7628*"
